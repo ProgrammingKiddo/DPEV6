@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:App"
+             x:Class="App.MainPage">
+
+    <StackLayout>
+        <!-- Place new controls here -->
+        
+
+        <Grid>
+        
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+            
+
+        </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="0" Padding="9">
+
+
+                <Entry Placeholder="Usuario" PlaceholderColor="Black" x:Name="PLCusuario" FontSize="Small" />
+                <Entry Placeholder="Contraseña" PlaceholderColor="Black" IsPassword="True" x:Name="btncontrasena" FontSize="Small"/>
+                <Button x:Name="btnpage1"  Text="Acceder" TextColor="White" BackgroundColor="Orange" Clicked="Btnpage1_Clicked" FontSize="Small" />
+
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+
+                            <Span Text="Recuperar contraseña" FontSize="8" TextColor="Orange" TextDecorations="Underline">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding TapCommand}"
+                                     CommandParameter="http://control.uca.es/cambiarclave" />
+                                </Span.GestureRecognizers>
+                            </Span>
+
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+
+            </StackLayout>
+        </Grid>
+
+        <Image Source="ini3.png" Aspect="AspectFill" />
+
+    </StackLayout>
+
+</ContentPage>
