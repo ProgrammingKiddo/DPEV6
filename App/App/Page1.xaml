@@ -2,11 +2,24 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="App.Page1">
-    <ContentPage.Content>
-        <StackLayout Orientation="Horizontal">
+    <RelativeLayout>
 
-            <Label Text="......" FontSize="Large" x:Name="lblRes" />
+        <Image Source="pagina1.jpeg" 
+                   Aspect="AspectFill"
+                   RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width}"
+                   RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height}" />
 
-        </StackLayout>
-    </ContentPage.Content>
+        <Grid RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width}"
+                   RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height}">
+
+
+            <Label Text="Bienvenidos" VerticalOptions="Center" HorizontalOptions="Center" FontSize="30" />
+
+
+        </Grid>
+
+
+
+    </RelativeLayout>
+
 </ContentPage>
