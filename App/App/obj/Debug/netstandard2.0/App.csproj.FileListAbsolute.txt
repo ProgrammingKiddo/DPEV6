@@ -50,3 +50,16 @@ C:\Users\alber\Desktop\Programa canelita ed pinf\App 1.2\DPEV6\App\App\obj\Debug
 C:\Users\alber\Desktop\Programa canelita ed pinf\App 1.2\DPEV6\App\App\obj\Debug\netstandard2.0\XamlC.stamp
 C:\Users\alber\Desktop\Programa canelita ed pinf\App 1.2\DPEV6\App\App\obj\Debug\netstandard2.0\App.dll
 C:\Users\alber\Desktop\Programa canelita ed pinf\App 1.2\DPEV6\App\App\obj\Debug\netstandard2.0\App.pdb
+D:\DPEV6-master\App\App\bin\Debug\netstandard2.0\App.deps.json
+D:\DPEV6-master\App\App\bin\Debug\netstandard2.0\App.dll
+D:\DPEV6-master\App\App\bin\Debug\netstandard2.0\App.pdb
+D:\DPEV6-master\App\App\obj\Debug\netstandard2.0\App.csprojAssemblyReference.cache
+D:\DPEV6-master\App\App\obj\Debug\netstandard2.0\App.xaml.g.cs
+D:\DPEV6-master\App\App\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+D:\DPEV6-master\App\App\obj\Debug\netstandard2.0\Page1.xaml.g.cs
+D:\DPEV6-master\App\App\obj\Debug\netstandard2.0\App.csproj.CoreCompileInputs.cache
+D:\DPEV6-master\App\App\obj\Debug\netstandard2.0\App.AssemblyInfoInputs.cache
+D:\DPEV6-master\App\App\obj\Debug\netstandard2.0\App.AssemblyInfo.cs
+D:\DPEV6-master\App\App\obj\Debug\netstandard2.0\XamlC.stamp
+D:\DPEV6-master\App\App\obj\Debug\netstandard2.0\App.dll
+D:\DPEV6-master\App\App\obj\Debug\netstandard2.0\App.pdb

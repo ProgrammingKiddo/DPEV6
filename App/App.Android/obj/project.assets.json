@@ -2985,20 +2985,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\alber\\.nuget\\packages\\": {}
+    "C:\\Users\\choct\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\alber\\Desktop\\Programa canelita ed pinf\\App 1.2\\DPEV6\\App\\App.Android\\App.Android.csproj",
+      "projectUniqueName": "D:\\DPEV6-master\\App\\App.Android\\App.Android.csproj",
       "projectName": "App.Android",
-      "projectPath": "C:\\Users\\alber\\Desktop\\Programa canelita ed pinf\\App 1.2\\DPEV6\\App\\App.Android\\App.Android.csproj",
-      "packagesPath": "C:\\Users\\alber\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\alber\\Desktop\\Programa canelita ed pinf\\App 1.2\\DPEV6\\App\\App.Android\\obj\\",
+      "projectPath": "D:\\DPEV6-master\\App\\App.Android\\App.Android.csproj",
+      "packagesPath": "C:\\Users\\choct\\.nuget\\packages\\",
+      "outputPath": "D:\\DPEV6-master\\App\\App.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\alber\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\choct\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3011,8 +3011,8 @@
       "frameworks": {
         "monoandroid81": {
           "projectReferences": {
-            "C:\\Users\\alber\\Desktop\\Programa canelita ed pinf\\App 1.2\\DPEV6\\App\\App\\App.csproj": {
-              "projectPath": "C:\\Users\\alber\\Desktop\\Programa canelita ed pinf\\App 1.2\\DPEV6\\App\\App\\App.csproj"
+            "D:\\DPEV6-master\\App\\App\\App.csproj": {
+              "projectPath": "D:\\DPEV6-master\\App\\App\\App.csproj"
             }
           }
         }

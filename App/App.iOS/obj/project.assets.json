@@ -3996,20 +3996,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\alber\\.nuget\\packages\\": {}
+    "C:\\Users\\choct\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\alber\\Desktop\\Programa canelita ed pinf\\App 1.2\\DPEV6\\App\\App.iOS\\App.iOS.csproj",
+      "projectUniqueName": "D:\\DPEV6-master\\App\\App.iOS\\App.iOS.csproj",
       "projectName": "App.iOS",
-      "projectPath": "C:\\Users\\alber\\Desktop\\Programa canelita ed pinf\\App 1.2\\DPEV6\\App\\App.iOS\\App.iOS.csproj",
-      "packagesPath": "C:\\Users\\alber\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\alber\\Desktop\\Programa canelita ed pinf\\App 1.2\\DPEV6\\App\\App.iOS\\obj\\",
+      "projectPath": "D:\\DPEV6-master\\App\\App.iOS\\App.iOS.csproj",
+      "packagesPath": "C:\\Users\\choct\\.nuget\\packages\\",
+      "outputPath": "D:\\DPEV6-master\\App\\App.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\alber\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\choct\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4022,8 +4022,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "C:\\Users\\alber\\Desktop\\Programa canelita ed pinf\\App 1.2\\DPEV6\\App\\App\\App.csproj": {
-              "projectPath": "C:\\Users\\alber\\Desktop\\Programa canelita ed pinf\\App 1.2\\DPEV6\\App\\App\\App.csproj"
+            "D:\\DPEV6-master\\App\\App\\App.csproj": {
+              "projectPath": "D:\\DPEV6-master\\App\\App\\App.csproj"
             }
           }
         }
