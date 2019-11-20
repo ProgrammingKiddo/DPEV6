@@ -17,10 +17,9 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="auto" />
             
+            </Grid.RowDefinitions>
 
-        </Grid.RowDefinitions>
-
-            <StackLayout Grid.Row="0" Padding="9">
+            <StackLayout Grid.Row="2" Padding="15,35,15,0">
 
 
                 <Entry Placeholder="Usuario" PlaceholderColor="Black" x:Name="PLCusuario" FontSize="Small" />

@@ -4577,23 +4577,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\choct\\.nuget\\packages\\": {},
+    "C:\\Users\\F540\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\DPEV6-master\\App\\App\\App.csproj",
+      "projectUniqueName": "C:\\Users\\F540\\Desktop\\DPEV6\\DPEV6\\App\\App\\App.csproj",
       "projectName": "App",
-      "projectPath": "D:\\DPEV6-master\\App\\App\\App.csproj",
-      "packagesPath": "C:\\Users\\choct\\.nuget\\packages\\",
-      "outputPath": "D:\\DPEV6-master\\App\\App\\obj\\",
+      "projectPath": "C:\\Users\\F540\\Desktop\\DPEV6\\DPEV6\\App\\App\\App.csproj",
+      "packagesPath": "C:\\Users\\F540\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\F540\\Desktop\\DPEV6\\DPEV6\\App\\App\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\choct\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\F540\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

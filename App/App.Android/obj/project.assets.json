@@ -2985,20 +2985,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\choct\\.nuget\\packages\\": {}
+    "C:\\Users\\F540\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\DPEV6-master\\App\\App.Android\\App.Android.csproj",
+      "projectUniqueName": "C:\\Users\\F540\\Desktop\\DPEV6\\DPEV6\\App\\App.Android\\App.Android.csproj",
       "projectName": "App.Android",
-      "projectPath": "D:\\DPEV6-master\\App\\App.Android\\App.Android.csproj",
-      "packagesPath": "C:\\Users\\choct\\.nuget\\packages\\",
-      "outputPath": "D:\\DPEV6-master\\App\\App.Android\\obj\\",
+      "projectPath": "C:\\Users\\F540\\Desktop\\DPEV6\\DPEV6\\App\\App.Android\\App.Android.csproj",
+      "packagesPath": "C:\\Users\\F540\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\F540\\Desktop\\DPEV6\\DPEV6\\App\\App.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\choct\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\F540\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3011,8 +3011,8 @@
       "frameworks": {
         "monoandroid81": {
           "projectReferences": {
-            "D:\\DPEV6-master\\App\\App\\App.csproj": {
-              "projectPath": "D:\\DPEV6-master\\App\\App\\App.csproj"
+            "C:\\Users\\F540\\Desktop\\DPEV6\\DPEV6\\App\\App\\App.csproj": {
+              "projectPath": "C:\\Users\\F540\\Desktop\\DPEV6\\DPEV6\\App\\App\\App.csproj"
             }
           }
         }
