@@ -741,4 +741,6 @@ C:\Users\F540\Desktop\DPEV6\DPEV6\App\App.Android\obj\Debug\81\android\assets\Sy
 C:\Users\F540\Desktop\DPEV6\DPEV6\App\App.Android\obj\Debug\81\android\assets\Xamarin.Forms.Core.pdb
 C:\Users\F540\Desktop\DPEV6\DPEV6\App\App.Android\obj\Debug\81\android\assets\Xamarin.Forms.Platform.Android.pdb
 C:\Users\F540\Desktop\DPEV6\DPEV6\App\App.Android\obj\Debug\81\android\assets\Xamarin.Forms.Xaml.pdb
+C:\Users\F540\Desktop\DPEV6\DPEV6\App\App\bin\Debug\netstandard2.0\App.dll
+C:\Users\F540\Desktop\DPEV6\DPEV6\App\App.Android\bin\Debug\App.dll.mdb
 C:\Users\F540\Desktop\DPEV6\DPEV6\App\App.Android\obj\Debug\81\linksrc\App.dll.mdb

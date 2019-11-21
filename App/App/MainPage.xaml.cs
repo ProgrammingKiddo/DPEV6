@@ -34,17 +34,21 @@ namespace App
         {
             string usuario = PLCusuario.Text;
             string contraseña = btncontrasena.Text;
+
             try
             {
                 string ldapHost = "ldap.uca.es";
                 int ldapPort = 389;
                 string loginDN = "CN=" + usuario + ",dc=uca,dc=es";
-
                 LdapConnection conn = new LdapConnection();
 
                 conn.Connect(ldapHost, ldapPort);
                 conn.Bind(loginDN, contraseña);
+                if(conn.Bound==true)
                 await Navigation.PushAsync(new Page1());
+                else
+                    await DisplayAlert("Alerta", "Tu usuario o contraseña es incorrecto, vuelva a escribirlo", "Aceptar");
+
             }
             catch (LdapException e1)
             {
@@ -52,9 +56,7 @@ namespace App
 
                 return;
             }
-
-        }
-
+    }
         /* private void Btnpage1_Clicked(object sender, EventArgs e)
          {
              lblRes.Text = "Hola" + PLCusuario.Text;
