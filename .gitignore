@@ -1,0 +1,9 @@
+# Ignorar archivos binarios
+App/App/bin
+App/App/obj
+
+App/App.Android/bin
+App/App.Android/obj
+
+App/App.iOS/bin
+App/App.iOS/obj
