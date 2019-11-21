@@ -7,3 +7,7 @@ App/App.Android/obj
 
 App/App.iOS/bin
 App/App.iOS/obj
+
+# Ignorar archivos de VSCode
+
+.vs
