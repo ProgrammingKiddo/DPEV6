@@ -24,7 +24,8 @@ namespace App
             List<Menu> menu = new List<Menu>
             {
                 new Menu{ MenuTitle = "Inicio", MenuDetail = ""},
-                new Menu{ MenuTitle = "Opciones", MenuDetail = "Navegar a opciones"},
+                new Menu{ MenuTitle = "Historial", MenuDetail = "Historial de votaciones"},
+                new Menu{ MenuTitle = "Configuración", MenuDetail = ""},
                 new Menu{ MenuTitle = "Cerrar Sesión", MenuDetail = "Regresar a la página principal"}
             };
 

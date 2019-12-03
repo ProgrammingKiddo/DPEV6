@@ -23,5 +23,17 @@ namespace App
         {
             await Navigation.PushAsync(new Votar());
         }
+        private async void VotAct(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new VotacionesActivas());
+        }
+        private async void VotFut(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new VotacionesFuturas());
+        }
+        private async void Result(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Resultados());
+        }
     }
 }

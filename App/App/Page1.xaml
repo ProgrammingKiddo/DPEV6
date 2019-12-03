@@ -25,17 +25,17 @@
                VerticalOptions="End" />
         <Button Grid.Row="1" Grid.Column="1" WidthRequest="100" HeightRequest="100" CornerRadius="50"
             VerticalOptions="Center" HorizontalOptions="Center" BorderColor="Black" BackgroundColor="Transparent"
-            BorderWidth="2" Image="votacion2.jpeg"/>
+            BorderWidth="2" Image="votacion2.jpeg" Clicked="VotAct"/>
         <Label Text="Votaciones Activas" Grid.Row="1" Grid.Column="1" TextColor="Black" FontAttributes="Bold" FontSize="Medium"  HorizontalOptions="Center"
                VerticalOptions="End" />
         <Button Grid.Row="3" Grid.Column="0" WidthRequest="100" HeightRequest="100" CornerRadius="50"
             VerticalOptions="Center" HorizontalOptions="Center" BorderColor="Black" BackgroundColor="Transparent"
-            BorderWidth="2" Image="votacion3.jpeg"/>
+            BorderWidth="2" Image="votacion3.jpeg" Clicked="VotFut"/>
         <Label Text="Votaciones Futuras" Grid.Row="3" Grid.Column="0" TextColor="Black" FontAttributes="Bold" FontSize="Medium"  HorizontalOptions="Center"
                VerticalOptions="End" />
         <Button Grid.Row="3" Grid.Column="1" WidthRequest="100" HeightRequest="100" CornerRadius="50"
             VerticalOptions="Center" HorizontalOptions="Center" BorderColor="Black" BackgroundColor="Transparent"
-            BorderWidth="2" Image="votacion4.jpeg"/>
+            BorderWidth="2" Image="votacion4.jpeg" Clicked="Result"/>
         <Label Text="Resultados" Grid.Row="3" Grid.Column="1" TextColor="Black" FontAttributes="Bold" FontSize="Medium"  HorizontalOptions="Center"
                VerticalOptions="End" />
     </Grid>
