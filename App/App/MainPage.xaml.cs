@@ -45,7 +45,7 @@ namespace App
                 conn.Connect(ldapHost, ldapPort);
                 conn.Bind(loginDN, contraseña);
                 if(conn.Bound==true)
-                await Navigation.PushAsync(new Page1());
+                await Navigation.PushAsync(new MenuPage());
                 else
                     await DisplayAlert("Alerta", "Tu usuario o contraseña es incorrecto, vuelva a escribirlo", "Aceptar");
 

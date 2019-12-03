@@ -169,4 +169,10 @@
   <ItemGroup>
     <BundleResource Include="Resources\pagina1.jpeg" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ini1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\uca.jpg" />
+  </ItemGroup>
 </Project>

@@ -9,13 +9,19 @@ using Xamarin.Forms.Xaml;
 
 namespace App
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class Page1 : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class Page1 : ContentPage
+    {
 
-        public Page1 ()
-		{
-			InitializeComponent ();
-		}
+
+        public Page1()
+        {
+            InitializeComponent();
+        }
+
+        private async void Votaciones(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Votar());
+        }
     }
 }
