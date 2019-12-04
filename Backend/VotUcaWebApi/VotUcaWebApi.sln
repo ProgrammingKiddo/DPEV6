@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.902
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Backend", "Backend\Backend.csproj", "{AACEF4D3-13C1-4FE8-BD6E-882B226C7075}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VotUcaWebApi", "VotUcaWebApi\VotUcaWebApi.csproj", "{D872A4F2-26D3-415D-82C4-D853E574783B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{AACEF4D3-13C1-4FE8-BD6E-882B226C7075}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AACEF4D3-13C1-4FE8-BD6E-882B226C7075}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AACEF4D3-13C1-4FE8-BD6E-882B226C7075}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AACEF4D3-13C1-4FE8-BD6E-882B226C7075}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D872A4F2-26D3-415D-82C4-D853E574783B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D872A4F2-26D3-415D-82C4-D853E574783B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D872A4F2-26D3-415D-82C4-D853E574783B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D872A4F2-26D3-415D-82C4-D853E574783B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {6A9DD8F4-4E4F-441D-A45F-62E97834F328}
+		SolutionGuid = {9E034FAE-92D6-48C5-8D5B-801B0F7F7ED1}
 	EndGlobalSection
 EndGlobal

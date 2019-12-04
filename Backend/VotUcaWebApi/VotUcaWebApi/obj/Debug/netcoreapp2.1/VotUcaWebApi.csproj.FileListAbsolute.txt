@@ -1,0 +1,14 @@
+C:\Users\PabloGS\source\repos\Backend\VotUcaWebApi\VotUcaWebApi\bin\Debug\netcoreapp2.1\VotUcaWebApi.deps.json
+C:\Users\PabloGS\source\repos\Backend\VotUcaWebApi\VotUcaWebApi\bin\Debug\netcoreapp2.1\VotUcaWebApi.runtimeconfig.json
+C:\Users\PabloGS\source\repos\Backend\VotUcaWebApi\VotUcaWebApi\bin\Debug\netcoreapp2.1\VotUcaWebApi.runtimeconfig.dev.json
+C:\Users\PabloGS\source\repos\Backend\VotUcaWebApi\VotUcaWebApi\bin\Debug\netcoreapp2.1\VotUcaWebApi.dll
+C:\Users\PabloGS\source\repos\Backend\VotUcaWebApi\VotUcaWebApi\bin\Debug\netcoreapp2.1\VotUcaWebApi.pdb
+C:\Users\PabloGS\source\repos\Backend\VotUcaWebApi\VotUcaWebApi\obj\Debug\netcoreapp2.1\VotUcaWebApi.csprojAssemblyReference.cache
+C:\Users\PabloGS\source\repos\Backend\VotUcaWebApi\VotUcaWebApi\obj\Debug\netcoreapp2.1\VotUcaWebApi.csproj.CoreCompileInputs.cache
+C:\Users\PabloGS\source\repos\Backend\VotUcaWebApi\VotUcaWebApi\obj\Debug\netcoreapp2.1\VotUcaWebApi.RazorAssemblyInfo.cache
+C:\Users\PabloGS\source\repos\Backend\VotUcaWebApi\VotUcaWebApi\obj\Debug\netcoreapp2.1\VotUcaWebApi.RazorAssemblyInfo.cs
+C:\Users\PabloGS\source\repos\Backend\VotUcaWebApi\VotUcaWebApi\obj\Debug\netcoreapp2.1\VotUcaWebApi.AssemblyInfoInputs.cache
+C:\Users\PabloGS\source\repos\Backend\VotUcaWebApi\VotUcaWebApi\obj\Debug\netcoreapp2.1\VotUcaWebApi.AssemblyInfo.cs
+C:\Users\PabloGS\source\repos\Backend\VotUcaWebApi\VotUcaWebApi\obj\Debug\netcoreapp2.1\VotUcaWebApi.RazorTargetAssemblyInfo.cache
+C:\Users\PabloGS\source\repos\Backend\VotUcaWebApi\VotUcaWebApi\obj\Debug\netcoreapp2.1\VotUcaWebApi.dll
+C:\Users\PabloGS\source\repos\Backend\VotUcaWebApi\VotUcaWebApi\obj\Debug\netcoreapp2.1\VotUcaWebApi.pdb
