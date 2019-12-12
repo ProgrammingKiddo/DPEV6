@@ -10,8 +10,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.30" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="Novell.Directory.Ldap.NETStandard" Version="2.3.8" />
   </ItemGroup>
 
 </Project>

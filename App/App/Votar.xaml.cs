@@ -15,6 +15,12 @@ namespace App
 		public Votar ()
 		{
 			InitializeComponent ();
-		}
-	}
+             
+        }
+
+        private async void crear(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new CrearVotacion());
+        }
+    }
 }

@@ -21,7 +21,7 @@ namespace App
 
         private async void Votaciones(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Votar());
+            await Navigation.PushAsync(new CrearVotacion());
         }
         private async void VotAct(object sender, EventArgs e)
         {
