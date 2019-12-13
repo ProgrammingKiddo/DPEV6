@@ -34,7 +34,7 @@ namespace App
 
         private async void Btnpage1_Clicked(object sender, EventArgs e)
         {
-            try
+           /* try
             {
                 string usuario = PLCusuario.Text;
                 string contraseña = btncontrasena.Text;
@@ -44,9 +44,9 @@ namespace App
                 int c = int.Parse(acceso.Substring(0));
                 if (c == 1)
                 {
-                    
+                    */
                         await Navigation.PushAsync(new MenuPage());
-                }
+                /*}
                 else
                 {
                     await DisplayAlert("Alerta", "el usuario o la contraseña no son correctos", "ok");
@@ -55,7 +55,7 @@ namespace App
             {
 
                 await DisplayAlert("Alerta", "el usuario o la contraseña no son correctos", "ok");
-            }
+            }*/
         }
         /* private void Btnpage1_Clicked(object sender, EventArgs e)
          {

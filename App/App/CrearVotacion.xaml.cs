@@ -15,11 +15,15 @@ namespace App
 		public CrearVotacion ()
 		{
 			InitializeComponent ();
-            targetPicker.Items.Add("votacion Simple");
-            targetPicker.Items.Add("votacion Compleja");
-
         }
 
-        
+        private async void VotSimple(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new VotacionSimple());
+        }
+        private async void VotCompleja(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new VotacionCompleja());
+        }
     }
 }

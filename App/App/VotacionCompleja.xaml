@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundImage="fondoapp.jpeg"
+             x:Class="App.VotacionCompleja">
+    <ScrollView>
+        <StackLayout Padding="10,20,10,10"  Spacing="10">
+            <Label Text="CrearVotacion"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"/>
+
+            <Label Text="Rellene el formulario"
+                   FontSize="20"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"/>
+            <Entry  x:Name="amountEntry"
+                    Placeholder="Ingrese"
+                    FontSize="20"
+                    Keyboard="Numeric"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Center"/>
+            <Picker x:Name="targetPicker"
+                    Title="seleccione"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Center"/>
+            <Picker x:Name="sourcePicker"
+                    Title="seleccione"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Center"/>
+            <Button x:Name="Crear"
+                    Text="CrearVotacion"
+                    FontSize="20"
+                    BackgroundColor="Yellow"
+                    HorizontalOptions="FillAndExpand"
+                    TextColor="Black"
+                    VerticalOptions="Center"/>
+            <ActivityIndicator x:Name="waitActivityIndicator"
+                               IsRunning="False"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
+            <Label x:Name="convertedlabel"
+                   FontSize="20"
+                   BackgroundColor="White"
+                   TextColor="Navy"
+                   HorizontalTextAlignment="Center"
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="Center"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

@@ -24,9 +24,10 @@ namespace App
             List<Menu> menu = new List<Menu>
             {
                 new Menu{ MenuTitle = "Inicio", MenuDetail = ""},
-                new Menu{ MenuTitle = "Historial", MenuDetail = "Historial de votaciones"},
+                new Menu{ MenuTitle = "Crear Votaciones", MenuDetail = ""},
+                new Menu{ MenuTitle = "Historial", MenuDetail = ""},
                 new Menu{ MenuTitle = "Configuración", MenuDetail = ""},
-                new Menu{ MenuTitle = "Cerrar Sesión", MenuDetail = "Regresar a la página principal"}
+                new Menu{ MenuTitle = "Cerrar Sesión", MenuDetail = ""}
             };
 
             ListMenu.ItemsSource = menu;
@@ -45,7 +46,14 @@ namespace App
             {
                 if (menu.MenuTitle.Equals("Inicio"))
                 {
-                   
+                    Detail = new NavigationPage(new MenuPage());
+                }
+                else if (menu.MenuTitle.Equals("Crear Votaciones"))
+                {
+                    Detail = new NavigationPage(new CrearVotacion())
+                    {
+                        BarBackgroundColor = Color.DarkBlue
+                    }; 
                 }
                 else if (menu.MenuTitle.Equals("Cerrar Sesión"))
                 {
@@ -53,8 +61,7 @@ namespace App
                     if (answer == true)
                     {
                         Detail = new NavigationPage(new MainPage());
-                    }
-                    
+                    }  
                 }
 
             }
