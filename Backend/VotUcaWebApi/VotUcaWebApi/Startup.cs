@@ -45,89 +45,116 @@ namespace VotUcaWebApi
         {
             public static void Union()
             {
-                try
-                {
-                    
-                        Socket listen = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-                        Socket conexion;
-                        IPEndPoint connect = new IPEndPoint(IPAddress.Parse("192.168.1.81"), 5000);
-                        int conexiones = 10;
-                       // while (conexiones > 0)
-                        //{
-                        Console.WriteLine("esperando conexion");
-                        listen.Bind(connect);
 
-                        listen.Listen(10);
 
-                        conexion = listen.Accept();
+                 // Incoming data from the client.  
+                     string data = null;
+            // Data buffer for incoming data.  
+            byte[] bytes = new Byte[1024];
 
-                        Console.WriteLine(conexiones);
-                        //recibir
-                        byte[] recibir_info = new byte[100];
-                        string data = "";
-                        int array_size = 0;
+                    // Establish the local endpoint for the socket.  
+                    // Dns.GetHostName returns the name of the   
+                    // host running the application.  
+                    IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
+                    IPAddress ipAddress = IPAddress.Parse("10.183.114.57");
+                    IPEndPoint localEndPoint = new IPEndPoint(ipAddress, 5000);
 
-                        array_size = conexion.Receive(recibir_info, 0, recibir_info.Length, 0);
-                        Array.Resize(ref recibir_info, array_size);
-                        data = Encoding.Default.GetString(recibir_info);
+                    // Create a TCP/IP socket.  
+                    Socket listener = new Socket(ipAddress.AddressFamily,
+                        SocketType.Stream, ProtocolType.Tcp);
 
-                        int poscoma = data.IndexOf(",");
-                        string usuario = data.Substring(0, poscoma);
-                        string contraseña = data.Substring(poscoma + 1);
-                        Console.WriteLine(usuario);
-                        Console.WriteLine(contraseña);
+                    // Bind the socket to the local endpoint and   
+                    // listen for incoming connections.  
+                    try
+                    {
+                        listener.Bind(localEndPoint);
+                        listener.Listen(10);
+
+                        // Start listening for connections.  
+                        while (true)
+                        {
+                            Console.WriteLine("Waiting for a connection...");
+                            // Program is suspended while waiting for an incoming connection.  
+                            Socket handler = listener.Accept();
+                            data = null;
+
+                            // An incoming connection needs to be processed.  
+ 
+                            byte[] recibir_info = new byte[100];
+                          
+                            int array_size = 0;
+
+                            array_size = handler.Receive(recibir_info, 0, recibir_info.Length, 0);
+                            Array.Resize(ref recibir_info, array_size);
+                            data = Encoding.Default.GetString(recibir_info);
+
+                            int poscoma = data.IndexOf(",");
+                            string usuario = data.Substring(0, poscoma);
+                            string contraseña = data.Substring(poscoma + 1);
+
+
                         string acceso = Uca.Credenciales(usuario, contraseña);
-                        //enviar
-                        /* Console.WriteLine(acceso);
-                         byte[] enviar_info = new byte[100];
-                         string data1 = acceso + ",";
+                       
+                            // Show the data on the console.  
+                            Console.WriteLine("Text received : {0}", data);
 
-                         enviar_info = Encoding.Default.GetBytes(data1);
-                         Console.WriteLine(acceso);
-                         listen.Send(enviar_info);
-                         Console.WriteLine("enviar");
-                         */
-                        //listen.Shutdown(SocketShutdown.Both);
+                            // Echo the data back to the client.  
+                            byte[] msg = Encoding.ASCII.GetBytes(acceso+",");
+                            
+                            handler.Send(msg);
+                            handler.Shutdown(SocketShutdown.Both);
+                            handler.Close();
+                        }
 
-                        //conexiones = conexiones - 1;
-                   // }
-                    Console.ReadKey();
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.ToString());
+                    }
+
+                    Console.WriteLine("\nPress ENTER to continue...");
+                    Console.Read();
+
                 }
-                catch (Exception e)
-                {
-                    Console.WriteLine("hay algun fallo");
-                }
 
+                
             }
+
+
+        }
 
         }
         public class Uca
         {
             public static string Credenciales(string usuario, string contraseña)
-            {   string acceso = "";
-                if (usuario != "" && contraseña != "")
+            {
+            string acceso = "";
+            try
+            {
+
+
+
+
+                string ldapHost = "ldap.uca.es";
+                int ldapPort = 389;
+                string loginDN = "CN=" + usuario + ",dc=uca,dc=es";
+                LdapConnection conn = new LdapConnection();
+
+                conn.Connect(ldapHost, ldapPort);
+                conn.Bind(loginDN, contraseña);
+                if (conn.Bound)
                 {
-                    
-                    
-                    string ldapHost = "ldap.uca.es";
-                    int ldapPort = 389;
-                    string loginDN = "CN=" + usuario + ",dc=uca,dc=es";
-                    LdapConnection conn = new LdapConnection();
-
-                    conn.Connect(ldapHost, ldapPort);
-                    conn.Bind(loginDN, contraseña);
-                    if (conn.Bound)
-                        acceso = "1";
-
-                    else
-                    {
-                        acceso = "2";
-                    }
+                    acceso = "1";
                 }
+                
+            }catch(LdapException e) {
+
+            
+            }
+        
                 return acceso;
             }
 
 
         }
-    }
-}
+   

@@ -38,20 +38,22 @@ namespace App
             {
                 string usuario = PLCusuario.Text;
                 string contraseña = btncontrasena.Text;
-                /*string acceso =*/ Conectar.Union(usuario, contraseña);
-                int a = usuario.IndexOf("u");
-                int b = contraseña.IndexOf("c");
-                /*int a = int.Parse(acceso);
-                if (a == 1)*/
-                if (a!=-1 && b!=-1)
-                await Navigation.PushAsync(new MenuPage());
-                /*else
+                string acceso = Conectar.Union(usuario, contraseña);
+               
+                
+                int c = int.Parse(acceso.Substring(0));
+                if (c == 1)
+                {
+                    
+                        await Navigation.PushAsync(new MenuPage());
+                }
+                else
                 {
                     await DisplayAlert("Alerta", "el usuario o la contraseña no son correctos", "ok");
-                }*/
+                }
             }catch(Exception e2)
             {
-        
+
                 await DisplayAlert("Alerta", "el usuario o la contraseña no son correctos", "ok");
             }
         }
@@ -63,47 +65,80 @@ namespace App
     }
     public class Conectar
     {
-        public static /*string*/void  Union(string usuario,string contraseña)
+        public static  string  Union(string usuario,string contraseña)
         {
-            //string acceso="";
-            try
-            {
-                Socket listen = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            string acceso= null;
+                // Data buffer for incoming data.  
+                byte[] bytes = new byte[1024];
                 
-                IPEndPoint connect = new IPEndPoint(IPAddress.Parse("192.168.1.81"), 5000);
+                // Connect to a remote device.  
+                try
+                {
+                    // Establish the remote endpoint for the socket.  
+                    // This example uses port 11000 on the local computer.  
+                    IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
+                    IPAddress ipAddress = IPAddress.Parse("10.183.114.57");
+                    IPEndPoint remoteEP = new IPEndPoint(ipAddress, 5000);
 
-                listen.Connect(connect);
-                
-                //enviar
-                byte[] enviar_info = new byte[100];
-                string data = usuario+","+contraseña;
-               
-                enviar_info = Encoding.Default.GetBytes(data); 
-                 listen.Send(enviar_info);
-                //recibir
-               /* byte[] recibir_info = new byte[100];
-                int array_size = 0;
+                    // Create a TCP/IP  socket.  
+                    Socket sender = new Socket(ipAddress.AddressFamily,
+                        SocketType.Stream, ProtocolType.Tcp);
 
-                array_size = listen.Receive(recibir_info, 0, recibir_info.Length, 0);
-                 Array.Resize(ref recibir_info, array_size);
-                data = Encoding.Default.GetString(recibir_info);
+                    // Connect the socket to the remote endpoint. Catch any errors.  
+                    try
+                    {
+                        sender.Connect(remoteEP);
 
-               
-                int poscoma = data.IndexOf(",");
-                 acceso = data.Substring(0, poscoma);
-            
-                return acceso;
-                */
-                Console.ReadKey();
-            }catch(Exception e)
-            {
-                Console.WriteLine("quiere petar");
+                        Console.WriteLine("Socket connected to {0}",
+                            sender.RemoteEndPoint.ToString());
+
+                        // Encode the data string into a byte array.  
+                        byte[] msg = Encoding.ASCII.GetBytes(usuario+","+contraseña);
+
+                        // Send the data through the socket.  
+                        int bytesSent = sender.Send(msg);
+
+                    // Receive the response from the remote device.  
+                    int array_size = 0;
+
+                    array_size = sender.Receive(bytes, 0, bytes.Length, 0);
+                    Array.Resize(ref bytes, array_size);
+                    string data = Encoding.Default.GetString(bytes);
+
+                    int poscoma = data.IndexOf(",");
+                     acceso = data.Substring(0, poscoma);
+
+                    // Release the socket.  
+                    sender.Shutdown(SocketShutdown.Both);
+                        sender.Close();
+
+                    }
+                    catch (ArgumentNullException ane)
+                    {
+                        Console.WriteLine("ArgumentNullException : {0}", ane.ToString());
+                    }
+                    catch (SocketException se)
+                    {
+                        Console.WriteLine("SocketException : {0}", se.ToString());
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("Unexpected exception : {0}", e.ToString());
+                    }
+
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.ToString());
+                }
+            return acceso;
             }
-           // return acceso;
+
+            
         }
 
     }
 
-}
+
 
 
