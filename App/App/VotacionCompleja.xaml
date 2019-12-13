@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             BackgroundImage="fondoapp.jpeg"
+             xmlns:fastEntry="clr-namespace:XamarinFastEntrySample.FastEntry;assembly=XamarinFastEntry.Behaviors"
              x:Class="App.VotacionCompleja">
     <Grid Padding="5">
         <Grid.RowDefinitions>
@@ -24,20 +24,24 @@
         <Label Text="Crea tu propia votación compleja" FontSize="Medium"
                Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"/>
 
-        <Label Text="Nombre de la votación" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" VerticalOptions="Center"/>
+        <Label Text="Nombre" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" VerticalOptions="Center"/>
         <Entry Text="{Binding NombreVotacion, Mode=OneWay}" Keyboard="Text"
                Placeholder="Introduce el nombre de la votación" Grid.Row="2" Grid.Column="1">
         </Entry>
 
-        <Label Text="Numero de opciones" Grid.Row="3" Grid.Column="0" VerticalOptions="Center"/>
+        <Label Text="Opciones" Grid.Row="3" Grid.Column="0" VerticalOptions="Center"/>
         <Entry Text="{Binding Opciones, Mode=OneWay}" Keyboard="Numeric"
                Placeholder="Introduce el numero de opciones" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2">
         </Entry>
 
-        <Label Text="Fecha de inicio" Grid.Row="4" Grid.Column="0" VerticalOptions="Center"/>
+        <Label Text="Empieza el" Grid.Row="4" Grid.Column="0" VerticalOptions="Center"/>
         <Entry Text="{Binding Fini, Mode=TwoWay}"
                Keyboard="Numeric"
                Placeholder="DD/MM/AAAA " Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2">
+            <Entry.Behaviors>
+                <fastEntry:XamarinFastEntryBehaviour Mask="##/##/####"
+                                                     MaxLength="10"/>
+            </Entry.Behaviors>
         </Entry>
 
         <Button Text="Crear votación" Grid.Row="5" Grid.ColumnSpan="3" CornerRadius="25" 

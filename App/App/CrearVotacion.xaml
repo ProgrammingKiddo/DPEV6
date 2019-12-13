@@ -4,8 +4,19 @@
              BackgroundImage="fondoapp.jpeg"
              x:Class="App.CrearVotacion">
 
-    <StackLayout>
+    <Grid x:Name="controlGrid" RowSpacing="0">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+
         <Button Text="VOTACION SIMPLE"
+                Grid.Row="1"
                 Margin="5,5,5,5"
                 TextColor="White"
                 BackgroundColor="Blue"
@@ -14,8 +25,9 @@
                 WidthRequest="170"
                 HeightRequest="55" 
                 Clicked="VotSimple"/>
-        
+
         <Button Text="VOTACIONES COMPLEJA"
+                Grid.Row="3"
                 Margin="5,5,5,5"
                 TextColor="White"
                 BackgroundColor="Blue"
@@ -24,8 +36,8 @@
                 WidthRequest="170"
                 HeightRequest="55" 
                 Clicked="VotCompleja"/>
-        
-    </StackLayout>
-    
+
+    </Grid>
+
 
 </ContentPage>
