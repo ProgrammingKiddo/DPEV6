@@ -3,50 +3,45 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              BackgroundImage="fondoapp.jpeg"
              x:Class="App.VotacionCompleja">
-    <ScrollView>
-        <StackLayout Padding="10,20,10,10"  Spacing="10">
-            <Label Text="CrearVotacion"
-                   FontSize="20"
-                   FontAttributes="Bold"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Center"/>
+    <Grid Padding="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
 
-            <Label Text="Rellene el formulario"
-                   FontSize="20"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Center"/>
-            <Entry  x:Name="amountEntry"
-                    Placeholder="Ingrese"
-                    FontSize="20"
-                    Keyboard="Numeric"
-                    HorizontalOptions="FillAndExpand"
-                    VerticalOptions="Center"/>
-            <Picker x:Name="targetPicker"
-                    Title="seleccione"
-                    HorizontalOptions="FillAndExpand"
-                    VerticalOptions="Center"/>
-            <Picker x:Name="sourcePicker"
-                    Title="seleccione"
-                    HorizontalOptions="FillAndExpand"
-                    VerticalOptions="Center"/>
-            <Button x:Name="Crear"
-                    Text="CrearVotacion"
-                    FontSize="20"
-                    BackgroundColor="Yellow"
-                    HorizontalOptions="FillAndExpand"
-                    TextColor="Black"
-                    VerticalOptions="Center"/>
-            <ActivityIndicator x:Name="waitActivityIndicator"
-                               IsRunning="False"
-                               HorizontalOptions="Center"
-                               VerticalOptions="Center"/>
-            <Label x:Name="convertedlabel"
-                   FontSize="20"
-                   BackgroundColor="White"
-                   TextColor="Navy"
-                   HorizontalTextAlignment="Center"
-                   HorizontalOptions="FillAndExpand"
-                   VerticalOptions="Center"/>
-        </StackLayout>
-    </ScrollView>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Text="Crear Votación Compleja" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
+               FontSize="Large"/>
+        <Label Text="Crea tu propia votación compleja" FontSize="Medium"
+               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"/>
+
+        <Label Text="Nombre de la votación" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" VerticalOptions="Center"/>
+        <Entry Text="{Binding NombreVotacion, Mode=OneWay}" Keyboard="Text"
+               Placeholder="Introduce el nombre de la votación" Grid.Row="2" Grid.Column="1">
+        </Entry>
+
+        <Label Text="Numero de opciones" Grid.Row="3" Grid.Column="0" VerticalOptions="Center"/>
+        <Entry Text="{Binding Opciones, Mode=OneWay}" Keyboard="Numeric"
+               Placeholder="Introduce el numero de opciones" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2">
+        </Entry>
+
+        <Label Text="Fecha de inicio" Grid.Row="4" Grid.Column="0" VerticalOptions="Center"/>
+        <Entry Text="{Binding Fini, Mode=TwoWay}"
+               Keyboard="Numeric"
+               Placeholder="DD/MM/AAAA " Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2">
+        </Entry>
+
+        <Button Text="Crear votación" Grid.Row="5" Grid.ColumnSpan="3" CornerRadius="25" 
+                TextColor="White" BackgroundColor="#00AE0C"/>
+
+    </Grid>
 </ContentPage>
