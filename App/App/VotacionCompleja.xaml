@@ -26,17 +26,17 @@
 
         <Label Text="Nombre" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" VerticalOptions="Center"/>
         <Entry Text="{Binding NombreVotacion, Mode=OneWay}" Keyboard="Text"
-               Placeholder="Introduce el nombre de la votación" Grid.Row="2" Grid.Column="1">
+               Placeholder="Introduce el nombre de la votación" Grid.Row="2" Grid.Column="1" x:Name="PLCnombre">
         </Entry>
 
         <Label Text="Opciones" Grid.Row="3" Grid.Column="0" VerticalOptions="Center"/>
         <Entry Text="{Binding Opciones, Mode=OneWay}" Keyboard="Numeric"
-               Placeholder="Introduce el numero de opciones" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2">
+               Placeholder="Introduce el numero de opciones" x:Name="PLCopciones" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2">
         </Entry>
 
         <Label Text="Empieza el" Grid.Row="4" Grid.Column="0" VerticalOptions="Center"/>
         <Entry Text="{Binding Fini, Mode=TwoWay}"
-               Keyboard="Numeric"
+               Keyboard="Numeric" x:Name="PLCfechaini"
                Placeholder="DD/MM/AAAA " Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2">
             <Entry.Behaviors>
                 <fastEntry:XamarinFastEntryBehaviour Mask="##/##/####"
@@ -45,7 +45,7 @@
         </Entry>
 
         <Button Text="Crear votación" Grid.Row="5" Grid.ColumnSpan="3" CornerRadius="25" 
-                TextColor="White" BackgroundColor="#00AE0C"/>
+                TextColor="White" BackgroundColor="#00AE0C" Clicked="Btnpage1_Clicked"/>
 
     </Grid>
 </ContentPage>
