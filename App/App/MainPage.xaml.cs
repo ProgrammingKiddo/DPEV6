@@ -31,14 +31,14 @@ namespace App
         }
        
         
-            private async void Btnpage1_Clicked(object sender, EventArgs e)
+            private async void Btnpage1_Clicked(object sender, EventArgs e)//boton acceder
             {
                 try
                 {
                 string[] envio = new string[100];
-                    envio[0] =  PLCusuario.Text;                    
-                    envio[1] =btncontrasena.Text;              
-                    string acceso = Conectar.Union(1, envio);
+                    envio[0] =  PLCusuario.Text;//usuario                       
+                    envio[1] =btncontrasena.Text; //contraseña             
+                    string acceso = Conectar.Union(1, envio); //llama a la funcion Union el 1 es para ldap
                     int c = int.Parse(acceso.Substring(0));
                     if (c == 1)
                     {

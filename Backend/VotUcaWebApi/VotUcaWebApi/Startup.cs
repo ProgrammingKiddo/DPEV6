@@ -25,7 +25,7 @@ namespace VotUcaWebApi
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {           
-            Conectar.Union();
+            Conectar.Union();//llama a la funcion Union (el sitio es porque no sabia desde donde llamarla)
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

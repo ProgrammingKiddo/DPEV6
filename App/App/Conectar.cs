@@ -34,24 +34,24 @@ namespace App
                         sender.Connect(remoteEP);
                     switch (opcion)
                     {
-                        case 1:
+                        case 1:// informacion  LDAP
                             // Encode the data string into a byte array.  
-                            msg = Encoding.ASCII.GetBytes("1" + envio[0] + "," + envio[1]);                            
-                            bytesSent = sender.Send(msg);                           
-                            array_size = sender.Receive(bytes, 0, bytes.Length, 0);
+                            msg = Encoding.ASCII.GetBytes("1" + envio[0] + "," + envio[1]);   //  usuario y contraseña                         
+                            bytesSent = sender.Send(msg); //enviar                          
+                            array_size = sender.Receive(bytes, 0, bytes.Length, 0);//recibir
                             Array.Resize(ref bytes, array_size);
                              data = Encoding.Default.GetString(bytes);
                             int poscoma = data.IndexOf(",");
-                            acceso = data.Substring(0,poscoma);
+                            acceso = data.Substring(0,poscoma);//valor para controlar si se conecta con la LDAP
                             break;
 
-                        case 2:    
-                            msg = Encoding.ASCII.GetBytes("2" + envio[0] + "," + envio[1] + "," +
+                        case 2: //informacion VOTACION   
+                            msg = Encoding.ASCII.GetBytes("2" + envio[0] + "," + envio[1] + "," +    
                                 envio[2] + "," + envio[3] + "," + envio[4] + "," + envio[5] + "," +
                                 envio[6] );
-
+                            //nombrevotacion,opcion1,opcion2,opcion3,fechaini,fechafin,"yo le pasa una facultad por pasar algo"
                             
-                             bytesSent = sender.Send(msg);
+                             bytesSent = sender.Send(msg);//enviar
                           
                          
                             /*array_size = sender.Receive(bytes, 0, bytes.Length, 0);

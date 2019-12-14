@@ -17,7 +17,7 @@ namespace App
             InitializeComponent();
             BindingContext = this;
         }
-        private async void Btnpage1_Clicked(object sender, EventArgs e)
+        private async void Btnpage1_Clicked(object sender, EventArgs e)//boton crear votacion
         {
             string[] envio = new string[100];
             
@@ -29,7 +29,7 @@ namespace App
             envio[5] = "21/21/2121" ;//.Text;     //fecha fin        
             envio[6] ="ESI" ;// .Text;     //facultad
 
-            string acceso = Conectar.Union(2,envio);
+            string acceso = Conectar.Union(2,envio);// el 2 es para la informacion votacion
 
 
     }

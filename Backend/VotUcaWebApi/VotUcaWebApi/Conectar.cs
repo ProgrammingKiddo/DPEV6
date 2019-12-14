@@ -51,23 +51,23 @@ namespace VotUcaWebApi
                     int array_size = 0;
                     int poscoma = 0;
 
-                    array_size = handler.Receive(recibir_info, 0, recibir_info.Length, 0);
+                    array_size = handler.Receive(recibir_info, 0, recibir_info.Length, 0);//recibir
                     Array.Resize(ref recibir_info, array_size);
                     data = Encoding.Default.GetString(recibir_info);
                     
-                    string opcion = data.Substring(0,1);
+                    string opcion = data.Substring(0,1);//aqui cojo la opcion ya sea LDAP o VOTACION
 
                     switch (opcion)
                     {
-                        case "1":
+                        case "1"://LDAP
 
                             poscoma = data.IndexOf(",");
                             string usuario = data.Substring(1, poscoma - 1);
                             string contraseña = data.Substring(poscoma + 1);
-                            string acceso = Credenciales(usuario, contraseña);
+                            string acceso = Credenciales(usuario, contraseña);//credenciales tiene la conexion con la LDAP
                             msg = Encoding.ASCII.GetBytes(acceso + ",");
                             break;
-                        case "2":
+                        case "2"://VOTACION
                             {
                                 data = data.Substring(1);
                                 int i = 0;
@@ -75,7 +75,7 @@ namespace VotUcaWebApi
                                 {
                                     poscoma = data.IndexOf(",");                                    
                                     envio[i] = data.Substring(0, poscoma+1);
-                                    Console.WriteLine(envio[i]);
+                                    Console.WriteLine(envio[i]);//imprimo los datos de la votacion
                                     data = data.Substring(poscoma +1);
                                     i++;
                                 }
@@ -83,7 +83,7 @@ namespace VotUcaWebApi
                             break;
                             }
                     }
-                    handler.Send(msg);
+                    handler.Send(msg);//enviar
                     handler.Shutdown(SocketShutdown.Both);
                     handler.Close();
                 }
