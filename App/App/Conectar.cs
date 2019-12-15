@@ -35,6 +35,7 @@ namespace App
                     switch (opcion)
                     {
                         case 1:// informacion  LDAP
+                            
                             // Encode the data string into a byte array.  
                             msg = Encoding.ASCII.GetBytes("1" + envio[0] + "," + envio[1]);   //  usuario y contraseña                         
                             bytesSent = sender.Send(msg); //enviar                          

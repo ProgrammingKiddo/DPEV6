@@ -62,8 +62,11 @@ namespace VotUcaWebApi
                         case "1"://LDAP
 
                             poscoma = data.IndexOf(",");
-                            string usuario = data.Substring(1, poscoma - 1);
-                            string contraseña = data.Substring(poscoma + 1);
+                            
+                            string usuario =Descrifado.Login(data.Substring(1, poscoma - 1));
+                            string contraseña = Descrifado.Login(data.Substring(poscoma + 1));
+                          
+
                             string acceso = Credenciales(usuario, contraseña);//credenciales tiene la conexion con la LDAP
                             msg = Encoding.ASCII.GetBytes(acceso + ",");
                             break;
