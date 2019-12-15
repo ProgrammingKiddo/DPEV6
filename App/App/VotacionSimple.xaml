@@ -1,13 +1,57 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             BackgroundImage="fondoapp.jpeg"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              x:Class="App.VotacionSimple">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Votaciones Simples!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+    <Grid Padding="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Text="Crear Votación Simple" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
+               FontSize="Large"/>
+        <Label Text="Crea tu propia votación simple" FontSize="Medium"
+               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"/>
+
+        <Label Text="Nombre:" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" VerticalOptions="Center"/>
+        <Entry Text="{Binding NombreVotacion, Mode=OneWay}" Keyboard="Text"
+               Placeholder="Introduce el nombre de la votación" Grid.Row="2" Grid.Column="1" x:Name="PLCnombre">
+        </Entry>
+
+        <Label Text="Opciones:" Grid.Row="3" Grid.Column="0" VerticalOptions="Center"/>
+        <Button x:Name="MostrarEditarOpcionesButton" Text="Mostar/Editar Opciones"
+                TextColor="White" BackgroundColor="Orange" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Clicked="MostrarEditarOpciones"/>
+
+        <Label Text="Empieza el:" Grid.Row="4" Grid.Column="0" VerticalOptions="Center"/>
+        <DatePicker x:Name="PLCfechaini" MinimumDate="{x:Static sys:DateTime.Now}" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2"/>
+
+        <Label Text="Acaba el:" Grid.Row="5" Grid.Column="0" VerticalOptions="Center"/>
+        <DatePicker x:Name="PLCfechafin" MinimumDate="{x:Static sys:DateTime.Now}" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2"/>
+
+        <Label Text="Grados:" Grid.Row="6" Grid.Column="0" VerticalOptions="Center" />
+        <Button Text="Selecciona los grados que podran participar" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" 
+                TextColor="White" BackgroundColor="Orange" Clicked="SeleccionGrados"/>
+
+        <Label Text="Cursos:" Grid.Row="7" Grid.Column="0" VerticalOptions="Center" />
+        <Button Text="Selecciona los cursos que podran participar" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2"
+                TextColor="White" BackgroundColor="Orange" Clicked="SeleccionCursos" />
+
+        <Button Text="Crear votación" Grid.Row="8" Grid.ColumnSpan="3" CornerRadius="25" 
+                TextColor="White" BackgroundColor="Orange" Clicked="Btnpage1_Clicked"/>
+
+    </Grid>
 </ContentPage>

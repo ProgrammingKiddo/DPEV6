@@ -1,10 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:fastEntry="clr-namespace:XamarinFastEntrySample.FastEntry;assembly=XamarinFastEntry.Behaviors"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              x:Class="App.VotacionCompleja">
     <Grid Padding="5">
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -24,28 +29,42 @@
         <Label Text="Crea tu propia votación compleja" FontSize="Medium"
                Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"/>
 
-        <Label Text="Nombre" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" VerticalOptions="Center"/>
+        <Label Text="Nombre:" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" VerticalOptions="Center"/>
         <Entry Text="{Binding NombreVotacion, Mode=OneWay}" Keyboard="Text"
                Placeholder="Introduce el nombre de la votación" Grid.Row="2" Grid.Column="1" x:Name="PLCnombre">
         </Entry>
 
-        <Label Text="Opciones" Grid.Row="3" Grid.Column="0" VerticalOptions="Center"/>
-        <Entry Text="{Binding Opciones, Mode=OneWay}" Keyboard="Numeric"
-               Placeholder="Introduce el numero de opciones" x:Name="PLCopciones" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2">
+        <Label Text="Candidato 1:" Grid.Row="3" Grid.Column="0" VerticalOptions="Center"/>
+        <Entry Text="{Binding Candidato1, Mode=OneWay}" Keyboard="Text"
+               Placeholder="Introduce el nombre del candidato" x:Name="PLCcandidato1" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2">
         </Entry>
 
-        <Label Text="Empieza el" Grid.Row="4" Grid.Column="0" VerticalOptions="Center"/>
-        <Entry Text="{Binding Fini, Mode=TwoWay}"
-               Keyboard="Numeric" x:Name="PLCfechaini"
-               Placeholder="DD/MM/AAAA " Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2">
-            <Entry.Behaviors>
-                <fastEntry:XamarinFastEntryBehaviour Mask="##/##/####"
-                                                     MaxLength="10"/>
-            </Entry.Behaviors>
+        <Label Text="Candidato 2:" Grid.Row="4" Grid.Column="0" VerticalOptions="Center"/>
+        <Entry Text="{Binding Candidato2, Mode=OneWay}" Keyboard="Text"
+               Placeholder="Introduce el nombre del candidato" x:Name="PLCcandidato2" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2">
         </Entry>
 
-        <Button Text="Crear votación" Grid.Row="5" Grid.ColumnSpan="3" CornerRadius="25" 
-                TextColor="White" BackgroundColor="#00AE0C" Clicked="Btnpage1_Clicked"/>
+        <Label Text="Candidato 3:" Grid.Row="5" Grid.Column="0" VerticalOptions="Center"/>
+        <Entry Text="{Binding Candidato3, Mode=OneWay}" Keyboard="Text"
+               Placeholder="Introduce el nombre del candidato" x:Name="PLCcandidato3" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2">
+        </Entry>
+
+        <Label Text="Empieza el:" Grid.Row="6" Grid.Column="0" VerticalOptions="Center"/>
+        <DatePicker x:Name="PLCfechaini" MinimumDate="{x:Static sys:DateTime.Now}" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2"/>
+
+        <Label Text="Acaba el:" Grid.Row="7" Grid.Column="0" VerticalOptions="Center"/>
+        <DatePicker x:Name="PLCfechafin" MinimumDate="{x:Static sys:DateTime.Now}" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2"/>
+
+        <Label Text="Grados:" Grid.Row="8" Grid.Column="0" VerticalOptions="Center" />
+        <Button Text="Selecciona los grados que podran participar" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="2" 
+                TextColor="White" BackgroundColor="Orange" Clicked="SeleccionGrados"/>
+
+        <Label Text="Cursos:" Grid.Row="9" Grid.Column="0" VerticalOptions="Center" />
+        <Button Text="Selecciona los cursos que podran participar" Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="2"
+                TextColor="White" BackgroundColor="Orange" Clicked="SeleccionCursos" />
+
+        <Button Text="Crear votación" Grid.Row="10" Grid.ColumnSpan="3" CornerRadius="25" 
+                TextColor="White" BackgroundColor="Orange" Clicked="Btnpage1_Clicked"/>
 
     </Grid>
 </ContentPage>

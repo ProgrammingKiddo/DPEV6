@@ -157,10 +157,10 @@
     <PackageReference Include="Novell.Directory.Ldap.NETStandard">
       <Version>2.3.8</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
-    <PackageReference Include="XamarinFastEntry.Behaviors">
-      <Version>1.1.1</Version>
+    <PackageReference Include="Rg.Plugins.Popup">
+      <Version>1.2.0.223</Version>
     </PackageReference>
+    <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
