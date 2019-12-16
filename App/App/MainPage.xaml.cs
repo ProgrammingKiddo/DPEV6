@@ -33,17 +33,18 @@ namespace App
         
             private async void Btnpage1_Clicked(object sender, EventArgs e)//boton acceder
             {
-               /* try
+                try
                 {
                 string[] envio = new string[100];
-                    envio[0] =Cifrado.Cifrar(PLCusuario.Text);//usuario                       
+                string[] acceso = new string[100];
+                envio[0] =Cifrado.Cifrar(PLCusuario.Text);//usuario                       
                     envio[1] = Cifrado.Cifrar(btncontrasena.Text); //contraseña     
                 
-                    string acceso = Conectar.Union(1, envio); //llama a la funcion Union el 1 es para ldap
-                    int c = int.Parse(acceso.Substring(0));
+                     acceso = Conectar.Union(1, envio); //llama a la funcion Union el 1 es para ldap
+                    int c = int.Parse(acceso[0]);
                     if (c == 1)
-                    {*/
-                        await Navigation.PushAsync(new MenuPage());/*
+                    {
+                        await Navigation.PushAsync(new MenuPage());
                     }
                     else
                     {
@@ -52,8 +53,8 @@ namespace App
                 }
                 catch (Exception e2)
                 {
-                    await DisplayAlert("Alerta", "el usuario o la contraseña no son correctos", "ok");
-                }*/
+                    await DisplayAlert("Alerta", e2.Message, "ok");
+                }
             }
         }
     }

@@ -22,7 +22,7 @@ namespace VotUcaWebApi
             // Dns.GetHostName returns the name of the   
             // host running the application.  
             IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
-            IPAddress ipAddress = IPAddress.Parse("192.168.1.81");
+            IPAddress ipAddress = IPAddress.Parse("10.182.149.137");
             IPEndPoint localEndPoint = new IPEndPoint(ipAddress, 5000);
 
             // Create a TCP/IP socket.  
@@ -46,6 +46,7 @@ namespace VotUcaWebApi
 
                     // An incoming connection needs to be processed.  
                     string[] envio = new string[100];
+                    string[] acceso = new string[100];
                     byte[] recibir_info = new byte[100];
                     byte[] msg = new byte[100];
                     int array_size = 0;
@@ -60,17 +61,13 @@ namespace VotUcaWebApi
                     switch (opcion)
                     {
                         case "1"://LDAP
-
-                            poscoma = data.IndexOf(",");
-                            
+                            poscoma = data.IndexOf(",");                            
                             string usuario =Descrifado.Login(data.Substring(1, poscoma - 1));
                             string contraseña = Descrifado.Login(data.Substring(poscoma + 1));
-                          
-
-                            string acceso = Credenciales(usuario, contraseña);//credenciales tiene la conexion con la LDAP
-                            msg = Encoding.ASCII.GetBytes(acceso + ",");
+                             acceso[0] = Credenciales(usuario, contraseña);//credenciales tiene la conexion con la LDAP
+                            msg = Encoding.ASCII.GetBytes(acceso[0] + ",");
                             break;
-                        case "2"://VOTACION
+                        case "2"://CREAR VOTACION
                             {
                                 data = data.Substring(1);
                                 int i = 0;
@@ -83,8 +80,14 @@ namespace VotUcaWebApi
                                     i++;
                                 }
                                
-                            break;
-                            }
+                           
+                            } break;
+                        case "3":
+                            {
+
+
+
+                            }; break;//VER VOTACION
                     }
                     handler.Send(msg);//enviar
                     handler.Shutdown(SocketShutdown.Both);

@@ -7,10 +7,10 @@ namespace App
 {
     public class Conectar
     {
-        public static string Union(int opcion,string [] envio) { 
-                string acceso = null;
-                // Data buffer for incoming data.  
-                byte[] bytes = new byte[1024];
+        public static  string[] Union(int opcion,string [] envio) {
+            string[] acceso = new string[100];
+            // Data buffer for incoming data.  
+            byte[] bytes = new byte[1024];
                 byte[] msg = new byte[1024];
             // Connect to a remote device.  
             try
@@ -18,7 +18,7 @@ namespace App
                     // Establish the remote endpoint for the socket.  
                     // This example uses port 11000 on the local computer.  
                     IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
-                    IPAddress ipAddress = IPAddress.Parse("192.168.1.81");
+                    IPAddress ipAddress = IPAddress.Parse("10.182.149.137");
                      IPEndPoint remoteEP = new IPEndPoint(ipAddress, 5000);
 
                      // Create a TCP/IP  socket.  
@@ -43,13 +43,13 @@ namespace App
                             Array.Resize(ref bytes, array_size);
                              data = Encoding.Default.GetString(bytes);
                             int poscoma = data.IndexOf(",");
-                            acceso = data.Substring(0,poscoma);//valor para controlar si se conecta con la LDAP
+                            acceso[0] = data.Substring(0,poscoma);//valor para controlar si se conecta con la LDAP
                             break;
 
                         case 2: //informacion VOTACION   
                             msg = Encoding.ASCII.GetBytes("2" + envio[0] + "," + envio[1] + "," +    
                                 envio[2] + "," + envio[3] + "," + envio[4] + "," + envio[5] + "," +
-                                envio[6] );
+                                envio[6] +",");
                             //nombrevotacion,opcion1,opcion2,opcion3,fechaini,fechafin,"yo le pasa una facultad por pasar algo"
                             
                              bytesSent = sender.Send(msg);//enviar
