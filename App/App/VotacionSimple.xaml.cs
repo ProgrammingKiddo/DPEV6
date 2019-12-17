@@ -18,11 +18,6 @@ namespace App
 			InitializeComponent ();
         }
 
-        private async void MostrarEditarOpciones(object sender, EventArgs e) //Manda a la lista de opciones
-        {
-            await Navigation.PushAsync(new MEopciones());
-        }
-
         private async void SeleccionGrados(object sender, EventArgs e) //Manda a la lista de seleccion de grados
         {
             await Navigation.PushAsync(new SelGr());

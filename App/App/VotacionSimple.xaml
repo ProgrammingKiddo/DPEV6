@@ -13,7 +13,6 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -32,25 +31,21 @@
                Placeholder="Introduce el nombre de la votación" Grid.Row="2" Grid.Column="1" x:Name="PLCnombre">
         </Entry>
 
-        <Label Text="Opciones:" Grid.Row="3" Grid.Column="0" VerticalOptions="Center"/>
-        <Button x:Name="MostrarEditarOpcionesButton" Text="Mostar/Editar Opciones"
-                TextColor="White" BackgroundColor="Orange" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Clicked="MostrarEditarOpciones"/>
+        <Label Text="Empieza el:" Grid.Row="3" Grid.Column="0" VerticalOptions="Center"/>
+        <DatePicker x:Name="PLCfechaini" MinimumDate="{x:Static sys:DateTime.Now}" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2"/>
 
-        <Label Text="Empieza el:" Grid.Row="4" Grid.Column="0" VerticalOptions="Center"/>
-        <DatePicker x:Name="PLCfechaini" MinimumDate="{x:Static sys:DateTime.Now}" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <Label Text="Acaba el:" Grid.Row="4" Grid.Column="0" VerticalOptions="Center"/>
+        <DatePicker x:Name="PLCfechafin" MinimumDate="{x:Static sys:DateTime.Now}" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2"/>
 
-        <Label Text="Acaba el:" Grid.Row="5" Grid.Column="0" VerticalOptions="Center"/>
-        <DatePicker x:Name="PLCfechafin" MinimumDate="{x:Static sys:DateTime.Now}" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2"/>
-
-        <Label Text="Grados:" Grid.Row="6" Grid.Column="0" VerticalOptions="Center" />
-        <Button Text="Selecciona los grados que podran participar" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" 
+        <Label Text="Grados:" Grid.Row="5" Grid.Column="0" VerticalOptions="Center" />
+        <Button Text="Selecciona los grados que podran participar" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" 
                 TextColor="White" BackgroundColor="Orange" Clicked="SeleccionGrados"/>
 
-        <Label Text="Cursos:" Grid.Row="7" Grid.Column="0" VerticalOptions="Center" />
-        <Button Text="Selecciona los cursos que podran participar" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2"
+        <Label Text="Cursos:" Grid.Row="6" Grid.Column="0" VerticalOptions="Center" />
+        <Button Text="Selecciona los cursos que podran participar" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2"
                 TextColor="White" BackgroundColor="Orange" Clicked="SeleccionCursos" />
 
-        <Button Text="Crear votación" Grid.Row="8" Grid.ColumnSpan="3" CornerRadius="25" 
+        <Button Text="Crear votación" Grid.Row="7" Grid.ColumnSpan="3" CornerRadius="25" 
                 TextColor="White" BackgroundColor="Orange" Clicked="Btnpage1_Clicked"/>
 
     </Grid>
