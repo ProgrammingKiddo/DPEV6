@@ -3,6 +3,9 @@ using System;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Data;
+using System.Data.SqlClient;
+
 
 namespace VotUcaWebApi
 {
@@ -22,7 +25,7 @@ namespace VotUcaWebApi
             // Dns.GetHostName returns the name of the   
             // host running the application.  
             IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
-            IPAddress ipAddress = IPAddress.Parse("10.182.149.137");
+            IPAddress ipAddress = IPAddress.Parse("10.182.114.75");
             IPEndPoint localEndPoint = new IPEndPoint(ipAddress, 5000);
 
             // Create a TCP/IP socket.  
@@ -55,16 +58,16 @@ namespace VotUcaWebApi
                     array_size = handler.Receive(recibir_info, 0, recibir_info.Length, 0);//recibir
                     Array.Resize(ref recibir_info, array_size);
                     data = Encoding.Default.GetString(recibir_info);
-                    
-                    string opcion = data.Substring(0,1);//aqui cojo la opcion ya sea LDAP o VOTACION
+
+                    string opcion = data.Substring(0, 1);//aqui cojo la opcion ya sea LDAP o VOTACION
 
                     switch (opcion)
                     {
                         case "1"://LDAP
-                            poscoma = data.IndexOf(",");                            
-                            string usuario =Descrifado.Login(data.Substring(1, poscoma - 1));
+                            poscoma = data.IndexOf(",");
+                            string usuario = Descrifado.Login(data.Substring(1, poscoma - 1));
                             string contraseña = Descrifado.Login(data.Substring(poscoma + 1));
-                             acceso[0] = Credenciales(usuario, contraseña);//credenciales tiene la conexion con la LDAP
+                            acceso[0] = Credenciales(usuario, contraseña);//credenciales tiene la conexion con la LDAP
                             msg = Encoding.ASCII.GetBytes(acceso[0] + ",");
                             break;
                         case "2"://CREAR VOTACION
@@ -73,15 +76,19 @@ namespace VotUcaWebApi
                                 int i = 0;
                                 while (i < 7)
                                 {
-                                    poscoma = data.IndexOf(",");                                    
-                                    envio[i] = data.Substring(0, poscoma+1);
+                                    poscoma = data.IndexOf(",");
+                                    envio[i] = data.Substring(0, poscoma + 1);
                                     Console.WriteLine(envio[i]);//imprimo los datos de la votacion
-                                    data = data.Substring(poscoma +1);
+                                    data = data.Substring(poscoma + 1);
                                     i++;
                                 }
-                               
-                           
-                            } break;
+
+
+
+                                Insertar(envio[1], envio[2], envio[3], envio[4], envio[5]);
+
+                            }
+                            break;
                         case "3":
                             {
 
@@ -97,7 +104,7 @@ namespace VotUcaWebApi
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
+                Console.WriteLine("1" + e);
             }
 
             Console.WriteLine("\nPress ENTER to continue...");
@@ -131,10 +138,44 @@ namespace VotUcaWebApi
             return acceso;
         }
 
-    }
+        private static void Insertar(string part1, string part2, string part3, string part4, string part5)
+        {
 
+            SqlConnection cn = new SqlConnection();
+            cn = new SqlConnection("Data Source=DESKTOP-1CTQ3SE\\SQLEXPRESS;Initial Catalog=Pinf;Integrated Security=True");
+            cn.Open();
+            SqlCommand cmd;
+            try
+            {
+
+                cmd = new SqlCommand("insert into Votacion (Part1,Part2,Part3,fechaini,fechafin) VALUES('" + part1 + "','" + part2 + "','" + part3 + "','" + part4 + "','" + part5 + "')", cn);
+
+                cmd.ExecuteNonQuery();
+
+                Console.WriteLine("Registro realizado");
+
+            }
+
+            catch (Exception ex)
+
+            { Console.WriteLine(ex.Message + "2"); }
+
+            finally
+
+            { if (cn.State == ConnectionState.Open) cn.Close(); }
+
+
+        }
+    }
 
 }
 
-        
- 
+
+
+
+
+
+
+
+
+
