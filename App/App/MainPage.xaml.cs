@@ -27,7 +27,10 @@ namespace App
 
         void OpenBrowser(string url)
         {
-            Device.OpenUri(new Uri(url));
+            #pragma warning disable CS0618 // El tipo o el miembro están obsoletos
+            Device.OpenUri(new Uri(url));           //LOS COMENTARIOS DE ARRIBA Y ABAJO SON PARA QUE NO SALTE 
+                                                    //EL WARNING YA QUE ESTA OBSOLETA ESTA FORMA DE HACERLO
+            #pragma warning restore CS0618 // El tipo o el miembro están obsoletos
         }
        
         
@@ -35,12 +38,12 @@ namespace App
             {
                 try
                 {
-                string[] envio = new string[100];
-                string acceso = null;
-                envio[0] =Cifrado.Cifrar(PLCusuario.Text);//usuario                       
+                    string[] envio = new string[100];
+                    string acceso = null;
+                    envio[0] =Cifrado.Cifrar(PLCusuario.Text);//usuario                       
                     envio[1] = Cifrado.Cifrar(btncontrasena.Text); //contraseña     
                 
-                     acceso = Conectar.Union(1, envio); //llama a la funcion Union el 1 es para ldap
+                    acceso = Conectar.Union(1, envio); //llama a la funcion Union el 1 es para ldap
                     int c = int.Parse(acceso);
                     if (c == 1)
                     {
@@ -56,8 +59,8 @@ namespace App
                     await DisplayAlert("Alerta", e2.Message, "ok");
                 }
             }
-        }
     }
+}
 
 
     

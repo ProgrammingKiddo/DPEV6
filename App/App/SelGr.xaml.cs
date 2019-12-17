@@ -22,26 +22,13 @@ namespace App
         {
             List<Grados> grados = new List<Grados>
         {
-                new Grados{ Nombre = "Grado en Ingenieria Informatica", Codigo = "1725", Facultad = "Escuela Superior de Ingeniería"},
-                new Grados{ Nombre = "Grado en Ingenieria Informatica", Codigo = "1725", Facultad = "Escuela Superior de Ingeniería"},
-                new Grados{ Nombre = "Grado en Ingenieria Informatica", Codigo = "1725", Facultad = "Escuela Superior de Ingeniería"},
-                new Grados{ Nombre = "Grado en Ingenieria Informatica", Codigo = "1725", Facultad = "Escuela Superior de Ingeniería"},
-                new Grados{ Nombre = "Grado en Ingenieria Informatica", Codigo = "1725", Facultad = "Escuela Superior de Ingeniería"},
-                new Grados{ Nombre = "Grado en Ingenieria Informatica", Codigo = "1725", Facultad = "Escuela Superior de Ingeniería"},
-                new Grados{ Nombre = "Grado en Ingenieria Informatica", Codigo = "1725", Facultad = "Escuela Superior de Ingeniería"},
-                new Grados{ Nombre = "Grado en Ingenieria Informatica", Codigo = "1725", Facultad = "Escuela Superior de Ingeniería"},
-                new Grados{ Nombre = "Grado en Ingenieria Informatica", Codigo = "1725", Facultad = "Escuela Superior de Ingeniería"},
-                new Grados{ Nombre = "Grado en Ingenieria Informatica", Codigo = "1725", Facultad = "Escuela Superior de Ingeniería"},
-                new Grados{ Nombre = "Grado en Ingenieria Informatica", Codigo = "1725", Facultad = "Escuela Superior de Ingeniería"},
-                new Grados{ Nombre = "Grado en Ingenieria Informatica", Codigo = "1725", Facultad = "Escuela Superior de Ingeniería"},
-                new Grados{ Nombre = "Grado en Ingenieria Informatica", Codigo = "1725", Facultad = "Escuela Superior de Ingeniería"},
-                new Grados{ Nombre = "Grado en Ingenieria Informatica", Codigo = "1725", Facultad = "Escuela Superior de Ingeniería"},
-                new Grados{ Nombre = "Grado en Ingenieria Informatica", Codigo = "1725", Facultad = "Escuela Superior de Ingeniería"},
-                new Grados{ Nombre = "Grado en Ingenieria Informatica", Codigo = "1725", Facultad = "Escuela Superior de Ingeniería"},
-                new Grados{ Nombre = "Grado en Ingenieria Informatica", Codigo = "1725", Facultad = "Escuela Superior de Ingeniería"},
-                new Grados{ Nombre = "Grado en Ingenieria Informatica", Codigo = "1725", Facultad = "Escuela Superior de Ingeniería"},
-                new Grados{ Nombre = "Grado en Ingenieria Informatica", Codigo = "1725", Facultad = "Escuela Superior de Ingeniería"},
-                new Grados{ Nombre = "Grado en Ingenieria Informatica", Codigo = "1725", Facultad = "Escuela Superior de Ingeniería"}
+                new Grados{ Nombre = "Grado en Ingeniería Informática", Codigo = "21714", Facultad = "Escuela Superior de Ingeniería"},
+                new Grados{ Nombre = "Grado en Ingeniería Aeroespacial", Codigo = "21716", Facultad = "Escuela Superior de Ingeniería"},
+                new Grados{ Nombre = "Grado en Ingeniería en Diseño Industrial y Desarrollo del Producto", Codigo = "21717", Facultad = "Escuela Superior de Ingeniería"},
+                new Grados{ Nombre = "Grado en Ingeniería Eléctrica", Codigo = "21718", Facultad = "Escuela Superior de Ingeniería"},
+                new Grados{ Nombre = "Grado en Ingeniería en Electrónica Industrial", Codigo = "21719", Facultad = "Escuela Superior de Ingeniería"},
+                new Grados{ Nombre = "Grado en Ingenieria Mecánica", Codigo = "21720", Facultad = "Escuela Superior de Ingeniería"},
+                new Grados{ Nombre = "Grado en Ingeniería en Tecnologías Industriales", Codigo = "21721", Facultad = "Escuela Superior de Ingeniería"}
         };
 
             ListaGrados.ItemsSource = grados;
