@@ -34,7 +34,7 @@ namespace App
 
             Detail = new NavigationPage(new Page1())
             {
-                BarBackgroundColor = Color.DarkBlue
+                BarBackgroundColor = Color.LightGray
             };
            
         }

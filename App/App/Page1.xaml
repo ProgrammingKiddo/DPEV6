@@ -6,66 +6,70 @@
 
 
 
-    <Grid x:Name="controlGrid" RowSpacing="0" ColumnSpacing="0" >
+    <Grid x:Name="controlGrid" RowSpacing="5" ColumnSpacing="5" >
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="75" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Button 
-                Text="Votar"
-                Grid.Row="1"
+                Text="Votaciones"
+                Grid.Row ="2"
                 Grid.Column="0"
-                Margin="5,5,5,5"
+                Margin="5"
                 TextColor="Black"
                 FontAttributes="Bold"
                 BackgroundColor="White"
-                BorderWidth="15"
+                BorderColor="Orange"
+                BorderWidth="2"
                 CornerRadius="15"
                 WidthRequest="170"
                 HeightRequest="55" 
                 Clicked="Votaciones"/>
         <Button 
                 Text="Votaciones Activas"
-                Grid.Row="1"
-                Grid.Column="0"
-                Margin="5,5,5,5"
+                Grid.Row="2"
+                Grid.Column="1"
+                Margin="5"
                 TextColor="Black"
+                BorderColor="Orange"
                 FontAttributes="Bold"
                 BackgroundColor="White"
-                BorderWidth="15"
+                BorderWidth="2"
                 CornerRadius="15"
                 WidthRequest="170"
                 HeightRequest="55" 
                 Clicked="VotAct"/>
         <Button 
                 Text="Votaciones Futuras"
-                Grid.Row="1"
+                Grid.Row="3"
                 Grid.Column="0"
-                Margin="5,5,5,5"
+                BorderColor="Orange"
+                Margin="5"
                 TextColor="Black"
                 FontAttributes="Bold"
                 BackgroundColor="White"
-                BorderWidth="15"
+                BorderWidth="2"
                 CornerRadius="15"
                 WidthRequest="170"
                 HeightRequest="55" 
                 Clicked="VotFut"/>
         <Button 
                 Text="Resultados"
-                Grid.Row="1"
-                Grid.Column="0"
-                Margin="5,5,5,5"
+                Grid.Row="3"
+                Grid.Column="1"
+                Margin="5"
                 TextColor="Black"
                 FontAttributes="Bold"
+                BorderColor="Orange"
                 BackgroundColor="White"
-                BorderWidth="15"
+                BorderWidth="2"
                 CornerRadius="15"
                 WidthRequest="170"
                 HeightRequest="55" 
