@@ -2,42 +2,75 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="App.Page1"
-             BackgroundImage="fondoapp.jpeg">
+             BackgroundImage="fondoapp.jpg">
 
 
 
     <Grid x:Name="controlGrid" RowSpacing="0" ColumnSpacing="0" >
         <Grid.RowDefinitions>
-            <RowDefinition Height="50" />
-            <RowDefinition Height="160" />
-            <RowDefinition Height="70" />
-            <RowDefinition Height="160" />
-            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Button Grid.Row="1" Grid.Column="0" WidthRequest="100" HeightRequest="100" CornerRadius="50"
-            VerticalOptions="Center" HorizontalOptions="Center" BorderColor="Black" BackgroundColor="Transparent"
-            BorderWidth="2" Image="votacion1.jpeg" Clicked="Votaciones"/>
-        <Label Text="Votar" Grid.Row="1" Grid.Column="0" TextColor="Black" FontAttributes="Bold" FontSize="Medium"  HorizontalOptions="Center"
-               VerticalOptions="End" />
-        <Button Grid.Row="1" Grid.Column="1" WidthRequest="100" HeightRequest="100" CornerRadius="50"
-            VerticalOptions="Center" HorizontalOptions="Center" BorderColor="Black" BackgroundColor="Transparent"
-            BorderWidth="2" Image="votacion2.jpeg" Clicked="VotAct"/>
-        <Label Text="Votaciones Activas" Grid.Row="1" Grid.Column="1" TextColor="Black" FontAttributes="Bold" FontSize="Medium"  HorizontalOptions="Center"
-               VerticalOptions="End" />
-        <Button Grid.Row="3" Grid.Column="0" WidthRequest="100" HeightRequest="100" CornerRadius="50"
-            VerticalOptions="Center" HorizontalOptions="Center" BorderColor="Black" BackgroundColor="Transparent"
-            BorderWidth="2" Image="votacion3.jpeg" Clicked="VotFut"/>
-        <Label Text="Votaciones Futuras" Grid.Row="3" Grid.Column="0" TextColor="Black" FontAttributes="Bold" FontSize="Medium"  HorizontalOptions="Center"
-               VerticalOptions="End" />
-        <Button Grid.Row="3" Grid.Column="1" WidthRequest="100" HeightRequest="100" CornerRadius="50"
-            VerticalOptions="Center" HorizontalOptions="Center" BorderColor="Black" BackgroundColor="Transparent"
-            BorderWidth="2" Image="votacion4.jpeg" Clicked="Result"/>
-        <Label Text="Resultados" Grid.Row="3" Grid.Column="1" TextColor="Black" FontAttributes="Bold" FontSize="Medium"  HorizontalOptions="Center"
-               VerticalOptions="End" />
+        <Button 
+                Text="Votar"
+                Grid.Row="1"
+                Grid.Column="0"
+                Margin="5,5,5,5"
+                TextColor="Black"
+                FontAttributes="Bold"
+                BackgroundColor="White"
+                BorderWidth="15"
+                CornerRadius="15"
+                WidthRequest="170"
+                HeightRequest="55" 
+                Clicked="Votaciones"/>
+        <Button 
+                Text="Votaciones Activas"
+                Grid.Row="1"
+                Grid.Column="0"
+                Margin="5,5,5,5"
+                TextColor="Black"
+                FontAttributes="Bold"
+                BackgroundColor="White"
+                BorderWidth="15"
+                CornerRadius="15"
+                WidthRequest="170"
+                HeightRequest="55" 
+                Clicked="VotAct"/>
+        <Button 
+                Text="Votaciones Futuras"
+                Grid.Row="1"
+                Grid.Column="0"
+                Margin="5,5,5,5"
+                TextColor="Black"
+                FontAttributes="Bold"
+                BackgroundColor="White"
+                BorderWidth="15"
+                CornerRadius="15"
+                WidthRequest="170"
+                HeightRequest="55" 
+                Clicked="VotFut"/>
+        <Button 
+                Text="Resultados"
+                Grid.Row="1"
+                Grid.Column="0"
+                Margin="5,5,5,5"
+                TextColor="Black"
+                FontAttributes="Bold"
+                BackgroundColor="White"
+                BorderWidth="15"
+                CornerRadius="15"
+                WidthRequest="170"
+                HeightRequest="55" 
+                Clicked="Result"/>
+
     </Grid>
 
 </ContentPage>

@@ -181,4 +181,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\uca.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\fondoapp.jpg" />
+  </ItemGroup>
 </Project>
