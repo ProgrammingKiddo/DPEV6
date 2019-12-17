@@ -12,18 +12,19 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="75" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Button 
-                Text="Votaciones"
+                Text="Crear Votaciones"
                 Grid.Row ="2"
                 Grid.Column="0"
                 Margin="5"
                 TextColor="Black"
+                FontSize="12"
                 FontAttributes="Bold"
                 BackgroundColor="White"
                 BorderColor="Orange"
@@ -31,21 +32,26 @@
                 CornerRadius="15"
                 WidthRequest="170"
                 HeightRequest="55" 
-                Clicked="Votaciones"/>
+                ImageSource="CrearVotacion"
+                ContentLayout="Right,5"
+                Clicked="CrearVotac"/>
         <Button 
-                Text="Votaciones Activas"
+                Text="Votaciones"
                 Grid.Row="2"
                 Grid.Column="1"
                 Margin="5"
                 TextColor="Black"
+                FontSize="12"
                 BorderColor="Orange"
                 FontAttributes="Bold"
                 BackgroundColor="White"
                 BorderWidth="2"
                 CornerRadius="15"
                 WidthRequest="170"
-                HeightRequest="55" 
-                Clicked="VotAct"/>
+                HeightRequest="55"
+                ImageSource="votaciones"
+                ContentLayout="Right,5"
+                Clicked="Votaciones"/>
         <Button 
                 Text="Votaciones Futuras"
                 Grid.Row="3"
@@ -53,12 +59,15 @@
                 BorderColor="Orange"
                 Margin="5"
                 TextColor="Black"
+                FontSize="12"
                 FontAttributes="Bold"
                 BackgroundColor="White"
                 BorderWidth="2"
                 CornerRadius="15"
                 WidthRequest="170"
                 HeightRequest="55" 
+                ImageSource="VotacionesFuturas"
+                ContentLayout="Right,5"
                 Clicked="VotFut"/>
         <Button 
                 Text="Resultados"
@@ -66,6 +75,7 @@
                 Grid.Column="1"
                 Margin="5"
                 TextColor="Black"
+                FontSize="12"
                 FontAttributes="Bold"
                 BorderColor="Orange"
                 BackgroundColor="White"
@@ -73,6 +83,8 @@
                 CornerRadius="15"
                 WidthRequest="170"
                 HeightRequest="55" 
+                ImageSource="Resultados"
+                ContentLayout="Right,5"
                 Clicked="Result"/>
 
     </Grid>

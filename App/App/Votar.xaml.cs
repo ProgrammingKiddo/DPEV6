@@ -15,12 +15,18 @@ namespace App
 		public Votar ()
 		{
 			InitializeComponent ();
-             
+            hola();
         }
-
-        private async void crear(object sender, EventArgs e)
+        public void hola()
         {
-            await Navigation.PushAsync(new CrearVotacion());
+            string a = Conectar.Union(3, null);
+
+
+            Button btnCliente = new Button();
+            btnCliente.Text = a;
+            sl.Children.Add(btnCliente);
+            //Aquí quiero mostrar mi botón en la pantalla
+
         }
     }
 }
