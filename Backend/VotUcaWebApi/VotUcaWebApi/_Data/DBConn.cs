@@ -9,7 +9,7 @@ namespace VotUcaWebApi
         public static SqlConnection ConexionSQL()
         {
             SqlConnection ConectString = new SqlConnection();
-            ConectString.ConnectionString = "server = asus-pablo\\sqlexpress; database = VotUcaWebApi; Integrated security = true";
+            ConectString.ConnectionString = "server = REPLICA; database = VotUcaWebApi; Integrated security = true";
             return ConectString;
         }
 

@@ -12417,24 +12417,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\alber\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Rafa\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\alber\\Desktop\\version 5.0\\DPEV6\\Backend\\VotUcaWebApi\\VotUcaWebApi\\VotUcaWebApi.csproj",
+      "projectUniqueName": "C:\\Users\\Rafa\\Desktop\\ESI\\PINF\\DPEV6\\Backend\\VotUcaWebApi\\VotUcaWebApi\\VotUcaWebApi.csproj",
       "projectName": "VotUcaWebApi",
-      "projectPath": "C:\\Users\\alber\\Desktop\\version 5.0\\DPEV6\\Backend\\VotUcaWebApi\\VotUcaWebApi\\VotUcaWebApi.csproj",
-      "packagesPath": "C:\\Users\\alber\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\alber\\Desktop\\version 5.0\\DPEV6\\Backend\\VotUcaWebApi\\VotUcaWebApi\\obj\\",
+      "projectPath": "C:\\Users\\Rafa\\Desktop\\ESI\\PINF\\DPEV6\\Backend\\VotUcaWebApi\\VotUcaWebApi\\VotUcaWebApi.csproj",
+      "packagesPath": "C:\\Users\\Rafa\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Rafa\\Desktop\\ESI\\PINF\\DPEV6\\Backend\\VotUcaWebApi\\VotUcaWebApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\alber\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Rafa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"
@@ -12473,6 +12474,7 @@
             "version": "[2.1.2, )"
           },
           "Microsoft.NETCore.App": {
+            "suppressParent": "All",
             "target": "Package",
             "version": "[2.1.0, )",
             "autoReferenced": true
@@ -12483,10 +12485,16 @@
           }
         },
         "imports": [
-          "net461"
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
         ],
         "assetTargetFallback": true,
-        "warn": true
+        "warn": true,
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

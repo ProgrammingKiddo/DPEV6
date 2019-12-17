@@ -54,3 +54,17 @@ C:\Users\alber\Desktop\version 5.0\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\obj\D
 C:\Users\alber\Desktop\version 5.0\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\obj\Debug\netcoreapp2.1\VotUcaWebApi.RazorTargetAssemblyInfo.cache
 C:\Users\alber\Desktop\version 5.0\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\obj\Debug\netcoreapp2.1\VotUcaWebApi.dll
 C:\Users\alber\Desktop\version 5.0\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\obj\Debug\netcoreapp2.1\VotUcaWebApi.pdb
+C:\Users\Rafa\Desktop\ESI\PINF\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\bin\Debug\netcoreapp2.1\Properties\launchSettings.json
+C:\Users\Rafa\Desktop\ESI\PINF\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\bin\Debug\netcoreapp2.1\VotUcaWebApi.deps.json
+C:\Users\Rafa\Desktop\ESI\PINF\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\bin\Debug\netcoreapp2.1\VotUcaWebApi.runtimeconfig.json
+C:\Users\Rafa\Desktop\ESI\PINF\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\bin\Debug\netcoreapp2.1\VotUcaWebApi.runtimeconfig.dev.json
+C:\Users\Rafa\Desktop\ESI\PINF\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\bin\Debug\netcoreapp2.1\VotUcaWebApi.dll
+C:\Users\Rafa\Desktop\ESI\PINF\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\bin\Debug\netcoreapp2.1\VotUcaWebApi.pdb
+C:\Users\Rafa\Desktop\ESI\PINF\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\obj\Debug\netcoreapp2.1\VotUcaWebApi.csprojAssemblyReference.cache
+C:\Users\Rafa\Desktop\ESI\PINF\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\obj\Debug\netcoreapp2.1\VotUcaWebApi.RazorAssemblyInfo.cache
+C:\Users\Rafa\Desktop\ESI\PINF\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\obj\Debug\netcoreapp2.1\VotUcaWebApi.RazorAssemblyInfo.cs
+C:\Users\Rafa\Desktop\ESI\PINF\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\obj\Debug\netcoreapp2.1\VotUcaWebApi.AssemblyInfoInputs.cache
+C:\Users\Rafa\Desktop\ESI\PINF\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\obj\Debug\netcoreapp2.1\VotUcaWebApi.AssemblyInfo.cs
+C:\Users\Rafa\Desktop\ESI\PINF\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\obj\Debug\netcoreapp2.1\VotUcaWebApi.RazorTargetAssemblyInfo.cache
+C:\Users\Rafa\Desktop\ESI\PINF\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\obj\Debug\netcoreapp2.1\VotUcaWebApi.dll
+C:\Users\Rafa\Desktop\ESI\PINF\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\obj\Debug\netcoreapp2.1\VotUcaWebApi.pdb
