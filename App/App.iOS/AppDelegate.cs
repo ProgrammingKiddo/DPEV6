@@ -4,6 +4,7 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
+using Xamarin.Forms;
 
 namespace App.iOS
 {
@@ -22,7 +23,8 @@ namespace App.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
-            global::Xamarin.Forms.Forms.Init();
+            Forms.SetFlags("CollectionView_Experimental");
+            Forms.Init();
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

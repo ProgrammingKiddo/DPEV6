@@ -30,19 +30,26 @@ namespace App
 
         private async void Btnpage1_Clicked(object sender, EventArgs e)//boton crear votacion
         {
-            string[] envio = new string[100];
-            string[] acceso = new string[100];
-            envio[0] = PLCnombre.Text;//nombre votacion
-            envio[1] = PLCcandidato1.Text;//.Text;  //nombre opcion1
-            envio[2] = PLCcandidato2.Text;//.Text;  //nombre opcion2
-            envio[3] = PLCcandidato3.Text;// .Text;  //nombre opcion3                                   
-            envio[4] = PLCfechaini.Date.ToShortDateString();//fecha inicio            
-            envio[5] = PLCfechafin.Date.ToShortDateString();//fecha fin        
-            envio[6] ="ESI" ;// .Text;     //facultad
+            var answer = await DisplayAlert("Alerta", "¿Estás seguro de que quieres crear la votación?", "Si", "No");
+            if (answer == true)
+            {
+                string[] envio = new string[100];
+                string[] acceso = new string[100];
+                envio[0] = PLCnombre.Text;//nombre votacion
+                envio[1] = PLCcandidato1.Text;//.Text;  //nombre opcion1
+                envio[2] = PLCcandidato2.Text;//.Text;  //nombre opcion2
+                envio[3] = PLCcandidato3.Text;// .Text;  //nombre opcion3                                   
+                envio[4] = PLCfechaini.Date.ToShortDateString();//fecha inicio            
+                envio[5] = PLCfechafin.Date.ToShortDateString();//fecha fin        
+                envio[6] = "ESI";// .Text;     //facultad
 
-            acceso = Conectar.Union(2,envio);// el 2 es para la informacion votacion
+                acceso = Conectar.Union(2, envio);// el 2 es para la informacion votacion
 
+                await DisplayAlert("", "Su votación se ha creado correctamente","Aceptar");
 
+                await Navigation.PushAsync(new MenuPage());
+            }
+            
         }
     }
 }
