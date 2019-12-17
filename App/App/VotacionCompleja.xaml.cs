@@ -34,7 +34,7 @@ namespace App
             if (answer == true)
             {
                 string[] envio = new string[100];
-                string[] acceso = new string[100];
+                string acceso = null;
                 envio[0] = PLCnombre.Text;//nombre votacion
                 envio[1] = PLCcandidato1.Text;//.Text;  //nombre opcion1
                 envio[2] = PLCcandidato2.Text;//.Text;  //nombre opcion2

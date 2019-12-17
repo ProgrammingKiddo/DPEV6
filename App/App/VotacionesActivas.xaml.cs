@@ -15,6 +15,18 @@ namespace App
         public VotacionesActivas()
         {
             InitializeComponent();
+            hola();
+        }
+        public void hola()
+        {
+            string a = Conectar.Union(3, null);
+
+
+            Button btnCliente = new Button();
+            btnCliente.Text = a;
+            sl.Children.Add(btnCliente);
+            //Aquí quiero mostrar mi botón en la pantalla
+
         }
     }
 }

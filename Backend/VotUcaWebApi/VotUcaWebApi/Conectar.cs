@@ -48,10 +48,10 @@ namespace VotUcaWebApi
                     data = null;
 
                     // An incoming connection needs to be processed.  
-                    string[] envio = new string[100];
-                    string[] acceso = new string[100];
-                    byte[] recibir_info = new byte[100];
-                    byte[] msg = new byte[100];
+                    string[] envio = new string[1000];
+                    string[] acceso = new string[1000];
+                    byte[] recibir_info = new byte[1000];
+                    byte[] msg = new byte[1000];
                     int array_size = 0;
                     int poscoma = 0;
 
@@ -85,16 +85,35 @@ namespace VotUcaWebApi
 
 
 
-                                Insertar(envio[1], envio[2], envio[3], envio[4], envio[5]);
+                               acceso= Insertar(1,envio[1], envio[2], envio[3], envio[4], envio[5]);
 
                             }
                             break;
-                        case "3":
+                        case "3"://VER VOTACION
                             {
+                                byte[] resultado = new Byte[2048];
 
+                                acceso = Insertar(2, null, null, null, null, null);
+                                int i = 10;
+                                int a = int.Parse(acceso[9]);
+                                a = a / 10;
+                                msg = Encoding.ASCII.GetBytes(envio[i] + "," + envio[i + 1] + "," +
+                                   envio[i + 2] + "," + envio[i + 3] + "," + envio[i + 4] + "," + envio[i + 5] + "," +
+                                   envio[i + 6] + ",");
+                                msg.CopyTo(resultado, 0);
+                                while (a > 1)
+                                {
 
-
-                            }; break;//VER VOTACION
+                                    msg = Encoding.ASCII.GetBytes(envio[i] + "," + envio[i + 1] + "," +
+                                    envio[i + 2] + "," + envio[i + 3] + "," + envio[i + 4] + "," + envio[i + 5] + "," +
+                                    envio[i + 6] + ",");
+                                    msg.CopyTo(resultado, msg.Length);
+                                    i += 10;
+                                    a--;
+                                }
+                                msg = resultado;
+                                Console.WriteLine(Encoding.Default.GetString(msg));
+                            }; break;
                     }
                     handler.Send(msg);//enviar
                     handler.Shutdown(SocketShutdown.Both);
@@ -138,8 +157,9 @@ namespace VotUcaWebApi
             return acceso;
         }
 
-        private static void Insertar(string part1, string part2, string part3, string part4, string part5)
+        private static string[] Insertar(int opcion,string part1, string part2, string part3, string part4, string part5)
         {
+            string[] acceso = new string[1000];
 
             SqlConnection cn = new SqlConnection();
             cn = new SqlConnection("Data Source=DESKTOP-1CTQ3SE\\SQLEXPRESS;Initial Catalog=Pinf;Integrated Security=True");
@@ -147,13 +167,37 @@ namespace VotUcaWebApi
             SqlCommand cmd;
             try
             {
+                switch (opcion)
+                {
+                    case 1:
+                        cmd = new SqlCommand("insert into Votacion (Part1,Part2,Part3,fechaini,fechafin) VALUES('" + part1 + "','" + part2 + "','" + part3 + "','" + part4 + "','" + part5 + "')", cn);
 
-                cmd = new SqlCommand("insert into Votacion (Part1,Part2,Part3,fechaini,fechafin) VALUES('" + part1 + "','" + part2 + "','" + part3 + "','" + part4 + "','" + part5 + "')", cn);
+                        cmd.ExecuteNonQuery();
+                        Console.WriteLine("Registro realizado");
+                        break;
+                    case 2:
+                        {
+                            SqlCommand consulta = new SqlCommand("Select * From Votacion", cn);
+                            SqlDataReader dr = consulta.ExecuteReader();
+                            int j = 0;
+                            while (dr.Read())
+                            {
+                                int i = 0;
+                                while (i < 6)
+                                {
+                                    acceso[i + j] = Convert.ToString(dr[i]);
+                                    Console.WriteLine(acceso[i + j] + "El valor de i+j es " + (i + j));
+                                    i++;
+                                }
 
-                cmd.ExecuteNonQuery();
+                                acceso[9] = j.ToString();
 
-                Console.WriteLine("Registro realizado");
+                                j += 10;
 
+                            }
+                            break;
+                        }
+                }
             }
 
             catch (Exception ex)
@@ -164,6 +208,7 @@ namespace VotUcaWebApi
 
             { if (cn.State == ConnectionState.Open) cn.Close(); }
 
+            return acceso;
 
         }
     }

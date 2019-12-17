@@ -7,8 +7,9 @@ namespace App
 {
     public class Conectar
     {
-        public static  string[] Union(int opcion,string [] envio) {
-            string[] acceso = new string[100];
+        public static  string Union(int opcion,string [] envio) {
+            string acceso= null;
+
             // Data buffer for incoming data.  
             byte[] bytes = new byte[1024];
                 byte[] msg = new byte[1024];
@@ -43,7 +44,7 @@ namespace App
                             Array.Resize(ref bytes, array_size);
                              data = Encoding.Default.GetString(bytes);
                             int poscoma = data.IndexOf(",");
-                            acceso[0] = data.Substring(0,poscoma);//valor para controlar si se conecta con la LDAP
+                            acceso = data.Substring(0,poscoma);//valor para controlar si se conecta con la LDAP
                             break;
 
                         case 2: //informacion VOTACION   
@@ -58,6 +59,14 @@ namespace App
                             /*array_size = sender.Receive(bytes, 0, bytes.Length, 0);
                             Array.Resize(ref bytes, array_size);
                              data = Encoding.Default.GetString(bytes)*/ ; break;
+                        case 3:
+                            msg = Encoding.ASCII.GetBytes("3");
+                            bytesSent = sender.Send(msg);
+
+                            array_size = sender.Receive(bytes, 0, bytes.Length, 0);
+                            Array.Resize(ref bytes, array_size);
+                            acceso = Encoding.Default.GetString(bytes);
+                            break;
                     }
                     // Release the socket.  
                     sender.Shutdown(SocketShutdown.Both);
