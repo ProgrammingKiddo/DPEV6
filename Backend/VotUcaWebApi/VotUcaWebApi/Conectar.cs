@@ -192,7 +192,7 @@ namespace VotUcaWebApi
                                     //Console.WriteLine(acceso[i + j] + "El valor de i+j es " + (i + j));
                                     i++;
                                 }
-
+                                
                                 acceso[9] = j.ToString();
 
                                 j += 10;

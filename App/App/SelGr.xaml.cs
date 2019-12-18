@@ -28,7 +28,9 @@ namespace App
                 new Grados{ Nombre = "Grado en Ingeniería Eléctrica", Codigo = "21718", Facultad = "Escuela Superior de Ingeniería"},
                 new Grados{ Nombre = "Grado en Ingeniería en Electrónica Industrial", Codigo = "21719", Facultad = "Escuela Superior de Ingeniería"},
                 new Grados{ Nombre = "Grado en Ingenieria Mecánica", Codigo = "21720", Facultad = "Escuela Superior de Ingeniería"},
-                new Grados{ Nombre = "Grado en Ingeniería en Tecnologías Industriales", Codigo = "21721", Facultad = "Escuela Superior de Ingeniería"}
+                new Grados{ Nombre = "Grado en Ingeniería en Tecnologías Industriales", Codigo = "21721", Facultad = "Escuela Superior de Ingeniería"},
+                new Grados{ Nombre = "", Codigo = "", Facultad = ""},
+                new Grados{ Nombre = "", Codigo = "", Facultad = ""}
         };
 
             ListaGrados.ItemsSource = grados;
