@@ -18,15 +18,30 @@ namespace App
             hola();
         }
         public void hola()
-        {
+        { string[] resultado = new string[10];
+            int condicion=0;
             string a = Conectar.Union(3, null);
+             int poscoma = a.IndexOf(",");
+            condicion = int.Parse(a.Substring(0, poscoma));
+            a = a.Substring(poscoma + 1);
 
-
-            Button btnCliente = new Button();
-            btnCliente.Text = a;
-            sl.Children.Add(btnCliente);
-            //Aquí quiero mostrar mi botón en la pantalla
-
+            while (condicion > 0)
+            {  Button btnCliente = new Button();
+                int i = 0;
+                while (i < 8)
+                {
+                    poscoma = a.IndexOf(",");
+                    resultado[i] = a.Substring(0, poscoma);
+                    a = a.Substring(poscoma + 1);
+                }
+                    
+                    btnCliente.Text = resultado[7]+" "+resultado[4]+" "+resultado[5];
+                btnCliente.TranslationX.LoadFromXaml(condicion.ToString());
+                btnCliente.TranslationY.LoadFromXaml(condicion.ToString());
+                sl.Children.Add(btnCliente);
+                    condicion--;
+                
+            }
         }
     }
 }
