@@ -25,7 +25,7 @@ namespace VotUcaWebApi
             // Dns.GetHostName returns the name of the   
             // host running the application.  
             IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
-            IPAddress ipAddress = IPAddress.Parse("10.182.114.75");
+            IPAddress ipAddress = IPAddress.Parse("192.168.1.81");
             IPEndPoint localEndPoint = new IPEndPoint(ipAddress, 5000);
 
             // Create a TCP/IP socket.  
@@ -48,10 +48,10 @@ namespace VotUcaWebApi
                     data = null;
 
                     // An incoming connection needs to be processed.  
-                    string[] envio = new string[1000];
-                    string[] acceso = new string[1000];
-                    byte[] recibir_info = new byte[1000];
-                    byte[] msg = new byte[1000];
+                    string[] envio = new string[10000];
+                    string[] acceso = new string[10000];
+                    byte[] recibir_info = new byte[10000];
+                    byte[] msg = new byte[10000];
                     int array_size = 0;
                     int poscoma = 0;
 
@@ -91,30 +91,33 @@ namespace VotUcaWebApi
                             break;
                         case "3"://VER VOTACION
                             {
-                                byte[] resultado = new Byte[2048];
+                                byte[] resultado = new Byte[1000];
+                                string suma;
 
                                 acceso = Insertar(2, null, null, null, null, null,null);
                                 int i = 0;
+                                int j = 0,h=1;
                                 int a = int.Parse(acceso[9]);
                                 a = a / 10;
-                                msg = Encoding.ASCII.GetBytes(acceso[9]+","+acceso[i] + "," + acceso[i + 1] + "," +
+                                j = a;
+                                /*msg = Encoding.ASCII.GetBytes(*/suma=acceso[9]+","+acceso[i] + "," + acceso[i + 1] + "," +
                                    acceso[i + 2] + "," + acceso[i + 3] + "," + acceso[i + 4] + "," + acceso[i + 5] + "," +
-                                   acceso[i + 6] + "," +
-                                   acceso[i + 7] + ",");
-                                msg.CopyTo(resultado, 0);
+                                   acceso[i + 6] + ",";
+                               // msg.CopyTo(resultado, 0);
                                 i += 10;
-                                while (a > 1)
+                                while (a >= 1)
                                 {
 
-                                    msg = Encoding.ASCII.GetBytes(acceso[i] + "," + acceso[i + 1] + "," +
+                                    /*msg = Encoding.ASCII.GetBytes(*/suma += acceso[i] + "," + acceso[i + 1] + "," +
                                    acceso[i + 2] + "," + acceso[i + 3] + "," + acceso[i + 4] + "," + acceso[i + 5] + "," +
-                                   acceso[i + 6] + "," +
-                                   acceso[i + 7] + ",");
-                                    msg.CopyTo(resultado, msg.Length);
+                                   acceso[i + 6] + ",";
+                                   // h = Ultimo(resultado);
+                                   // msg.CopyTo(resultado, h);
                                     i += 10;
+                                   // h++;
                                     a--;
                                 }
-                                msg = resultado;
+                                msg = Encoding.ASCII.GetBytes(suma); 
                                 Console.WriteLine(Encoding.Default.GetString(msg));
                             }; break;
                     }
@@ -165,7 +168,7 @@ namespace VotUcaWebApi
             string[] acceso = new string[1000];
 
             SqlConnection cn = new SqlConnection();
-            cn = new SqlConnection("Data Source=DESKTOP-1CTQ3SE\\SQLEXPRESS;Initial Catalog=Pinf;Integrated Security=True");
+            cn = new SqlConnection("Data Source=DESKTOP-QDS38O2;Initial Catalog=Pinf;Integrated Security=True");
             cn.Open();
             SqlCommand cmd;
             try
@@ -212,6 +215,17 @@ namespace VotUcaWebApi
             { if (cn.State == ConnectionState.Open) cn.Close(); }
 
             return acceso;
+
+        }
+        public static int Ultimo(byte []x)
+        {
+            int contador = 0;
+            while (x[contador].ToString()!=null )
+            {
+                contador += 1;
+            }
+
+            return contador;
 
         }
     }

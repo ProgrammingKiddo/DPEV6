@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="App.Votar"
              BackgroundImage="MenuUI.png">
-    <Grid x:Name="sl" RowSpacing="5" ColumnSpacing="5" >
+    <StackLayout>
+        <Grid x:Name="sl" RowSpacing="5" ColumnSpacing="5" >
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
@@ -13,5 +14,6 @@
         </Grid.RowDefinitions>
      
     </Grid>
+    </StackLayout>
     
 </ContentPage>

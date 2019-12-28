@@ -19,7 +19,7 @@ namespace App
                     // Establish the remote endpoint for the socket.  
                     // This example uses port 11000 on the local computer.  
                     IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
-                    IPAddress ipAddress = IPAddress.Parse("10.182.114.75");
+                    IPAddress ipAddress = IPAddress.Parse("192.168.1.81");
                      IPEndPoint remoteEP = new IPEndPoint(ipAddress, 5000);
 
                      // Create a TCP/IP  socket.  
