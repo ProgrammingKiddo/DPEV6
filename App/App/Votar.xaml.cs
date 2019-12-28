@@ -19,14 +19,15 @@ namespace App
             try
             {
                 string[] resultado = new string[100];
+               
                 int condicion = 2;
                 string a = Conectar.Union(3, null);
                 int poscoma = a.IndexOf(",");
-                condicion = int.Parse(a.Substring(0, poscoma))/10;
+                condicion = int.Parse(a.Substring(0, poscoma)) / 10;
                 a = a.Substring(poscoma + 1);
-                
+
                 while (condicion >= 0)
-                {                    
+                {
                     int i = 0;
                     while (i < 7)
                     {
@@ -34,18 +35,30 @@ namespace App
                         resultado[i] = a.Substring(0, poscoma);
                         a = a.Substring(poscoma + 1);
                         i++;
-                    }                  
-                  Button  button = new Button { Text = resultado[6] + " " + resultado[4] + " " + resultado[5] };
-                    sl.Children.Add(button, 0,condicion);
+                    }
+                    
+                    Button button = new Button
+                    {
+                        Text = resultado[6] + " " + resultado[4] + " " + resultado[5],
+                       
+                    };
+                    button.Clicked+= async (sender, args) => await Navigation.PushAsync(new Votaciones(resultado));
+                    sl.Children.Add(button, 0, condicion);
+                    
                     condicion--;
                 }
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 DisplayAlert("a", ex.Message, "ok");
-                    }
+            }
         }
-    }
 
-    
+        
+
+       
+
+
+    }
 }
 

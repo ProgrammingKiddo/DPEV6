@@ -54,12 +54,8 @@ namespace App
                             //nombrevotacion,opcion1,opcion2,opcion3,fechaini,fechafin,"yo le pasa una facultad por pasar algo"
                             
                              bytesSent = sender.Send(msg);//enviar
-                          
-                         
-                            /*array_size = sender.Receive(bytes, 0, bytes.Length, 0);
-                            Array.Resize(ref bytes, array_size);
-                             data = Encoding.Default.GetString(bytes)*/ ; break;
-                        case 3:
+                            ; break;
+                        case 3://VER VOTACION 
                             msg = Encoding.ASCII.GetBytes("3");
                             bytesSent = sender.Send(msg);
 
@@ -67,6 +63,11 @@ namespace App
                             Array.Resize(ref bytes, array_size);
                             acceso = Encoding.Default.GetString(bytes);
                             break;
+                        case 4://votar  
+                            msg = Encoding.ASCII.GetBytes("4" + envio[0] + "," + envio[1]+ ",");
+                            //id_votacion,"1 si es p1,2 si es p2 y 3 si es p3"
+
+                            bytesSent = sender.Send(msg);break;
                     }
                     // Release the socket.  
                     sender.Shutdown(SocketShutdown.Both);

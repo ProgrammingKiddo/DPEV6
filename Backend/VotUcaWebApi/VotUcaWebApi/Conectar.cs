@@ -59,7 +59,7 @@ namespace VotUcaWebApi
                     Array.Resize(ref recibir_info, array_size);
                     data = Encoding.Default.GetString(recibir_info);
 
-                    string opcion = data.Substring(0, 1);//aqui cojo la opcion ya sea LDAP o VOTACION
+                    string opcion = data.Substring(0, 1);//aqui cojo la opcion ya sea LDAP,CREAR VOTACION,Ver Votacion,Votar
 
                     switch (opcion)
                     {
@@ -82,11 +82,7 @@ namespace VotUcaWebApi
                                     data = data.Substring(poscoma+1);
                                     i++;
                                 }
-
-
-
                                acceso= Insertar(1,envio[1], envio[2], envio[3], envio[4], envio[5],envio[0]);
-
                             }
                             break;
                         case "3"://VER VOTACION
@@ -95,31 +91,41 @@ namespace VotUcaWebApi
                                 string suma;
 
                                 acceso = Insertar(2, null, null, null, null, null,null);
-                                int i = 0;
-                                int j = 0,h=1;
+                                int i = 0;                              
                                 int a = int.Parse(acceso[9]);
-                                a = a / 10;
-                                j = a;
-                                /*msg = Encoding.ASCII.GetBytes(*/suma=acceso[9]+","+acceso[i] + "," + acceso[i + 1] + "," +
+                                a = a / 10;                            
+                                suma=acceso[9]+","+acceso[i] + "," + acceso[i + 1] + "," +
                                    acceso[i + 2] + "," + acceso[i + 3] + "," + acceso[i + 4] + "," + acceso[i + 5] + "," +
-                                   acceso[i + 6] + ",";
-                               // msg.CopyTo(resultado, 0);
+                                  acceso[i + 6] + ",";
+                              
                                 i += 10;
                                 while (a >= 1)
                                 {
-
-                                    /*msg = Encoding.ASCII.GetBytes(*/suma += acceso[i] + "," + acceso[i + 1] + "," +
+                                  suma += acceso[i] + "," + acceso[i + 1] + "," +
                                    acceso[i + 2] + "," + acceso[i + 3] + "," + acceso[i + 4] + "," + acceso[i + 5] + "," +
                                    acceso[i + 6] + ",";
-                                   // h = Ultimo(resultado);
-                                   // msg.CopyTo(resultado, h);
-                                    i += 10;
-                                   // h++;
+                                    
+                                    i += 10;                                 
                                     a--;
                                 }
                                 msg = Encoding.ASCII.GetBytes(suma); 
                                 Console.WriteLine(Encoding.Default.GetString(msg));
                             }; break;
+                        case "4":
+                            {
+                                data = data.Substring(1);
+                                int i = 0;
+                                while (i < 2)
+                                {
+                                    poscoma = data.IndexOf(",");
+                                    envio[i] = data.Substring(0, poscoma);
+                                    data = data.Substring(poscoma + 1);
+                                    i++;
+                                }                                
+                                    acceso = Insertar(3,envio[0],envio[1],null,null,null,null);
+                                //envio[0]=id_votaciones,envio[1]=entero del participante
+                            }
+                            ; break;
                     }
                     handler.Send(msg);//enviar
                     handler.Shutdown(SocketShutdown.Both);
@@ -194,15 +200,17 @@ namespace VotUcaWebApi
                                     acceso[i + j] = Convert.ToString(dr[i]);
                                     //Console.WriteLine(acceso[i + j] + "El valor de i+j es " + (i + j));
                                     i++;
-                                }
-                                
+                                }                                
                                 acceso[9] = j.ToString();
-
                                 j += 10;
-
                             }
-                            break;
-                        }
+                            
+                        }break;
+                    /*case 3:
+                        cmd = new SqlCommand("insert into Resultado (Id,) VALUES('" + part1 + "','" + part2 + "')", cn);
+
+                        cmd.ExecuteNonQuery();
+                        Console.WriteLine("Registro realizado") ; break ;*/
                 }
             }
 
@@ -217,17 +225,7 @@ namespace VotUcaWebApi
             return acceso;
 
         }
-        public static int Ultimo(byte []x)
-        {
-            int contador = 0;
-            while (x[contador].ToString()!=null )
-            {
-                contador += 1;
-            }
 
-            return contador;
-
-        }
     }
 
 }
