@@ -25,7 +25,7 @@ namespace VotUcaWebApi
             // Dns.GetHostName returns the name of the   
             // host running the application.  
             IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
-            IPAddress ipAddress = IPAddress.Parse("192.168.1.42");
+            IPAddress ipAddress = IPAddress.Parse("192.168.1.81");
             IPEndPoint localEndPoint = new IPEndPoint(ipAddress, 5000);
 
             // Create a TCP/IP socket.  
@@ -123,7 +123,7 @@ namespace VotUcaWebApi
                                     i++;
                                 }
                                 Console.WriteLine(envio[0]+","+envio[1]);
-                                   // acceso = Insertar(3,envio[0],envio[1],null,null,null,null);
+                                    acceso = Insertar(3,envio[0],envio[1],null,null,null,null);
                                 //envio[0]=id_votaciones,envio[1]=entero del participante
                             }
                             ; break;
@@ -175,15 +175,18 @@ namespace VotUcaWebApi
             string[] acceso = new string[1000];
 
             SqlConnection cn = new SqlConnection();
-            cn = new SqlConnection("Data Source=DESKTOP-1CTQ3SE\\SQLEXPRESS;Initial Catalog=Pinf;Integrated Security=True");
+            cn = new SqlConnection("Data Source=DESKTOP-QDS38O2;Initial Catalog=pinf;Integrated Security=True");
             cn.Open();
-            SqlCommand cmd;
+            SqlCommand cmd = null;
             try
             {
                 switch (opcion)
                 {
                     case 1:
-                        cmd = new SqlCommand("insert into Votacion (Part1,Part2,Part3,fechaini,fechafin,nombre) VALUES('" + part1 + "','" + part2 + "','" + part3 + "','" + part4 + "','" + part5 + "','" + part6+ "')", cn);
+                        cmd = new SqlCommand("insert into Votacion (Part1,Part2,Part3,fechaini,fechafin,nombre) VALUES('" + part1 + "','" + part2 + "','" + part3 + "','" + part4 + "','" + part5 + "','" + part6 + "')", cn);
+
+                        cmd.ExecuteNonQuery();
+                        cmd = new SqlCommand("insert into Resultados (Result1,Result2,Result3) VALUES('" + 0 + "','" + 0 + "','" + 0 + "')", cn);
 
                         cmd.ExecuteNonQuery();
                         Console.WriteLine("Registro realizado");
@@ -201,20 +204,64 @@ namespace VotUcaWebApi
                                     acceso[i + j] = Convert.ToString(dr[i]);
                                     //Console.WriteLine(acceso[i + j] + "El valor de i+j es " + (i + j));
                                     i++;
-                                }                                
+                                }
                                 acceso[9] = j.ToString();
                                 j += 10;
                             }
-                            
-                        }break;
-                    /*case 3:
-                        cmd = new SqlCommand("insert into Resultado (Id,) VALUES('" + part1 + "','" + part2 + "')", cn);
 
-                        cmd.ExecuteNonQuery();
-                        Console.WriteLine("Registro realizado") ; break ;*/
-                }
+                        }
+                        break;
+                    case 3:
+                        {
+                            SqlCommand consulta = new SqlCommand("Select * From Resultados Where IdVotaciones='" + part1 + "' ", cn);
+                            SqlDataReader dr = consulta.ExecuteReader();
+                            int j = 0;
+                            while (dr.Read())
+                            {
+                                int i = 0;
+                                while (i < 4)
+                                {
+                                    acceso[i + j] = Convert.ToString(dr[i]);
+                                    //Console.WriteLine(acceso[i + j] + "El valor de i+j es " + (i + j));
+                                    i++;
+                                }
+                                j += 10;
+                            }
+                            cn.Close();
+                            cn.Open();
+
+                            if (int.Parse(part2) == 1)
+                            {
+                                int res;
+                                res=int.Parse(acceso[1]) + 1;
+                                
+                                cmd = new SqlCommand("update Resultados set Result1='" + res + "' where IdVotaciones='" + part1 + "'",cn);
+                                cmd.ExecuteNonQuery();
+                            }
+                            if (int.Parse(part2) == 2)
+                            {
+                                int res;
+                                res = int.Parse(acceso[2]) + 1;
+
+                                cmd = new SqlCommand("update Resultados set Result2='" + res + "' where IdVotaciones='" + part1 + "'", cn);
+                                cmd.ExecuteNonQuery();
+                            }
+                            if (int.Parse(part2) == 3)
+                            {
+                                int res;
+                                res = int.Parse(acceso[3]) + 1;
+
+                                cmd = new SqlCommand("update Resultados set Result3='" + res + "' where IdVotaciones='" + part1 + "'", cn);
+                                cmd.ExecuteNonQuery();
+                            }
+
+
+
+                            Console.WriteLine("Registro realizado"); break;
+                            }
+                        }
+                
             }
-
             catch (Exception ex)
 
             { Console.WriteLine(ex.Message + "2"); }

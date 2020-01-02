@@ -12,7 +12,9 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-         
+            <Button x:Name="part1" Grid.Row="2"/>
+            <Button x:Name="part2" Grid.Row="3"/>
+            <Button x:Name="part3" Grid.Row="4"/>
         </Grid>
     </StackLayout>
 

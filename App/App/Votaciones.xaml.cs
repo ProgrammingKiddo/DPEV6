@@ -16,7 +16,7 @@ namespace App
         {
             InitializeComponent();
 
-            Button part1 = new Button { Text = resultado[1] };
+            
             
 
             Label label = new Label
@@ -27,21 +27,23 @@ namespace App
                 HorizontalOptions = LayoutOptions.Center
             };
             sl.Children.Add(label);
+            part1.Text = resultado[1];
+            part2.Text = resultado[2];
+            part3.Text = resultado[3];
 
-            sl.Children.Add(part1);
 
-
-            part1.Clicked += (sendr, EventArgs) => { evento(sendr, EventArgs, resultado); };
-
+            part1.Clicked += (sendr, EventArgs) => { evento(sendr, EventArgs, resultado,1); };
+            part2.Clicked += (sendr, EventArgs) => { evento(sendr, EventArgs, resultado, 2); };
+            part3.Clicked += (sendr, EventArgs) => { evento(sendr, EventArgs, resultado, 3); };
         }
 
-        public void evento(object sender, EventArgs e, string[] resultado)
+        public void evento(object sender, EventArgs e, string[] resultado,int res)
         {
 
             string[] datos = new string[100];
 
             datos[0] = resultado[0];           
-            datos[1] = resultado[1];
+            datos[1] = res.ToString();
           
             Conectar.Union(4,datos);
 

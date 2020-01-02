@@ -82,3 +82,17 @@ C:\Users\alber\Desktop\version 8.1\8.1.3\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi
 C:\Users\alber\Desktop\version 8.1\8.1.3\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\obj\Debug\netcoreapp2.1\VotUcaWebApi.RazorTargetAssemblyInfo.cache
 C:\Users\alber\Desktop\version 8.1\8.1.3\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\obj\Debug\netcoreapp2.1\VotUcaWebApi.dll
 C:\Users\alber\Desktop\version 8.1\8.1.3\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\obj\Debug\netcoreapp2.1\VotUcaWebApi.pdb
+D:\uni\PINF\clone\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\bin\Debug\netcoreapp2.1\VotUcaWebApi.deps.json
+D:\uni\PINF\clone\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\bin\Debug\netcoreapp2.1\VotUcaWebApi.runtimeconfig.json
+D:\uni\PINF\clone\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\bin\Debug\netcoreapp2.1\VotUcaWebApi.runtimeconfig.dev.json
+D:\uni\PINF\clone\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\bin\Debug\netcoreapp2.1\VotUcaWebApi.dll
+D:\uni\PINF\clone\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\bin\Debug\netcoreapp2.1\VotUcaWebApi.pdb
+D:\uni\PINF\clone\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\obj\Debug\netcoreapp2.1\VotUcaWebApi.csprojAssemblyReference.cache
+D:\uni\PINF\clone\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\obj\Debug\netcoreapp2.1\VotUcaWebApi.csproj.CoreCompileInputs.cache
+D:\uni\PINF\clone\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\obj\Debug\netcoreapp2.1\VotUcaWebApi.RazorAssemblyInfo.cache
+D:\uni\PINF\clone\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\obj\Debug\netcoreapp2.1\VotUcaWebApi.RazorAssemblyInfo.cs
+D:\uni\PINF\clone\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\obj\Debug\netcoreapp2.1\VotUcaWebApi.AssemblyInfoInputs.cache
+D:\uni\PINF\clone\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\obj\Debug\netcoreapp2.1\VotUcaWebApi.AssemblyInfo.cs
+D:\uni\PINF\clone\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\obj\Debug\netcoreapp2.1\VotUcaWebApi.RazorTargetAssemblyInfo.cache
+D:\uni\PINF\clone\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\obj\Debug\netcoreapp2.1\VotUcaWebApi.dll
+D:\uni\PINF\clone\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\obj\Debug\netcoreapp2.1\VotUcaWebApi.pdb
