@@ -25,7 +25,15 @@ namespace App
         }
         private async void Votaciones(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Votar());
+            string[] resultado = new string[100];
+
+            int condicion = 2;
+            string a = Conectar.Union(3, null);
+            int poscoma = a.IndexOf(",");
+            condicion = int.Parse(a.Substring(0, poscoma)) / 10;
+            a = a.Substring(poscoma + 1);
+
+            await Navigation.PushAsync(new Votar(resultado,a,condicion,poscoma));
         }
         private async void VotFut(object sender, EventArgs e)
         {
