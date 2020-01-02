@@ -25,7 +25,7 @@ namespace VotUcaWebApi
             // Dns.GetHostName returns the name of the   
             // host running the application.  
             IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
-            IPAddress ipAddress = IPAddress.Parse("192.168.1.81");
+            IPAddress ipAddress = IPAddress.Parse("192.168.1.42");
             IPEndPoint localEndPoint = new IPEndPoint(ipAddress, 5000);
 
             // Create a TCP/IP socket.  
@@ -121,8 +121,9 @@ namespace VotUcaWebApi
                                     envio[i] = data.Substring(0, poscoma);
                                     data = data.Substring(poscoma + 1);
                                     i++;
-                                }                                
-                                    acceso = Insertar(3,envio[0],envio[1],null,null,null,null);
+                                }
+                                Console.WriteLine(envio[0]+","+envio[1]);
+                                   // acceso = Insertar(3,envio[0],envio[1],null,null,null,null);
                                 //envio[0]=id_votaciones,envio[1]=entero del participante
                             }
                             ; break;
@@ -174,7 +175,7 @@ namespace VotUcaWebApi
             string[] acceso = new string[1000];
 
             SqlConnection cn = new SqlConnection();
-            cn = new SqlConnection("Data Source=DESKTOP-QDS38O2;Initial Catalog=Pinf;Integrated Security=True");
+            cn = new SqlConnection("Data Source=DESKTOP-1CTQ3SE\\SQLEXPRESS;Initial Catalog=Pinf;Integrated Security=True");
             cn.Open();
             SqlCommand cmd;
             try

@@ -14,7 +14,6 @@ namespace App
             try
             {
                 /*string[] resultado = new string[100];
-
                 int condicion = 2;
                 string a = Conectar.Union(3, null);
                 int poscoma = a.IndexOf(",");
