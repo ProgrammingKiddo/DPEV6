@@ -8,7 +8,7 @@ namespace App
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Votar : ContentPage
     {
-        public Votar(string[] resultado, string a, int condicion, int poscoma)
+        public Votar(string[] resultado, string a, int condicion, int poscoma,int Nv)
         {
             InitializeComponent();
             try
@@ -20,6 +20,7 @@ namespace App
                 condicion = int.Parse(a.Substring(0, poscoma)) / 10;
                 a = a.Substring(poscoma + 1);
                 */
+              
                 if (condicion >= 0)
                 {
                     int i = 0;
@@ -37,11 +38,16 @@ namespace App
                         Text = resultado[6] + " " + resultado[4] + " " + resultado[5],
 
                     };
-                    button.Clicked += async (sender, args) => await Navigation.PushAsync(new Votaciones(resultado));
-                    siguiente.Clicked += async (sender, args) => await Navigation.PushAsync(new Votar(resultado,a,condicion--,poscoma));
-
-                    sl.Children.Add(siguiente, 0,1);
-                    sl.Children.Add(button);
+                    if (Nv == 0)
+                    {
+                        button.Clicked += async (sender, args) => await Navigation.PushAsync(new Votaciones(resultado));
+                    }
+                    siguiente.Clicked += async (sender, args) => await Navigation.PushAsync(new Votar(resultado, a, condicion--, poscoma,Nv));
+                    
+                        sl.Children.Add(siguiente, 0, 1);
+                    
+                        sl.Children.Add(button);
+                    
 
                     
                 }

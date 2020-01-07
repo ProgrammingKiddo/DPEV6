@@ -5,9 +5,16 @@
              BackgroundImage="fondoapp.jpg">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Bienvenido a Resultados"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            
+            <Grid x:Name="sl" RowSpacing="5" ColumnSpacing="5" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

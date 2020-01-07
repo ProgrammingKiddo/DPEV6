@@ -8,12 +8,16 @@ namespace App
     {
         public static string Cifrar(string mensaje)
         {
-            
-            int num = int.Parse(mensaje.Substring(1));
-            num=num*7;
-            mensaje = mensaje.Substring(0, 1) + num.ToString();
+            string result = string.Empty;
+            byte[] encryted = System.Text.Encoding.Unicode.GetBytes(mensaje);
+            result = Convert.ToBase64String(encryted);
+            return result;
+            /* int num = int.Parse(mensaje.Substring(1));
+             num=num*7;
+             mensaje = mensaje.Substring(0, 1) + num.ToString();
 
-            return mensaje;
+             return mensaje;
+         }*/
         }
     }
 }
