@@ -13,13 +13,16 @@ namespace App
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MenuPage : MasterDetailPage
     {
-        public MenuPage()
+        public MenuPage(int i)
         {
             InitializeComponent();
-            Init();
+           Init(i);
+
+            
+           
         }
 
-        void Init()
+        void Init(int i)
         {
             List<Menu> menu = new List<Menu>
             {
@@ -30,11 +33,20 @@ namespace App
             };
 
             ListMenu.ItemsSource = menu;
-
-            Detail = new NavigationPage(new Page1())
+            if (i == 1)
             {
-                BarBackgroundColor = Color.FromHex("FFA73F")
-            };
+                Detail = new NavigationPage(new Page1())
+                {
+                    BarBackgroundColor = Color.FromHex("FFA73F")
+                };
+            }
+            else
+            {
+                Detail = new NavigationPage(new interfaz_usuario())
+                {
+                    BarBackgroundColor = Color.FromHex("FFA73F")
+                };
+            }
            
         }
 
@@ -45,7 +57,7 @@ namespace App
             {
                 if (menu.MenuTitle.Equals("Inicio"))
                 {
-                    Detail = new NavigationPage(new MenuPage());
+                    Detail = new NavigationPage(new MenuPage(1));
                 }
                 else if (menu.MenuTitle.Equals("Crear Votaciones"))
                 {

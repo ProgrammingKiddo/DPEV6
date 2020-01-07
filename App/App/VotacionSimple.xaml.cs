@@ -45,7 +45,7 @@ namespace App
 
                 acceso = Conectar.Union(2, envio);// el 2 es para la informacion votacion
                 await DisplayAlert("", "Su votación se ha creado correctamente", "Aceptar");
-                await Navigation.PushAsync(new MenuPage());
+                await Navigation.PushAsync(new MenuPage(1));
             }
             
         }

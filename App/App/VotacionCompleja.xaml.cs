@@ -47,7 +47,7 @@ namespace App
 
                 await DisplayAlert("", "Su votación se ha creado correctamente","Aceptar");
 
-                await Navigation.PushAsync(new MenuPage());
+                await Navigation.PushAsync(new MenuPage(1));
             }
             
         }
