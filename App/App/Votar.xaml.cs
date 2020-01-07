@@ -41,9 +41,9 @@ namespace App
                         siguiente.Clicked += async (sender, args) => await Navigation.PushAsync(new Votar(resultado, a, condicion, poscoma, Nv));
 
                         sl.Children.Add(siguiente, 0, 1);
-                        condicion--;
+                            condicion--; 
                     }
-                                       
+                                  
                         sl.Children.Add(button);
                     
 
