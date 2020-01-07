@@ -99,8 +99,9 @@ namespace VotUcaWebApi
                                 /*suma =  acceso[i] + "," + acceso[i + 1] + "," +
                                    acceso[i + 2] + "," + acceso[i + 3] + "," + acceso[i + 4] + "," + acceso[i + 5] + "," +
                                   acceso[i + 6] + ",";*/
-                                
-                                suma = acceso[9] + ",";
+
+                                suma = null;
+                                int cont = 0;
                                 
 
                                         i += 10;
@@ -108,7 +109,7 @@ namespace VotUcaWebApi
                                         {
                                             if (DateTime.Compare(Convert.ToDateTime(acceso[i+4]), localDate) <= 0 && DateTime.Compare(Convert.ToDateTime(acceso[i+5]), localDate) > 0)
                                             {
-                                        
+                                        cont++;
                                             suma +=acceso[i] + "," + acceso[i + 1] + "," +
                                              acceso[i + 2] + "," + acceso[i + 3] + "," + acceso[i + 4] + "," + acceso[i + 5] + "," +
                                              acceso[i + 6] + ",";
@@ -117,8 +118,8 @@ namespace VotUcaWebApi
                                             i += 10;
                                             a--;
                                         }
-                                            msg = Encoding.ASCII.GetBytes(suma);
-                                            Console.WriteLine(Encoding.Default.GetString(msg));
+                                msg = Encoding.ASCII.GetBytes(cont.ToString() + "," + suma);
+                                Console.WriteLine(Encoding.Default.GetString(msg));
                                         
                         
                             }; break;
@@ -147,7 +148,7 @@ namespace VotUcaWebApi
                                 string suma=null;
                                 
                                 acceso = Insertar(2, null, null, null, null, null, null);
-                                suma = acceso[9] + ",";
+                                int cont = 0;
                                 int i = 0;
                                 int a = int.Parse(acceso[9]);
                                 a = a / 10;
@@ -156,7 +157,7 @@ namespace VotUcaWebApi
                                 {
                                     if (DateTime.Compare(Convert.ToDateTime(acceso[i + 4]), localDate) >0)
                                     {
-
+                                        cont++;
                                         suma +=acceso[i] + "," + acceso[i + 1] + "," +
                                          acceso[i + 2] + "," + acceso[i + 3] + "," + acceso[i + 4] + "," + acceso[i + 5] + "," +
                                          acceso[i + 6] + ",";
@@ -165,7 +166,7 @@ namespace VotUcaWebApi
                                     i += 10;
                                     a--;
                                 }
-                                msg = Encoding.ASCII.GetBytes(suma);
+                                msg = Encoding.ASCII.GetBytes(cont.ToString() + "," + suma);
                                 Console.WriteLine(Encoding.Default.GetString(msg));
                             }; break;
                         case "6"://votaciones acabadas
@@ -177,16 +178,16 @@ namespace VotUcaWebApi
                                 
 
                                 acceso = Insertar(2, null, null, null, null, null, null);
-                                suma = acceso[9] + ",";
                                 int i = 0;
                                 int a = int.Parse(acceso[9]);
                                 a = a / 10;
                                 i += 10;
+                                int cont = 0;
                                 while (a >= 1)
                                 {
                                     if (DateTime.Compare(Convert.ToDateTime(acceso[i + 5]), localDate) < 0)
                                     {
-
+                                        cont++;
                                         suma +=acceso[i] + "," + acceso[i + 1] + "," +
                                          acceso[i + 2] + "," + acceso[i + 3] + "," + acceso[i + 4] + "," + acceso[i + 5] + "," +
                                          acceso[i + 6] + ",";
@@ -195,7 +196,8 @@ namespace VotUcaWebApi
                                     i += 10;
                                     a--;
                                 }
-                                msg = Encoding.ASCII.GetBytes(suma);
+
+                                msg = Encoding.ASCII.GetBytes(cont.ToString()+","+suma);
                                 Console.WriteLine(Encoding.Default.GetString(msg));
                             }; break;
 

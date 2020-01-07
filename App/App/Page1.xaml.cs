@@ -30,7 +30,7 @@ namespace App
             int condicion = 2;
             string a = Conectar.Union(3, null);
             int poscoma = a.IndexOf(",");
-            condicion = int.Parse(a.Substring(0, poscoma)) / 10;
+            condicion = int.Parse(a.Substring(0, poscoma));
             a = a.Substring(poscoma + 1);
 
             await Navigation.PushAsync(new Votar(resultado,a,condicion,poscoma,0));
@@ -40,7 +40,7 @@ namespace App
             string[] resultado = new string[100];
             string a = Conectar.Union(5, null);
             int poscoma = a.IndexOf(",");
-            int condicion = int.Parse(a.Substring(0, poscoma)) / 10;
+            int condicion = int.Parse(a.Substring(0, poscoma));
             a = a.Substring(poscoma + 1);
 
             await Navigation.PushAsync(new Votar(resultado, a, condicion, poscoma,1));
@@ -52,7 +52,7 @@ namespace App
             int condicion = 2;
             string a = Conectar.Union(6, null);
             int poscoma = a.IndexOf(",");
-            condicion = int.Parse(a.Substring(0, poscoma)) / 10;
+            condicion = int.Parse(a.Substring(0, poscoma));
             a = a.Substring(poscoma + 1);
             await Navigation.PushAsync(new Votar(resultado, a, condicion, poscoma,2));
             
