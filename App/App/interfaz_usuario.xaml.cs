@@ -31,15 +31,16 @@ namespace App
             else { await Navigation.PushAsync(new Votar(resultado, a, condicion, poscoma, 0)); }
         }
             catch (Exception e6) { }
-}
+    }
             private async void VotFut(object sender, EventArgs e)
             {
             try
             {
+                int condicion = 2;
                 string[] resultado = new string[100];
                 string a = Conectar.Union(5, null);
                 int poscoma = a.IndexOf(",");
-                int condicion = int.Parse(a.Substring(0, poscoma));
+                 condicion = int.Parse(a.Substring(0, poscoma));
                 a = a.Substring(poscoma + 1);
 
                 if (condicion == 0) { await DisplayAlert("Alerta", "No hay votaciones", "ok"); }

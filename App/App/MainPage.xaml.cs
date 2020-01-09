@@ -41,7 +41,7 @@ namespace App
                     string[] envio = new string[100];
                     string acceso = null;                    
                       string  usu = PLCusuario.Text;
-                usu = usu.Substring(8);
+                
                     envio[0] =Cifrado.Cifrar(PLCusuario.Text);//usuario                       
                     envio[1] = Cifrado.Cifrar(btncontrasena.Text); //contraseña     
                 
@@ -55,7 +55,7 @@ namespace App
                             await Navigation.PushAsync(new Entry_form());
                         else
                         {
-                            if (int.Parse(usu) == 0)
+                            if (int.Parse(PLCusuario.Text.Substring(8)) == 0)
                                 await Navigation.PushAsync(new MenuPage(0));
                             else
                                 await Navigation.PushAsync(new MenuPage(1));

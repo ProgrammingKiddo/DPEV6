@@ -83,7 +83,14 @@ namespace App
             }
             
             acceso = Conectar.Union(9, envio);
-            await Navigation.PushAsync(new MenuPage(0));
+            if (int.Parse(acceso.Substring(8)) == 0)
+            {
+                await Navigation.PushAsync(new MenuPage(0));
+            }
+            else
+            {
+                await Navigation.PushAsync(new MenuPage(1));
+            }
         }
     }
 }

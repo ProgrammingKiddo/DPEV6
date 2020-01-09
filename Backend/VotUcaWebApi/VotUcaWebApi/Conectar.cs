@@ -25,7 +25,7 @@ namespace VotUcaWebApi
             // Dns.GetHostName returns the name of the   
             // host running the application.  
             IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
-            IPAddress ipAddress = IPAddress.Parse("10.182.102.106");
+            IPAddress ipAddress = IPAddress.Parse("192.168.1.81");
             IPEndPoint localEndPoint = new IPEndPoint(ipAddress, 5000);
 
             // Create a TCP/IP socket.  
@@ -90,32 +90,27 @@ namespace VotUcaWebApi
                                 DateTime localDate = DateTime.Now;
 
                                         byte[] resultado = new Byte[1000];
-                                        string suma;
+                                        string suma=null;
 
                                         acceso = Insertar(2, null, null, null, null, null, null);
                                         int i = 0;
                                         int a = int.Parse(acceso[9]);
                                         a = a / 10;
-                                /*suma =  acceso[i] + "," + acceso[i + 1] + "," +
-                                   acceso[i + 2] + "," + acceso[i + 3] + "," + acceso[i + 4] + "," + acceso[i + 5] + "," +
-                                  acceso[i + 6] + ",";*/
-
-                                suma = null;
-                                int cont = 0;
-                                
-
-                                        i += 10;
-                                        while (a >= 1)
+                                        
+                                        int cont = 0;                                       
+                                        while (a >= 0)
                                         {
-                                            if (DateTime.Compare(Convert.ToDateTime(acceso[i+4]), localDate) <= 0 && DateTime.Compare(Convert.ToDateTime(acceso[i+5]), localDate) > 0)
+                                            Console.WriteLine(Convert.ToDateTime(acceso[i + 4])+"<="+ localDate + "," + Convert.ToDateTime(acceso[i + 5]) + ">=" + localDate);
+                                            if (DateTime.Compare(Convert.ToDateTime(acceso[i+4]), localDate) <= 0 && DateTime.Compare(Convert.ToDateTime(acceso[i+5]), localDate) >=0)
                                             {
-                                        cont++;
+                                             cont++;
                                             suma +=acceso[i] + "," + acceso[i + 1] + "," +
                                              acceso[i + 2] + "," + acceso[i + 3] + "," + acceso[i + 4] + "," + acceso[i + 5] + "," +
                                              acceso[i + 6] + ",";
+                                            
                                             }
-                                           
-                                            i += 10;
+                                           i += 10;
+                                            
                                             a--;
                                         }
                                 msg = Encoding.ASCII.GetBytes(cont.ToString() + "," + suma);
@@ -152,18 +147,21 @@ namespace VotUcaWebApi
                                 int i = 0;
                                 int a = int.Parse(acceso[9]);
                                 a = a / 10;
-                                i += 10;
-                                while (a >= 1)
+                                
+                                while (a >= 0)
                                 {
+                                    Console.WriteLine(Convert.ToDateTime(acceso[i + 4]) + ">" + localDate);
                                     if (DateTime.Compare(Convert.ToDateTime(acceso[i + 4]), localDate) >0)
                                     {
                                         cont++;
                                         suma +=acceso[i] + "," + acceso[i + 1] + "," +
                                          acceso[i + 2] + "," + acceso[i + 3] + "," + acceso[i + 4] + "," + acceso[i + 5] + "," +
                                          acceso[i + 6] + ",";
+                                       
+                                        Console.WriteLine(cont);
                                     }
-
                                     i += 10;
+                                    
                                     a--;
                                 }
                                 msg = Encoding.ASCII.GetBytes(cont.ToString() + "," + suma);
@@ -175,28 +173,25 @@ namespace VotUcaWebApi
 
                                 byte[] resultado = new Byte[1000];
                                 string suma = null;
-                                
-
                                 acceso = Insertar(2, null, null, null, null, null, null);
                                 int i = 0;
                                 int a = int.Parse(acceso[9]);
-                                a = a / 10;
-                                i += 10;
+                                a = a / 10;                                
                                 int cont = 0;
-                                while (a >= 1)
+                                while (a >= 0)
                                 {
+                                    Console.WriteLine(Convert.ToDateTime(acceso[i + 5]) + "<" + localDate);
                                     if (DateTime.Compare(Convert.ToDateTime(acceso[i + 5]), localDate) < 0)
                                     {
                                         cont++;
                                         suma +=acceso[i] + "," + acceso[i + 1] + "," +
                                          acceso[i + 2] + "," + acceso[i + 3] + "," + acceso[i + 4] + "," + acceso[i + 5] + "," +
                                          acceso[i + 6] + ",";
+                                        
                                     }
-
-                                    i += 10;
+                                    i += 10;                                  
                                     a--;
                                 }
-
                                 msg = Encoding.ASCII.GetBytes(cont.ToString()+","+suma);
                                 Console.WriteLine(Encoding.Default.GetString(msg));
                             }; break;
@@ -210,11 +205,12 @@ namespace VotUcaWebApi
                             }
                             break;
 
-                        case "8":
+                        case "8"://ver resultados
                             {
                                 byte[] resultado = new Byte[1000];
                                 string suma;
-
+                                data = data.Substring(1);
+                                envio[0] = data.Substring(0, data.IndexOf(","));
                                 acceso = Insertar(8, envio[0], null, null, null, null, null);
                                 
                                 suma =  acceso[1] + "," + acceso[2]+ "," + acceso[3] + ",";
@@ -235,6 +231,7 @@ namespace VotUcaWebApi
                                     data = data.Substring(poscoma + 1);
                                     i++;
                                 }
+                                Console.WriteLine(envio[0]);
                                 acceso = Insertar(9, envio[0], envio[1], envio[2], null, null, null);
                                 Console.WriteLine("Registrando usuario...");
                             }
@@ -288,7 +285,7 @@ namespace VotUcaWebApi
             string[] acceso = new string[1000];
 
             SqlConnection cn = new SqlConnection();
-            cn = new SqlConnection("server = asus-pablo\\sqlexpress; database = VotUcaWebApi; Integrated security = true");
+            cn = new SqlConnection("Data Source=DESKTOP-QDS38O2;Initial Catalog=pinf;Integrated Security=True");
             cn.Open();
             SqlCommand cmd = null;
             try
@@ -315,7 +312,7 @@ namespace VotUcaWebApi
                                 while (i < 7)
                                 {
                                     acceso[i + j] = Convert.ToString(dr[i]);
-                                    //Console.WriteLine(acceso[i + j] + "El valor de i+j es " + (i + j));
+                                    //Console.WriteLine(acceso[i + j]);
                                     i++;
                                 }
                                 acceso[9] = j.ToString();
