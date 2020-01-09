@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App.Entry_form">
+
+
+    <Grid Padding="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Text="Formulario de entrada a la votación" FontAttributes="Bold" 
+                   Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" FontSize="Large"/>
+        <Label Text="Rellene el formulario con sus datos para poder votar" FontSize="Medium"
+               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"/>
+
+        <Label Text="Curso:" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" VerticalOptions="Center"/>
+        <Picker  Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" VerticalOptions="Center" x:Name="pickercurso" SelectedIndexChanged="PickerCurso_SelectedIndexChanged">
+        </Picker>
+        <BoxView x:Name="boxcurso "></BoxView>
+
+        <Label Text="Carrera:" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" VerticalOptions="Center"/>
+        <Picker  Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" VerticalOptions="Center" x:Name="pickercarrera" SelectedIndexChanged="PickerCarrera_SelectedIndexChanged">
+        </Picker>
+        <BoxView x:Name="boxcarrera "></BoxView>
+
+        <Button Text="Enviar datos" Grid.Row="4" Grid.ColumnSpan="4" CornerRadius="25" 
+                TextColor="White" BackgroundColor="Orange" Clicked="SendButton_Clicked"/>
+
+
+
+    </Grid>
+</ContentPage>

@@ -49,14 +49,19 @@ namespace App
                     int c = int.Parse(acceso);
                     if (c == 1)
                     {
-                        if (int.Parse(usu) == 0)
-                        {
-                        await Navigation.PushAsync(new MenuPage(0));
-                    }
+
+                        App.Current.Properties["name"] = PLCusuario.Text;
+                        if (Conectar.Union(7, null) == "0")
+                            await Navigation.PushAsync(new Entry_form());
                         else
                         {
-                            await Navigation.PushAsync(new MenuPage(1));
+                            if (int.Parse(usu) == 0)
+                                await Navigation.PushAsync(new MenuPage(0));
+                            else
+                                await Navigation.PushAsync(new MenuPage(1));
+
                         }
+                        
                     }
                     else
                     {

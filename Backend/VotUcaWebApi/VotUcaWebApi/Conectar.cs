@@ -25,7 +25,7 @@ namespace VotUcaWebApi
             // Dns.GetHostName returns the name of the   
             // host running the application.  
             IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
-            IPAddress ipAddress = IPAddress.Parse("10.182.114.75");
+            IPAddress ipAddress = IPAddress.Parse("10.182.102.106");
             IPEndPoint localEndPoint = new IPEndPoint(ipAddress, 5000);
 
             // Create a TCP/IP socket.  
@@ -201,6 +201,15 @@ namespace VotUcaWebApi
                                 Console.WriteLine(Encoding.Default.GetString(msg));
                             }; break;
 
+                        case "7": //Comprobar usuario registrado.
+                            {
+                                envio[0] = data.Substring(1);
+                                Console.WriteLine("Comprobando usuario...");
+                                acceso = Insertar(7, envio[0], null, null, null, null, null);
+                                msg = Encoding.UTF8.GetBytes(acceso[0]);
+                            }
+                            break;
+
                         case "8":
                             {
                                 byte[] resultado = new Byte[1000];
@@ -214,6 +223,22 @@ namespace VotUcaWebApi
                                 Console.WriteLine(Encoding.Default.GetString(msg));
 
                             };break;
+
+                        case "9": //Guardar Usuario
+                            {
+                                data = data.Substring(1);
+                                int i = 0;
+                                while (i < 3)
+                                {
+                                    poscoma = data.IndexOf(",");
+                                    envio[i] = data.Substring(0, poscoma);
+                                    data = data.Substring(poscoma + 1);
+                                    i++;
+                                }
+                                acceso = Insertar(9, envio[0], envio[1], envio[2], null, null, null);
+                                Console.WriteLine("Registrando usuario...");
+                            }
+                            break;
 
                     }
                     handler.Send(msg);//enviar
@@ -263,7 +288,7 @@ namespace VotUcaWebApi
             string[] acceso = new string[1000];
 
             SqlConnection cn = new SqlConnection();
-            cn = new SqlConnection("Data Source=DESKTOP-1CTQ3SE\\SQLEXPRESS;Initial Catalog=Pinf;Integrated Security=True");
+            cn = new SqlConnection("server = asus-pablo\\sqlexpress; database = VotUcaWebApi; Integrated security = true");
             cn.Open();
             SqlCommand cmd = null;
             try
@@ -348,6 +373,20 @@ namespace VotUcaWebApi
                             Console.WriteLine("Registro realizado"); break;
                         }
 
+                        case 7: //Comprobar Usuario
+                        {
+                            SqlCommand consulta = new SqlCommand("Select Usuarios.Curso From Usuarios where IdUca='" + part1 + "'", cn);
+                            SqlDataReader dr = consulta.ExecuteReader();
+
+                            if (dr.HasRows)
+                                acceso[0] = "1";
+                            else
+                                acceso[0] = "0";
+
+                            Console.WriteLine("Usuario comprobado.");
+                        }
+                        break;
+
                         case 8:
                         {
                             SqlCommand consulta = new SqlCommand("Select * From Resultados Where IdVotaciones='" + part1 + "' ", cn);
@@ -367,6 +406,16 @@ namespace VotUcaWebApi
 
 
                         }; break;
+
+                        case 9:
+                        {
+                            cmd = new SqlCommand("insert into Usuarios (IdUca, Carrera, Curso) VALUES('" + part1 + "','" + part2 + "','" + part3 + "')", cn);
+
+                            cmd.ExecuteNonQuery();
+                            Console.WriteLine("Usuario registrado.");
+
+                        }
+                        break;
                 }
             
                 

@@ -19,7 +19,7 @@ namespace App
                     // Establish the remote endpoint for the socket.  
                     // This example uses port 11000 on the local computer.  
                     IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
-                    IPAddress ipAddress = IPAddress.Parse("10.182.114.75");
+                    IPAddress ipAddress = IPAddress.Parse("10.182.102.106");
                      IPEndPoint remoteEP = new IPEndPoint(ipAddress, 5000);
 
                      // Create a TCP/IP  socket.  
@@ -84,6 +84,15 @@ namespace App
                             Array.Resize(ref bytes, array_size);
                             acceso = Encoding.Default.GetString(bytes);
                             break;
+                        case 7: //Comprobar si el usuario esta registrado
+                            msg = Encoding.ASCII.GetBytes("7" + (string)App.Current.Properties["name"]);
+                            bytesSent = sender.Send(msg);
+
+                            array_size = sender.Receive(bytes, 0, bytes.Length, 0);
+                            Array.Resize(ref bytes, array_size);
+                            acceso = Encoding.UTF8.GetString(bytes);
+                            break;
+
                         case 8://Ver resultados de la grafica 
                             msg = Encoding.ASCII.GetBytes("8" + envio[0] + ",");
                             bytesSent = sender.Send(msg);
@@ -91,6 +100,13 @@ namespace App
                             array_size = sender.Receive(bytes, 0, bytes.Length, 0);
                             Array.Resize(ref bytes, array_size);
                             acceso = Encoding.Default.GetString(bytes);
+                            break;
+
+                        case 9: //Envio de datos del usuario si es la primera vez que entra
+                            msg = Encoding.UTF8.GetBytes("9" + (string)App.Current.Properties["name"] + "," + envio[0] + "," + envio[1] + ",");
+                            //curso y grado
+
+                            bytesSent = sender.Send(msg);
                             break;
                     }
                     // Release the socket.  
