@@ -18,26 +18,15 @@ namespace App
 
 
 
-            Label label = new Label
+            Button button = new Button
             {
-                Text = resultado[6] + "," + resultado[1] + "," + resultado[2] + "," + resultado[3],
-                FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label)),
-                VerticalOptions = LayoutOptions.CenterAndExpand,
-                HorizontalOptions = LayoutOptions.Center
+                Text = "Viva San Fernando"
+
             };
-            sl.Children.Add(label);
+            
 
+            button.Clicked += async (sender, args) => await Navigation.PushAsync(new MainPage());
+            sl.Children.Add(button);
         }
-        public void evento(object sender, EventArgs e, string[] resultado, int res)
-        {
-
-            string[] datos = new string[100];
-
-            datos[0] = resultado[0];
-            datos[1] = res.ToString();
-
-            Conectar.Union(6, datos);
-        }
-
     }
 }

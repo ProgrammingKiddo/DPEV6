@@ -110,3 +110,17 @@ C:\Users\F540\Desktop\Proyecto pinf\proyecto\DPEV6\Backend\VotUcaWebApi\VotUcaWe
 C:\Users\F540\Desktop\Proyecto pinf\proyecto\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\obj\Debug\netcoreapp2.1\VotUcaWebApi.RazorTargetAssemblyInfo.cache
 C:\Users\F540\Desktop\Proyecto pinf\proyecto\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\obj\Debug\netcoreapp2.1\VotUcaWebApi.dll
 C:\Users\F540\Desktop\Proyecto pinf\proyecto\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\obj\Debug\netcoreapp2.1\VotUcaWebApi.pdb
+C:\Users\alber\Desktop\version 9\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\bin\Debug\netcoreapp2.1\VotUcaWebApi.deps.json
+C:\Users\alber\Desktop\version 9\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\bin\Debug\netcoreapp2.1\VotUcaWebApi.runtimeconfig.json
+C:\Users\alber\Desktop\version 9\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\bin\Debug\netcoreapp2.1\VotUcaWebApi.runtimeconfig.dev.json
+C:\Users\alber\Desktop\version 9\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\bin\Debug\netcoreapp2.1\VotUcaWebApi.dll
+C:\Users\alber\Desktop\version 9\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\bin\Debug\netcoreapp2.1\VotUcaWebApi.pdb
+C:\Users\alber\Desktop\version 9\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\obj\Debug\netcoreapp2.1\VotUcaWebApi.csprojAssemblyReference.cache
+C:\Users\alber\Desktop\version 9\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\obj\Debug\netcoreapp2.1\VotUcaWebApi.csproj.CoreCompileInputs.cache
+C:\Users\alber\Desktop\version 9\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\obj\Debug\netcoreapp2.1\VotUcaWebApi.RazorAssemblyInfo.cache
+C:\Users\alber\Desktop\version 9\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\obj\Debug\netcoreapp2.1\VotUcaWebApi.RazorAssemblyInfo.cs
+C:\Users\alber\Desktop\version 9\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\obj\Debug\netcoreapp2.1\VotUcaWebApi.AssemblyInfoInputs.cache
+C:\Users\alber\Desktop\version 9\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\obj\Debug\netcoreapp2.1\VotUcaWebApi.AssemblyInfo.cs
+C:\Users\alber\Desktop\version 9\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\obj\Debug\netcoreapp2.1\VotUcaWebApi.RazorTargetAssemblyInfo.cache
+C:\Users\alber\Desktop\version 9\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\obj\Debug\netcoreapp2.1\VotUcaWebApi.dll
+C:\Users\alber\Desktop\version 9\DPEV6\Backend\VotUcaWebApi\VotUcaWebApi\obj\Debug\netcoreapp2.1\VotUcaWebApi.pdb

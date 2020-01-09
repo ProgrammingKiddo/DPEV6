@@ -25,7 +25,7 @@ namespace VotUcaWebApi
             // Dns.GetHostName returns the name of the   
             // host running the application.  
             IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
-            IPAddress ipAddress = IPAddress.Parse("192.168.1.81");
+            IPAddress ipAddress = IPAddress.Parse("10.182.114.75");
             IPEndPoint localEndPoint = new IPEndPoint(ipAddress, 5000);
 
             // Create a TCP/IP socket.  
@@ -201,6 +201,20 @@ namespace VotUcaWebApi
                                 Console.WriteLine(Encoding.Default.GetString(msg));
                             }; break;
 
+                        case "8":
+                            {
+                                byte[] resultado = new Byte[1000];
+                                string suma;
+
+                                acceso = Insertar(8, envio[0], null, null, null, null, null);
+                                
+                                suma =  acceso[1] + "," + acceso[2]+ "," + acceso[3] + ",";
+                            
+                                msg = Encoding.ASCII.GetBytes(suma);
+                                Console.WriteLine(Encoding.Default.GetString(msg));
+
+                            };break;
+
                     }
                     handler.Send(msg);//enviar
                     handler.Shutdown(SocketShutdown.Both);
@@ -249,7 +263,7 @@ namespace VotUcaWebApi
             string[] acceso = new string[1000];
 
             SqlConnection cn = new SqlConnection();
-            cn = new SqlConnection("Data Source=DESKTOP-QDS38O2;Initial Catalog=pinf;Integrated Security=True");
+            cn = new SqlConnection("Data Source=DESKTOP-1CTQ3SE\\SQLEXPRESS;Initial Catalog=Pinf;Integrated Security=True");
             cn.Open();
             SqlCommand cmd = null;
             try
@@ -307,9 +321,9 @@ namespace VotUcaWebApi
                             if (int.Parse(part2) == 1)
                             {
                                 int res;
-                                res=int.Parse(acceso[1]) + 1;
-                                
-                                cmd = new SqlCommand("update Resultados set Result1='" + res + "' where IdVotaciones='" + part1 + "'",cn);
+                                res = int.Parse(acceso[1]) + 1;
+
+                                cmd = new SqlCommand("update Resultados set Result1='" + res + "' where IdVotaciones='" + part1 + "'", cn);
                                 cmd.ExecuteNonQuery();
                             }
                             if (int.Parse(part2) == 2)
@@ -332,8 +346,30 @@ namespace VotUcaWebApi
 
 
                             Console.WriteLine("Registro realizado"); break;
-                            }
                         }
+
+                        case 8:
+                        {
+                            SqlCommand consulta = new SqlCommand("Select * From Resultados Where IdVotaciones='" + part1 + "' ", cn);
+                            SqlDataReader dr = consulta.ExecuteReader();
+                            int j = 0;
+                            while (dr.Read())
+                            {
+                                int i = 0;
+                                while (i < 5)
+                                {
+                                    acceso[i + j] = Convert.ToString(dr[i]);
+                                    //Console.WriteLine(acceso[i + j] + "El valor de i+j es " + (i + j));
+                                    i++;
+                                }
+                                j += 10;
+                            }
+
+
+                        }; break;
+                }
+            
+                
                 
             }
             catch (Exception ex)

@@ -35,6 +35,9 @@ namespace App
                     {
                         button.Clicked += async (sender, args) => await Navigation.PushAsync(new Votaciones(resultado));
                     }
+
+                    if (Nv == 2) { button.Clicked += async (sender, args) => await Navigation.PushAsync(new chartpage(resultado)); }
+
                     if (condicion > 1)
                     {
                         
