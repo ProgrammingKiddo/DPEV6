@@ -372,7 +372,7 @@ namespace VotUcaWebApi
 
                         case 7: //Comprobar Usuario
                         {
-                            SqlCommand consulta = new SqlCommand("Select Usuarios.Curso From Usuarios where IdUca='" + part1 + "'", cn);
+                            SqlCommand consulta = new SqlCommand("Select * From Usuarios where IdUca='" + part1 + "'", cn);
                             SqlDataReader dr = consulta.ExecuteReader();
 
                             if (dr.HasRows)

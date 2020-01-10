@@ -66,7 +66,7 @@ namespace App
                 int i=0;
                 int [] balor = new int[3];
                 string valores = Conectar.Union(8,resultado);
-                while(i <= 3)
+                while(i < 3)
                 {
                     balor[i] = int.Parse(valores.Substring(0, valores.IndexOf(",")));
                     valores = valores.Substring(valores.IndexOf(",") + 1);
@@ -74,24 +74,24 @@ namespace App
                 }
                
             
-                Entry e1 = new Entry(balor[1])
+                Entry e1 = new Entry(balor[0])
                 {
                     Label = resultado[1],
-                    ValueLabel = balor[1].ToString(),
+                    ValueLabel = balor[0].ToString(),
                     Color = SKColor.Parse("#51FF00")
                 };
 
-                Entry e2 = new Entry(balor[2])
+                Entry e2 = new Entry(balor[1])
                 {
                     Label = resultado[2],
-                    ValueLabel = balor[2].ToString(),
+                    ValueLabel = balor[1].ToString(),
                     Color = SKColor.Parse("#FF9700")
                 };
 
-                Entry e3 = new Entry(balor[3])
+                Entry e3 = new Entry(balor[2])
                 {
                     Label = resultado[3],
-                    ValueLabel = balor[3].ToString(),
+                    ValueLabel = balor[2].ToString(),
                     Color = SKColor.Parse("#00FBFF")
                 };
                 entryList.Add(e1);
