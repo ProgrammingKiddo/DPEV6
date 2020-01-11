@@ -25,7 +25,7 @@ namespace VotUcaWebApi
             // Dns.GetHostName returns the name of the   
             // host running the application.  
             IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
-            IPAddress ipAddress = IPAddress.Parse("192.168.1.81");
+            IPAddress ipAddress = IPAddress.Parse("192.168.1.37");
             IPEndPoint localEndPoint = new IPEndPoint(ipAddress, 5000);
 
             // Create a TCP/IP socket.  
@@ -87,7 +87,7 @@ namespace VotUcaWebApi
                             break;
                         case "3"://VER VOTACION
                             {
-                                DateTime localDate = DateTime.Now;
+                                DateTime localDate = DateTime.Today;
 
                                         byte[] resultado = new Byte[1000];
                                         string suma=null;
@@ -100,7 +100,6 @@ namespace VotUcaWebApi
                                         int cont = 0;                                       
                                         while (a >= 0)
                                         {
-                                            Console.WriteLine(Convert.ToDateTime(acceso[i + 4])+"<="+ localDate + "," + Convert.ToDateTime(acceso[i + 5]) + ">=" + localDate);
                                             if (DateTime.Compare(Convert.ToDateTime(acceso[i+4]), localDate) <= 0 && DateTime.Compare(Convert.ToDateTime(acceso[i+5]), localDate) >=0)
                                             {
                                              cont++;
@@ -137,7 +136,7 @@ namespace VotUcaWebApi
                             ; break;
                         case "5"://votaciones futuras
                             {
-                                DateTime localDate = DateTime.Now;
+                                DateTime localDate = DateTime.Today;
 
                                 byte[] resultado = new Byte[1000];
                                 string suma=null;
@@ -150,7 +149,7 @@ namespace VotUcaWebApi
                                 
                                 while (a >= 0)
                                 {
-                                    Console.WriteLine(Convert.ToDateTime(acceso[i + 4]) + ">" + localDate);
+                                   
                                     if (DateTime.Compare(Convert.ToDateTime(acceso[i + 4]), localDate) >0)
                                     {
                                         cont++;
@@ -169,7 +168,7 @@ namespace VotUcaWebApi
                             }; break;
                         case "6"://votaciones acabadas
                             {
-                                DateTime localDate = DateTime.Now;
+                                DateTime localDate = DateTime.Today;
 
                                 byte[] resultado = new Byte[1000];
                                 string suma = null;
@@ -180,7 +179,7 @@ namespace VotUcaWebApi
                                 int cont = 0;
                                 while (a >= 0)
                                 {
-                                    Console.WriteLine(Convert.ToDateTime(acceso[i + 5]) + "<" + localDate);
+                                    
                                     if (DateTime.Compare(Convert.ToDateTime(acceso[i + 5]), localDate) < 0)
                                     {
                                         cont++;
@@ -291,7 +290,7 @@ namespace VotUcaWebApi
             string[] acceso = new string[1000];
 
             SqlConnection cn = new SqlConnection();
-            cn = new SqlConnection("Data Source=DESKTOP-QDS38O2;Initial Catalog=pinf;Integrated Security=True");
+            cn = new SqlConnection("Data Source=LAPTOP-2PSVQU3U;Initial Catalog=model;Integrated Security=True");
             cn.Open();
             SqlCommand cmd = null;
             try
