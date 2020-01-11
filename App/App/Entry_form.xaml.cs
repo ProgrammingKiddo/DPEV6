@@ -23,36 +23,39 @@ namespace App
 
         private void InitMenuDesplegable()
         {
-            cursos = new List<string>();
-            cursos.Add("Primer Curso");          
-            cursos.Add("Segundo Curso");
-            cursos.Add("Tercer Curso");
-            cursos.Add("Cuarto Curso");
-            cursos.Add("+Cuarto Curso");
-
-            foreach(var curse in cursos)
+            try
             {
-                pickercurso.Items.Add(curse);
-            }
+                cursos = new List<string>();
+                cursos.Add("Primer Curso");
+                cursos.Add("Segundo Curso");
+                cursos.Add("Tercer Curso");
+                cursos.Add("Cuarto Curso");
+                cursos.Add("+Cuarto Curso");
 
-            carreras = new List<string>();
-            carreras.Add("GRADO EN INGENIERÍA INFORMÁTICA");
-            carreras.Add("GRADO EN INGENIERÍA EN TECNOLOGÍAS INDUSTRIALES");
-            carreras.Add("GRADO EN INGENIERÍA ELECTRÓNICA INDUSTRIAL");
-            carreras.Add("GRADO EN INGENIERÍA AEROESPACIAL");
-            carreras.Add("GRADO EN INGENIERÍA MECÁNICA");
-            carreras.Add("GRADO EN INGENIERÍA DEL DISEÑO INDUSTRIAL Y DESARROLLO DEL PRODUCTO");
-            carreras.Add("GRADO EN INGENIERÍA ELÉCTRICA");
-            carreras.Add("DOBLE GRADO EN INGENIERÍA ELÉCTRICA E INGENIERÍA ELECTRÓNICA INDUSTRIAL");
-            carreras.Add("DOBLE GRADO EN INGENIERÍA MECÁNICA E INGENIERÍA ELÉCTRICA");
-            carreras.Add("DOBLE GRADO EN INGENIERÍA MECÁNICA E INGENIERÍA EN DISEÑO INDUSTRIAL Y DESARROLLO DEL PRODUCTO");
-            //carreras.Add((string)App.Current.Properties["name"]);
+                foreach (var curse in cursos)
+                {
+                    pickercurso.Items.Add(curse);
+                }
 
-            foreach( var degree in carreras)
-            {
-                pickercarrera.Items.Add(degree);
+                carreras = new List<string>();
+                carreras.Add("GRADO EN INGENIERÍA INFORMÁTICA");
+                carreras.Add("GRADO EN INGENIERÍA EN TECNOLOGÍAS INDUSTRIALES");
+                carreras.Add("GRADO EN INGENIERÍA ELECTRÓNICA INDUSTRIAL");
+                carreras.Add("GRADO EN INGENIERÍA AEROESPACIAL");
+                carreras.Add("GRADO EN INGENIERÍA MECÁNICA");
+                carreras.Add("GRADO EN INGENIERÍA DEL DISEÑO INDUSTRIAL Y DESARROLLO DEL PRODUCTO");
+                carreras.Add("GRADO EN INGENIERÍA ELÉCTRICA");
+                carreras.Add("DOBLE GRADO EN INGENIERÍA ELÉCTRICA E INGENIERÍA ELECTRÓNICA INDUSTRIAL");
+                carreras.Add("DOBLE GRADO EN INGENIERÍA MECÁNICA E INGENIERÍA ELÉCTRICA");
+                carreras.Add("DOBLE GRADO EN INGENIERÍA MECÁNICA E INGENIERÍA EN DISEÑO INDUSTRIAL Y DESARROLLO DEL PRODUCTO");
+                //carreras.Add((string)App.Current.Properties["name"]);
+
+                foreach (var degree in carreras)
+                {
+                    pickercarrera.Items.Add(degree);
+                }
             }
-            
+            catch { }
         }
 
         private async void PickerCurso_SelectedIndexChanged(object sender, System.EventArgs e)
@@ -67,6 +70,7 @@ namespace App
 
         private async void SendButton_Clicked(object sender, EventArgs e)
         {
+            try { 
             string[] envio = new string[100];
             string acceso = null;
             int positionCurso = pickercurso.SelectedIndex;
@@ -91,6 +95,9 @@ namespace App
             {
                 await Navigation.PushAsync(new MenuPage(1));
             }
+        }
+            catch(Exception ed) { await DisplayAlert("Alerta-mainpage", ed.Message, "ok"); }
+
         }
     }
 }

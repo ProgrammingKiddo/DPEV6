@@ -44,15 +44,13 @@ namespace App
                 
                     envio[0] =Cifrado.Cifrar(PLCusuario.Text);//usuario                       
                     envio[1] = Cifrado.Cifrar(btncontrasena.Text); //contraseña     
-                    string compas=null;
+                  
                     acceso = Conectar.Union(1, envio); //llama a la funcion Union el 1 es para ldap
                     int c = int.Parse(acceso);
-                    if (c == 1)
-                    {
-
-                                App.Current.Properties["name"] = PLCusuario.Text;
-                                compas = Conectar.Union(7, null);
-                            if (int.Parse(compas) == 0)
+                    if (c == 1||c==2)
+                    {       App.Current.Properties["name"] = PLCusuario.Text;
+                                
+                             if (c==1)
                                 await Navigation.PushAsync(new Entry_form());
                             else
                             {
@@ -69,7 +67,7 @@ namespace App
                 }
                 catch (Exception e2)
                 {
-                    await DisplayAlert("Alerta", e2.Message, "ok");
+                   await DisplayAlert("Alerta", e2.Message, "ok");
                 }
             }
     }

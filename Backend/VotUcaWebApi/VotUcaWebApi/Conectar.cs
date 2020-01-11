@@ -196,14 +196,14 @@ namespace VotUcaWebApi
                                 Console.WriteLine(Encoding.Default.GetString(msg));
                             }; break;
 
-                        case "7": //Comprobar usuario registrado.
+                       /* case "7": //Comprobar usuario registrado.
                             {
                                 envio[0] = data.Substring(1);
                                 Console.WriteLine("Comprobando usuario...");
                                 acceso = Insertar(7, envio[0], null, null, null, null, null);
                                 msg = Encoding.UTF8.GetBytes(acceso[0]);
                             }
-                            break;
+                            break*/
 
                         case "8"://ver resultados
                             {
@@ -231,7 +231,7 @@ namespace VotUcaWebApi
                                     data = data.Substring(poscoma + 1);
                                     i++;
                                 }
-                                Console.WriteLine(envio[0]);
+                                
                                 acceso = Insertar(9, envio[0], envio[1], envio[2], null, null, null);
                                 Console.WriteLine("Registrando usuario...");
                             }
@@ -256,6 +256,7 @@ namespace VotUcaWebApi
 
         public static string Credenciales(string usuario, string contraseña)
         {
+            string[] prueba = new string[20];
             string acceso = "";
             try
             {
@@ -267,7 +268,12 @@ namespace VotUcaWebApi
                 conn.Bind(loginDN, contraseña);
                 if (conn.Bound)
                 {
-                    acceso = "1";
+                    
+                       prueba = Insertar(7, usuario, null, null, null, null, null);
+                    acceso = prueba[0];
+                    if (acceso == "1") {acceso = "2"; }
+                    if (acceso == "0") { acceso = "1"; }
+
                 }
 
             }

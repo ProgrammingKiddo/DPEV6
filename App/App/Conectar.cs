@@ -84,15 +84,15 @@ namespace App
                             Array.Resize(ref bytes, array_size);
                             acceso = Encoding.Default.GetString(bytes);
                             break;
-                        case 7: //Comprobar si el usuario esta registrado
-                            msg = Encoding.ASCII.GetBytes("7" + (string)App.Current.Properties["name"]);
+                       /* case 7: //Comprobar si el usuario esta registrado
+                            msg = Encoding.ASCII.GetBytes("7" + envio[0]);
                             bytesSent = sender.Send(msg);
 
                             array_size = sender.Receive(bytes, 0, bytes.Length, 0);
                             Array.Resize(ref bytes, array_size);
                             acceso = Encoding.UTF8.GetString(bytes);
                             break;
-
+                            */
                         case 8://Ver resultados de la grafica 
                             msg = Encoding.ASCII.GetBytes("8" + envio[0] + ",");
                             bytesSent = sender.Send(msg);
