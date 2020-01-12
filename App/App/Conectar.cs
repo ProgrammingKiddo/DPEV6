@@ -19,7 +19,7 @@ namespace App
                     // Establish the remote endpoint for the socket.  
                     // This example uses port 11000 on the local computer.  
                     IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
-                    IPAddress ipAddress = IPAddress.Parse("192.168.1.37");
+                    IPAddress ipAddress = IPAddress.Parse("192.168.1.81");
                      IPEndPoint remoteEP = new IPEndPoint(ipAddress, 5000);
 
                      // Create a TCP/IP  socket.  
@@ -64,7 +64,7 @@ namespace App
                             acceso = Encoding.Default.GetString(bytes);
                             break;
                         case 4://votar  
-                            msg = Encoding.ASCII.GetBytes("4" + envio[0] + "," + envio[1]+ ",");
+                            msg = Encoding.ASCII.GetBytes("4" + envio[0] + "," + envio[1]+ "," + envio[2] + ",");
                             //id_votacion,"1 si es p1,2 si es p2 y 3 si es p3"
 
                             bytesSent = sender.Send(msg);break;
@@ -84,15 +84,17 @@ namespace App
                             Array.Resize(ref bytes, array_size);
                             acceso = Encoding.Default.GetString(bytes);
                             break;
-                       /* case 7: //Comprobar si el usuario esta registrado
-                            msg = Encoding.ASCII.GetBytes("7" + envio[0]);
-                            bytesSent = sender.Send(msg);
 
-                            array_size = sender.Receive(bytes, 0, bytes.Length, 0);
-                            Array.Resize(ref bytes, array_size);
-                            acceso = Encoding.UTF8.GetString(bytes);
-                            break;
-                            */
+                         case 7: //Comprobar si el usuario ha votado
+                             msg = Encoding.ASCII.GetBytes("7" + envio[0]+","+envio[7]+",");//0 es idvotacion,y 7 es iduca
+                             bytesSent = sender.Send(msg);
+
+                             array_size = sender.Receive(bytes, 0, bytes.Length, 0);
+                             Array.Resize(ref bytes, array_size);
+                             acceso = Encoding.Default.GetString(bytes);
+                            
+                             break;
+                             
                         case 8://Ver resultados de la grafica 
                             msg = Encoding.ASCII.GetBytes("8" + envio[0] + ",");
                             bytesSent = sender.Send(msg);
@@ -103,7 +105,7 @@ namespace App
                             break;
 
                         case 9: //Envio de datos del usuario si es la primera vez que entra
-                            msg = Encoding.UTF8.GetBytes("9" + (string)App.Current.Properties["name"] + "," + envio[0] + "," + envio[1] + ",");
+                            msg = Encoding.ASCII.GetBytes("9" + (string)App.Current.Properties["name"] + "," + envio[0] + "," + envio[1] + ",");
                             //curso y grado
 
                             bytesSent = sender.Send(msg);
@@ -133,6 +135,7 @@ namespace App
                 
                     Console.WriteLine(e.ToString());
                 }
+            
            return acceso;          
            }
         

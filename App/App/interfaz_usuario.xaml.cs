@@ -28,7 +28,7 @@ namespace App
                 a = a.Substring(poscoma + 1);
 
             if (condicion == 0) { await DisplayAlert("Alerta", "No hay votaciones", "ok"); }
-            else { await Navigation.PushAsync(new Votar(resultado, a, condicion, poscoma, 0)); }
+            else { await Navigation.PushAsync(new Votar(resultado, a, condicion, poscoma, 0, (string)App.Current.Properties["name"])); }
         }
             catch (Exception e6) { }
     }
@@ -44,7 +44,7 @@ namespace App
                 a = a.Substring(poscoma + 1);
 
                 if (condicion == 0) { await DisplayAlert("Alerta", "No hay votaciones", "ok"); }
-                else { await Navigation.PushAsync(new Votar(resultado, a, condicion, poscoma, 1)); }
+                else { await Navigation.PushAsync(new Votar(resultado, a, condicion, poscoma, 1, (string)App.Current.Properties["name"])); }
             }
             catch (Exception e6) { }
         }
@@ -61,7 +61,7 @@ namespace App
                 condicion = int.Parse(a.Substring(0, poscoma));
                 a = a.Substring(poscoma + 1);
                 if (condicion == 0) { await DisplayAlert("Alerta", "No hay votaciones", "ok"); }
-                else { await Navigation.PushAsync(new Votar(resultado, a, condicion, poscoma, 2)); }
+                else { await Navigation.PushAsync(new Votar(resultado, a, condicion, poscoma, 2, (string)App.Current.Properties["name"])); }
             }
             catch (Exception e6) { }
         }

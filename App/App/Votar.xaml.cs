@@ -8,7 +8,7 @@ namespace App
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Votar : ContentPage
     {
-        public Votar(string[] resultado, string a, int condicion, int poscoma,int Nv)
+        public Votar(string[] resultado, string a, int condicion, int poscoma,int Nv,string usu)
         {
             InitializeComponent();
             try
@@ -24,7 +24,7 @@ namespace App
                         a = a.Substring(poscoma + 1);
                         i++;
                     }
-
+                    resultado[7]=usu;
                     Button siguiente = new Button {Text = "siguiente" };
                     Button button = new Button
                     {
@@ -41,7 +41,7 @@ namespace App
                     if (condicion > 1)
                     {
                         
-                        siguiente.Clicked += async (sender, args) => await Navigation.PushAsync(new Votar(resultado, a, condicion, poscoma, Nv));
+                        siguiente.Clicked += async (sender, args) => await Navigation.PushAsync(new Votar(resultado, a, condicion, poscoma, Nv, (string)App.Current.Properties["name"]));
 
                         sl.Children.Add(siguiente, 0, 1);
                             condicion--; 

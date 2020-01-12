@@ -25,7 +25,7 @@ namespace VotUcaWebApi
             // Dns.GetHostName returns the name of the   
             // host running the application.  
             IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
-            IPAddress ipAddress = IPAddress.Parse("192.168.1.37");
+            IPAddress ipAddress = IPAddress.Parse("192.168.1.81");
             IPEndPoint localEndPoint = new IPEndPoint(ipAddress, 5000);
 
             // Create a TCP/IP socket.  
@@ -121,17 +121,18 @@ namespace VotUcaWebApi
                             { 
                                     data = data.Substring(1);
                                     int i = 0;
-                                    while (i < 2)
+                                    while (i < 3)
                                     {
                                         poscoma = data.IndexOf(",");
                                         envio[i] = data.Substring(0, poscoma);
                                         data = data.Substring(poscoma + 1);
                                         i++;
                                     }
-                                    Console.WriteLine(envio[0] + "," + envio[1]);
-                                    acceso = Insertar(3, envio[0], envio[1], null, null, null, null);
-                                    //envio[0]=id_votaciones,envio[1]=entero del participante
+                                    Console.WriteLine(envio[0] + "," + envio[1] + "," + envio[2]);
                                 
+                                acceso = Insertar(3, envio[0], envio[1], envio[2], null, null, null);
+                                //envio[0]=id_votaciones,envio[1]=entero del participante,envio[2] es el IdUsuario
+
                             }
                             ; break;
                         case "5"://votaciones futuras
@@ -195,14 +196,24 @@ namespace VotUcaWebApi
                                 Console.WriteLine(Encoding.Default.GetString(msg));
                             }; break;
 
-                       /* case "7": //Comprobar usuario registrado.
+                         case "7": //Comprobar si el usuario ya ha votado.
                             {
-                                envio[0] = data.Substring(1);
-                                Console.WriteLine("Comprobando usuario...");
-                                acceso = Insertar(7, envio[0], null, null, null, null, null);
-                                msg = Encoding.UTF8.GetBytes(acceso[0]);
+                                data = data.Substring(1);
+                                int i = 0;
+                                while (i < 2)
+                                {
+                                    poscoma = data.IndexOf(",");
+                                    envio[i] = data.Substring(0, poscoma);
+                                    data = data.Substring(poscoma + 1);
+                                    i++;
+                                }
+                                Console.WriteLine(envio[0] + "," + envio[1] );
+                                Console.WriteLine("Comprobando si el usuario ha votado...");
+                                 acceso = Insertar(4, envio[0],envio[1], null, null, null, null);//0 es idvotacion,y 1 es iduca
+                                 msg = Encoding.ASCII.GetBytes(acceso[0]+",");
+                                //Console.WriteLine(Encoding.Default.GetString(msg));
                             }
-                            break*/
+                             break;
 
                         case "8"://ver resultados
                             {
@@ -245,7 +256,7 @@ namespace VotUcaWebApi
             }
             catch (Exception e)
             {
-                Console.WriteLine("1" + e);
+                Console.WriteLine("Alerta" + e.Message);
             }
 
             Console.WriteLine("\nPress ENTER to continue...");
@@ -290,7 +301,7 @@ namespace VotUcaWebApi
             string[] acceso = new string[1000];
 
             SqlConnection cn = new SqlConnection();
-            cn = new SqlConnection("Data Source=LAPTOP-2PSVQU3U;Initial Catalog=model;Integrated Security=True");
+            cn = new SqlConnection("Data Source=DESKTOP-QDS38O2;Initial Catalog=pinf;Integrated Security=True");
             cn.Open();
             SqlCommand cmd = null;
             try
@@ -369,11 +380,81 @@ namespace VotUcaWebApi
                                 cmd = new SqlCommand("update Resultados set Result3='" + res + "' where IdVotaciones='" + part1 + "'", cn);
                                 cmd.ExecuteNonQuery();
                             }
+                            cn.Close();
+                            cn.Open();
+                             consulta = new SqlCommand("Select IdUsuarios From Usuarios Where IdUca='" + part3 + "' ", cn);
+                            dr = consulta.ExecuteReader();
+                            
+                            while (dr.Read())
+                            {
+                                int i = 0;
+                                while (i < 1)
+                                {
+                                    acceso[i] = Convert.ToString(dr[i]);
+                                    //Console.WriteLine(acceso[i]);
+                                    i++;
+                                }
+                               
+                            }
+                            cn.Close();
+                            cn.Open();
 
+                            cmd = new SqlCommand("insert into Registro (IdUsuarios,IdVotacion) VALUES('" + acceso[0] + "','" + part1 +  "')", cn);
 
+                            cmd.ExecuteNonQuery();
 
                             Console.WriteLine("Registro realizado"); break;
                         }
+                    case 4://comprobar si el usuario ha votado
+                        {
+                            string[] sacar = new string[20];
+                            //Console.WriteLine(part2,part1);
+                            SqlCommand consulta = new SqlCommand("Select IdUsuarios From Usuarios where IdUca='" + part2 + "'", cn);
+                            SqlDataReader dr = consulta.ExecuteReader();
+                            while (dr.Read())
+                            {                               
+                                    sacar[0] = Convert.ToString(dr[0]);
+                                   // Console.WriteLine(sacar[0]);
+                            }
+                            cn.Close();
+                            cn.Open();
+                             consulta = new SqlCommand("Select IdUsuarios From Registro where IdVotacion='" + part1 + "'", cn);
+                             dr = consulta.ExecuteReader();
+                            //Console.WriteLine(dr.HasRows);
+                            if (dr.HasRows)
+                            {   
+                                int i = 0;
+                                while (dr.Read())
+                                {   
+                                    sacar[i+1] = Convert.ToString(dr[0]);
+                                    //Console.WriteLine(sacar[i + 1]);                                        
+                                    i++;                              
+                                }                                
+                                int salir = 0;
+                                i--;
+                                while (i>0  && salir == 0)
+                                {
+                                    
+                                    if (sacar[0] == sacar[i+1])
+                                    { salir = 1; }
+                                    //Console.WriteLine(sacar[0] + "==" + sacar[i+1],i,salir);
+                                    i--;
+                                }
+                                if (salir == 1)
+                                {
+                                    acceso[0] = "1";
+                                    Console.WriteLine("El usuario ya ha votado");
+                                }
+                                else { acceso[0] = "2";
+                                    Console.WriteLine("El usuario no ha votado");
+                                }
+                                
+                            }
+                            else { acceso[0]="2";
+                                Console.WriteLine("El usuario no ha votado");
+                            }
+                            //Console.WriteLine(acceso[0]);
+                        };break;
 
                         case 7: //Comprobar Usuario
                         {
