@@ -63,7 +63,7 @@ namespace App
         }
         public async void funcion(string[]resultado)
         {
-            await DisplayAlert("Alerta", "usted ya ha votado en esta votacion", "ok");
+            await DisplayAlert(resultado[7].Substring(8), "usted ya ha votado en esta votacion", "ok");
             if (resultado[7].Substring(8) == "0")
                 await Navigation.PushAsync(new MenuPage(0));
             else

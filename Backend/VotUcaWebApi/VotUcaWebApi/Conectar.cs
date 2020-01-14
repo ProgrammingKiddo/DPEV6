@@ -25,7 +25,7 @@ namespace VotUcaWebApi
             // Dns.GetHostName returns the name of the   
             // host running the application.  
             IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
-            IPAddress ipAddress = IPAddress.Parse("192.168.1.81");
+            IPAddress ipAddress = IPAddress.Parse("10.182.108.102");
             IPEndPoint localEndPoint = new IPEndPoint(ipAddress, 5000);
 
             // Create a TCP/IP socket.  
@@ -301,7 +301,7 @@ namespace VotUcaWebApi
             string[] acceso = new string[1000];
 
             SqlConnection cn = new SqlConnection();
-            cn = new SqlConnection("Data Source=DESKTOP-QDS38O2;Initial Catalog=pinf;Integrated Security=True");
+            cn = new SqlConnection("Data Source=LAPTOP-2PSVQU3U;Initial Catalog=model;Integrated Security=True");
             cn.Open();
             SqlCommand cmd = null;
             try
@@ -418,11 +418,11 @@ namespace VotUcaWebApi
                             }
                             cn.Close();
                             cn.Open();
-                             consulta = new SqlCommand("Select IdUsuarios From Registro where IdVotacion='" + part1 + "'", cn);
+                             consulta = new SqlCommand("Select * From Registro where IdUsuarios='"+sacar[0]+"'and IdVotacion ='" + part1 + "'", cn);
                              dr = consulta.ExecuteReader();
                             //Console.WriteLine(dr.HasRows);
                             if (dr.HasRows)
-                            {   
+                            { /*  
                                 int i = 0;
                                 while (dr.Read())
                                 {   
@@ -448,7 +448,8 @@ namespace VotUcaWebApi
                                 else { acceso[0] = "2";
                                     Console.WriteLine("El usuario no ha votado");
                                 }
-                                
+                             */
+                                acceso[0] = "1";
                             }
                             else { acceso[0]="2";
                                 Console.WriteLine("El usuario no ha votado");
