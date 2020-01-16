@@ -25,7 +25,7 @@ namespace VotUcaWebApi
             // Dns.GetHostName returns the name of the   
             // host running the application.  
             IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
-            IPAddress ipAddress = IPAddress.Parse("10.182.108.102");
+            IPAddress ipAddress = IPAddress.Parse("192.168.1.48");
             IPEndPoint localEndPoint = new IPEndPoint(ipAddress, 5000);
 
             // Create a TCP/IP socket.  
@@ -243,7 +243,7 @@ namespace VotUcaWebApi
                                 }
                                 
                                 acceso = Insertar(9, envio[0], envio[1], envio[2], null, null, null);
-                                Console.WriteLine("Registrando usuario...");
+                                Console.WriteLine("Registrando email, curso...");
                             }
                             break;
 
@@ -278,11 +278,35 @@ namespace VotUcaWebApi
                 conn.Bind(loginDN, contraseña);
                 if (conn.Bound)
                 {
+                    string searchBase = "CN=" + usuario + ",dc=uca,dc=es";
+                    string searchFilter = "tipodocumento=NIF";
+
+                    LdapSearchResults lsc = conn.Search(searchBase, LdapConnection.SCOPE_BASE, searchFilter, null, false);
+                    LdapEntry nextEntry = lsc.next();
+                    string email = nextEntry.getAttribute("mail").StringValue;
+                    string rol = nextEntry.getAttribute("ou").StringValue;
+                    /*
+                    ------------------------------------------------------------------------------------------------------
+                   DirectoryEntry de = new DirectoryEntry();
+                   de.Path = "ldap://ldap.uca.es:389/cn=" + usuario + ",dc=uca,dc=es:389";
+                   de.Username = usuario;
+                   de.Password = contraseña;
+                   
+                   DirectorySearcher ds = new DirectorySearcher(de);
+                   ds.Filter = "(&((&(objectCategory=Person)(objectClass=User)))(samaccountname=" + usuario + "))";
+                   ds.SearchScope = SearchScope.Subtree;
+
+                   SearchResult rs = ds.FindOne();
+
+                   Console.WriteLine(rs.GetDirectoryEntry().Properties["mail"].Value.ToString());*/
+
                     
-                       prueba = Insertar(7, usuario, null, null, null, null, null);
+                    prueba = Insertar(7, usuario, null, null, null, null, null);
                     acceso = prueba[0];
-                    if (acceso == "1") {acceso = "2"; }
+                    if (acceso == "0") Insertar(10, usuario, email, rol, null, null, null);
+                    if (acceso == "1") { acceso = "2"; }
                     if (acceso == "0") { acceso = "1"; }
+                    
 
                 }
 
@@ -301,7 +325,7 @@ namespace VotUcaWebApi
             string[] acceso = new string[1000];
 
             SqlConnection cn = new SqlConnection();
-            cn = new SqlConnection("Data Source=LAPTOP-2PSVQU3U;Initial Catalog=model;Integrated Security=True");
+            cn = new SqlConnection("Data Source=ASUS-PABLO\\SQLEXPRESS;Initial Catalog=VotUcaWebApi;Integrated Security=True");
             cn.Open();
             SqlCommand cmd = null;
             try
@@ -491,13 +515,24 @@ namespace VotUcaWebApi
 
                         }; break;
 
-                        case 9:
+                        case 9: //Guardar usuario con los datos del Formulario.
                         {
-                            cmd = new SqlCommand("insert into Usuarios (IdUca, Carrera, Curso) VALUES('" + part1 + "','" + part2 + "','" + part3 + "')", cn);
+
+                            cmd = new SqlCommand("update Usuarios set Carrera='" + part2 + "', Curso='" + part3 + "' where IdUca='" + part1 + "'", cn);
+                            //cmd = new SqlCommand("insert into Usuarios (IdUca, Carrera, Curso, Email, Rol) VALUES('" + part1 + "','" + part2 + "','" + part3 + "','" + null + "','" + null + "')", cn);
+
+                            cmd.ExecuteNonQuery();
+                            Console.WriteLine("Usuario actualizado con curso y carrera.");
+
+                        }
+                        break;
+
+                        case 10: //Guardar usuario con los datos del LDAP
+                        {
+                            cmd = new SqlCommand("insert into Usuarios (IdUca, Carrera, Curso, Email, Rol) VALUES('" + part1 + "','" + null + "','" + null + "','" + part2 + "','" + part3 + "')", cn);
 
                             cmd.ExecuteNonQuery();
                             Console.WriteLine("Usuario registrado.");
-
                         }
                         break;
                 }
