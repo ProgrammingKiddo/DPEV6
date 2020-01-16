@@ -26,14 +26,19 @@ namespace App
                     }
                     resultado[7]=usu;
                     Button siguiente = new Button {Text = "siguiente" };
+                    Button edit = new Button { Text = "editar votación" };
+                    //Button anterior = new Button { Text = "anterior" };
                     Button button = new Button
                     {
                         Text = resultado[6] + " " + resultado[4] + " " + resultado[5],
-
                     };
+                    
                     if (Nv == 0)
                     {
+
                         button.Clicked += async (sender, args) => await Navigation.PushAsync(new Votaciones(resultado));
+                        sl.Children.Add(edit, 0, 8);
+                        edit.Clicked += async (sender, args) => await Navigation.PushAsync(new EditVotaciones(resultado));
                     }
 
                     if (Nv == 2) { button.Clicked += async (sender, args) => await Navigation.PushAsync(new chartpage(resultado)); }
@@ -42,15 +47,13 @@ namespace App
                     {
                         
                         siguiente.Clicked += async (sender, args) => await Navigation.PushAsync(new Votar(resultado, a, condicion, poscoma, Nv, (string)App.Current.Properties["name"]));
+                        //anterior.Clicked 
 
                         sl.Children.Add(siguiente, 0, 1);
-                            condicion--; 
+                            condicion--;
                     }
                                   
                         sl.Children.Add(button);
-                    
-
-                    
                 }
             }
             catch (Exception ex)

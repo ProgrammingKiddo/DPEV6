@@ -25,7 +25,7 @@ namespace VotUcaWebApi
             // Dns.GetHostName returns the name of the   
             // host running the application.  
             IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
-            IPAddress ipAddress = IPAddress.Parse("192.168.1.48");
+            IPAddress ipAddress = IPAddress.Parse("10.9.17.190");
             IPEndPoint localEndPoint = new IPEndPoint(ipAddress, 5000);
 
             // Create a TCP/IP socket.  
@@ -247,6 +247,22 @@ namespace VotUcaWebApi
                             }
                             break;
 
+                        case "0": //Editar una votación
+                            {
+                                data = data.Substring(1);
+                                int i = 0;
+                                while (i < 2)
+                                {
+                                    poscoma = data.IndexOf(",");
+                                    envio[i] = data.Substring(0, poscoma);
+                                    data = data.Substring(poscoma + 1);
+                                    i++;
+                                }
+
+                                acceso = Insertar(11, envio[0], envio[1], null, null, null, null);
+                            }
+                            break;
+
                     }
                     handler.Send(msg);//enviar
                     handler.Shutdown(SocketShutdown.Both);
@@ -256,7 +272,7 @@ namespace VotUcaWebApi
             }
             catch (Exception e)
             {
-                Console.WriteLine("Alerta" + e.Message);
+                Console.WriteLine("Alerta (error en el backend): " + e.Message);
             }
 
             Console.WriteLine("\nPress ENTER to continue...");
@@ -325,7 +341,7 @@ namespace VotUcaWebApi
             string[] acceso = new string[1000];
 
             SqlConnection cn = new SqlConnection();
-            cn = new SqlConnection("Data Source=ASUS-PABLO\\SQLEXPRESS;Initial Catalog=VotUcaWebApi;Integrated Security=True");
+            cn = new SqlConnection("Data Source=localhost;Initial Catalog=VotUcaWebApi;Integrated Security=True");
             cn.Open();
             SqlCommand cmd = null;
             try
@@ -535,6 +551,16 @@ namespace VotUcaWebApi
                             Console.WriteLine("Usuario registrado.");
                         }
                         break;
+
+                        case 11: //Actualizar fecha de una votación
+                        {
+                            //Int16.Parse(part1);
+                            cmd = new SqlCommand("update Votacion set fechafin='" + part2 + "' where IdVotaciones='" + part1 + "'", cn);
+                            cmd.ExecuteNonQuery();
+                            Console.WriteLine("Fecha modificada.");
+                            break;
+                        }
+
                 }
             
                 
@@ -542,7 +568,7 @@ namespace VotUcaWebApi
             }
             catch (Exception ex)
 
-            { Console.WriteLine(ex.Message + "2"); }
+            { Console.WriteLine(ex.Message); }
 
             finally
 

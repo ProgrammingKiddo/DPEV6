@@ -12417,23 +12417,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\PabloGS\\.nuget\\packages\\": {},
+    "C:\\Users\\choct\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Universidad\\Apuntes GII 2019-20\\PINF\\Proyecto Chavales\\DPEV6\\Backend\\VotUcaWebApi\\VotUcaWebApi\\VotUcaWebApi.csproj",
+      "projectUniqueName": "C:\\Users\\choct\\Desktop\\TEST2\\DPEV6\\Backend\\VotUcaWebApi\\VotUcaWebApi\\VotUcaWebApi.csproj",
       "projectName": "VotUcaWebApi",
-      "projectPath": "D:\\Universidad\\Apuntes GII 2019-20\\PINF\\Proyecto Chavales\\DPEV6\\Backend\\VotUcaWebApi\\VotUcaWebApi\\VotUcaWebApi.csproj",
-      "packagesPath": "C:\\Users\\PabloGS\\.nuget\\packages\\",
-      "outputPath": "D:\\Universidad\\Apuntes GII 2019-20\\PINF\\Proyecto Chavales\\DPEV6\\Backend\\VotUcaWebApi\\VotUcaWebApi\\obj\\",
+      "projectPath": "C:\\Users\\choct\\Desktop\\TEST2\\DPEV6\\Backend\\VotUcaWebApi\\VotUcaWebApi\\VotUcaWebApi.csproj",
+      "packagesPath": "C:\\Users\\choct\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\choct\\Desktop\\TEST2\\DPEV6\\Backend\\VotUcaWebApi\\VotUcaWebApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\PabloGS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\choct\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

@@ -30,8 +30,8 @@ namespace App
             if (condicion == 0) { await DisplayAlert("Alerta", "No hay votaciones", "ok"); }
             else { await Navigation.PushAsync(new Votar(resultado, a, condicion, poscoma, 0, (string)App.Current.Properties["name"])); }
         }
-            catch (Exception e6) { }
-    }
+            catch(Exception ex) { await DisplayAlert("", ex.Message, "ok"); }
+        }
             private async void VotFut(object sender, EventArgs e)
             {
             try
