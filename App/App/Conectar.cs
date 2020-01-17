@@ -116,6 +116,11 @@ namespace App
 
                             bytesSent = sender.Send(msg);//enviar
                             break;
+                        case 11: //Envío de IdVotacion para eliminación
+                            msg = Encoding.ASCII.GetBytes("a" + envio[0] + ",");
+
+                            bytesSent = sender.Send(msg);
+                            break;
                     }
                     // Release the socket.  
                     sender.Shutdown(SocketShutdown.Both);

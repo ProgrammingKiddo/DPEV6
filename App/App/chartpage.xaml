@@ -5,7 +5,7 @@
              x:Class="App.chartpage">
     <ContentPage.Content>
         <StackLayout> 
-            <Label FontSize="25" HorizontalOptions="CenterAndExpand" Text=" Bar"/>
+            <Label FontSize="25" HorizontalOptions="CenterAndExpand" Text=" Barras"/>
             <forms:ChartView x:Name="barchart" HeightRequest="200" WidthRequest="100"/>
 
             <Label FontSize="25" HorizontalOptions="CenterAndExpand" Text="Radial"/>

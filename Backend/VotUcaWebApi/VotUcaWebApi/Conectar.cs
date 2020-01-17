@@ -262,7 +262,21 @@ namespace VotUcaWebApi
                                 acceso = Insertar(11, envio[0], envio[1], null, null, null, null);
                             }
                             break;
+                        case "a":
+                            {
+                                data = data.Substring(1);
+                                int i = 0;
+                                while (i < 1)
+                                {
+                                    poscoma = data.IndexOf(",");
+                                    envio[i] = data.Substring(0, poscoma);
+                                    data = data.Substring(poscoma + 1);
+                                    i++;
+                                }
 
+                                acceso = Insertar(12, envio[0], null, null, null, null, null);
+                            }
+                            break;
                     }
                     handler.Send(msg);//enviar
                     handler.Shutdown(SocketShutdown.Both);
@@ -554,10 +568,17 @@ namespace VotUcaWebApi
 
                         case 11: //Actualizar fecha de una votación
                         {
-                            //Int16.Parse(part1);
                             cmd = new SqlCommand("update Votacion set fechafin='" + part2 + "' where IdVotaciones='" + part1 + "'", cn);
                             cmd.ExecuteNonQuery();
                             Console.WriteLine("Fecha modificada.");
+                            break;
+                        }
+
+                        case 12:
+                        {    //Eliminar votación de la base de datos
+                            cmd = new SqlCommand("delete from Votacion where IdVotaciones='" + part1 + "'", cn);
+                            cmd.ExecuteNonQuery();
+                            Console.WriteLine("Votación eliminada.");
                             break;
                         }
 

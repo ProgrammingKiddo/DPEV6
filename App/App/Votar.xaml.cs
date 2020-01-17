@@ -27,6 +27,7 @@ namespace App
                     resultado[7]=usu;
                     Button siguiente = new Button {Text = "siguiente" };
                     Button edit = new Button { Text = "editar votación" };
+                    Button delete = new Button { Text = "eliminar votación" };
                     //Button anterior = new Button { Text = "anterior" };
                     Button button = new Button
                     {
@@ -35,10 +36,11 @@ namespace App
                     
                     if (Nv == 0)
                     {
-
-                        button.Clicked += async (sender, args) => await Navigation.PushAsync(new Votaciones(resultado));
                         sl.Children.Add(edit, 0, 8);
+                        sl.Children.Add(delete, 0, 7);
+                        button.Clicked += async (sender, args) => await Navigation.PushAsync(new Votaciones(resultado));
                         edit.Clicked += async (sender, args) => await Navigation.PushAsync(new EditVotaciones(resultado));
+                        delete.Clicked += (sendr, EventArgs) => { Delete_Clicked(sendr, EventArgs, resultado); };
                     }
 
                     if (Nv == 2) { button.Clicked += async (sender, args) => await Navigation.PushAsync(new chartpage(resultado)); }
@@ -62,7 +64,20 @@ namespace App
             }
         }
 
+        private async void Delete_Clicked(object sender, EventArgs e, string[] resultado)
+        {
+            var answer = await DisplayAlert("Alerta", "¿Está seguro de que desea eliminar la votación permanentemente?", "Sí", "No");
+            if(answer == true)
+            {
+                string[] envio = new string[100];
+                string acceso = null;
+                envio[0] = resultado[0]; //IdVotacion
 
+                acceso = Conectar.Union(11, envio);
+                await DisplayAlert("", "La votación ha sido eliminada", "Aceptar");
+                await Navigation.PushAsync(new MenuPage(1));
+            }
+        }
     }
 }
 
