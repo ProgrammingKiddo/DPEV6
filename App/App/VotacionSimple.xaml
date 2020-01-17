@@ -13,6 +13,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -37,12 +38,15 @@
         <Label Text="Acaba el:" Grid.Row="4" Grid.Column="0" VerticalOptions="Center"/>
         <DatePicker x:Name="PLCfechafin" MinimumDate="{x:Static sys:DateTime.Now}" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2"/>
 
-        <Label Text="Carrera:" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3" VerticalOptions="Center"/>
-        <Picker  Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3" VerticalOptions="Center" x:Name="pickercarrera" SelectedIndexChanged="PickerCarrera_SelectedIndexChanged">
+        <Label Text="Finaliza a las:" Grid.Row="5" Grid.Column="0" VerticalOptions="Center"/>
+        <TimePicker x:Name="PLChorafin" Time="{Binding SelectedTime}" Format="t" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2"/>
+
+        <Label Text="Carrera:" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3" VerticalOptions="Center"/>
+        <Picker  Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="3" VerticalOptions="Center" x:Name="pickercarrera" SelectedIndexChanged="PickerCarrera_SelectedIndexChanged">
         </Picker>
         <BoxView x:Name="boxcarrera "></BoxView>
 
-        <Button Text="Crear votación" Grid.Row="7" Grid.ColumnSpan="3" CornerRadius="25" 
+        <Button Text="Crear votación" Grid.Row="8" Grid.ColumnSpan="3" CornerRadius="25" 
                 TextColor="White" BackgroundColor="Orange" Clicked="Btnpage1_Clicked"/>
 
     </Grid>

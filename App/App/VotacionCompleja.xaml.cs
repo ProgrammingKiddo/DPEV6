@@ -44,15 +44,15 @@ namespace App
             }
             catch { }
         }
-        
-        
 
 
 
-            private async void PickerCarrera_SelectedIndexChanged(object sender, EventArgs e)
-            {
-                // throw new NotImplementedException();
-            }
+
+
+        private async void PickerCarrera_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // throw new NotImplementedException();
+        }
 
 
         private async void Btnpage1_Clicked(object sender, EventArgs e)//boton crear votacion
@@ -71,14 +71,15 @@ namespace App
                 envio[5] = PLCfechafin.Date.ToShortDateString();//fecha fin        
                 envio[6] = carreras[positionCarrera];
                 envio[7] = (string)App.Current.Properties["name"];
+                envio[8] = PLChorafin.ToString();
 
                 acceso = Conectar.Union(2, envio);// el 2 es para la informacion votacion
 
-                await DisplayAlert("", "Su votación se ha creado correctamente","Aceptar");
+                await DisplayAlert("", "Su votación se ha creado correctamente", "Aceptar");
 
                 await Navigation.PushAsync(new MenuPage(1));
             }
-            
+
         }
     }
 }

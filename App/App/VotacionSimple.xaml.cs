@@ -9,13 +9,13 @@ using Xamarin.Forms.Xaml;
 
 namespace App
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class VotacionSimple : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class VotacionSimple : ContentPage
+    {
         List<string> carreras;
-        public VotacionSimple ()
-		{
-			InitializeComponent ();
+        public VotacionSimple()
+        {
+            InitializeComponent();
             InitMenuDesplegable();
         }
         private void InitMenuDesplegable()
@@ -56,7 +56,7 @@ namespace App
 
         private async void Btnpage1_Clicked(object sender, EventArgs e)//boton crear votacion
         {
-           var answer = await DisplayAlert("Alerta", "¿Estás seguro de que quieres crear la votación?", "Si", "No");
+            var answer = await DisplayAlert("Alerta", "¿Estás seguro de que quieres crear la votación?", "Si", "No");
             if (answer == true)
             {
                 int positionCarrera = pickercarrera.SelectedIndex;
@@ -70,13 +70,14 @@ namespace App
                 envio[5] = PLCfechafin.Date.ToShortDateString();//fecha fin        
                 envio[6] = carreras[positionCarrera];
                 envio[7] = (string)App.Current.Properties["name"];
+                envio[8] = PLChorafin.ToString();
 
 
                 acceso = Conectar.Union(2, envio);// el 2 es para la informacion votacion
                 await DisplayAlert("", "Su votación se ha creado correctamente", "Aceptar");
                 await Navigation.PushAsync(new MenuPage(1));
             }
-            
+
         }
     }
 }
