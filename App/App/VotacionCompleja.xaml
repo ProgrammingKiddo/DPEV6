@@ -54,7 +54,7 @@
         <DatePicker x:Name="PLCfechaini" MinimumDate="{x:Static sys:DateTime.Now}" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2"/>
 
         <Label Text="Acaba el:" Grid.Row="7" Grid.Column="0" VerticalOptions="Center"/>
-        <DatePicker x:Name="PLCfechafin" MinimumDate="{x:Static sys:DateTime.Now}" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <DatePicker x:Name="PLCfechafin" MinimumDate="{Binding Source={x:Reference PLCfechaini}, Path=Date}" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2"/>
 
         <Label Text="Finaliza a las:" Grid.Row="8" Grid.Column="0" VerticalOptions="Center"/>
         <TimePicker x:Name="PLChorafin" Time="{Binding SelectedTime}" Format="t"  Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="2"/>

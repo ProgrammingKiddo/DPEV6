@@ -40,9 +40,9 @@ namespace App
                 {
                     string[] envio = new string[100];
                     string acceso = null;                    
-                      string  usu = PLCusuario.Text;
+                    string  usu = PLCusuario.Text;
                 
-                    envio[0] =Cifrado.Cifrar(PLCusuario.Text);//usuario                       
+                    envio[0] = Cifrado.Cifrar(PLCusuario.Text);//usuario                       
                     envio[1] = Cifrado.Cifrar(btncontrasena.Text); //contraseña     
                   
                     acceso = Conectar.Union(1, envio); //llama a la funcion Union el 1 es para ldap
