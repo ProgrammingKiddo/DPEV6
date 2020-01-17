@@ -17,9 +17,6 @@ namespace App
         {
             InitializeComponent();
            Init(i);
-
-            
-           
         }
 
         void Init(int i)
@@ -27,9 +24,9 @@ namespace App
             List<Menu> menu = new List<Menu>
             {
                 new Menu{ MenuTitle = "Inicio", MenuDetail = ""},               
-                new Menu{ MenuTitle = "Historial", MenuDetail = ""},
-                new Menu{ MenuTitle = "Configuración", MenuDetail = ""},
-                new Menu{ MenuTitle = "Cerrar Sesión", MenuDetail = ""}
+                new Menu{ MenuTitle = "Manual de usuario", MenuDetail = ""},
+                new Menu{ MenuTitle = "Vídeo explicativo", MenuDetail = ""},
+                new Menu{ MenuTitle = "Email de soporte", MenuDetail = ""}
             };
 
             ListMenu.ItemsSource = menu;
@@ -49,6 +46,7 @@ namespace App
             }
            
         }
+
         private async void btncerrarsesion_Clicked(object sender, EventArgs e)//boton acceder
         {
 
@@ -68,22 +66,21 @@ namespace App
                 {
                     Detail = new NavigationPage(new MenuPage(1));
                 }
-                else if (menu.MenuTitle.Equals("Crear Votaciones"))
+                else if (menu.MenuTitle.Equals("Manual de usuario"))
                 {
-                    Detail = new NavigationPage(new CrearVotacion())
-                    {
-                        BarBackgroundColor = Color.DarkBlue
-                    }; 
+                    #pragma warning disable CS0618 // El tipo o el miembro están obsoletos
+                    Device.OpenUri(new Uri("https://docs.google.com/document/d/1kyRvKGb01fU7mXhrFEPSryjrrR9n8Ixy/edit#heading=h.gjdgxs"));
+                    #pragma warning restore CS0618 // El tipo o el miembro están obsoletos
                 }
-                else if (menu.MenuTitle.Equals("Cerrar Sesión"))
+                else if (menu.MenuTitle.Equals("Vídeo explicativo"))
                 {
-                    var answer = await DisplayAlert("Alerta", "¿Estás seguro de que quieres cerrar sesión?", "Si", "No");
-                    if (answer == true)
-                    {
-                        Detail = new NavigationPage(new MainPage());
-                    }  
+                    #pragma warning disable CS0618 // El tipo o el miembro están obsoletos
+                    Device.OpenUri(new Uri("https://www.youtube.com/watch?v=BO764hYiEek"));
+                    #pragma warning restore CS0618 // El tipo o el miembro están obsoletos
+                }else if (menu.MenuTitle.Equals("Email de soporte"))
+                {
+                    await DisplayAlert("Correo electrónico de soporte:", "votucasupport@gmail.com", "Aceptar");
                 }
-
             }
         }
     }
