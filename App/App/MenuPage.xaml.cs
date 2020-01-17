@@ -64,7 +64,11 @@ namespace App
             {
                 if (menu.MenuTitle.Equals("Inicio"))
                 {
-                    Detail = new NavigationPage(new MenuPage(1));
+                    string nombre = (string)App.Current.Properties["name"];
+                    if (int.Parse(nombre.Substring(8)) == 0) 
+                        Detail = new NavigationPage(new MenuPage(0));
+                    else
+                        Detail = new NavigationPage(new MenuPage(1));
                 }
                 else if (menu.MenuTitle.Equals("Manual de usuario"))
                 {
