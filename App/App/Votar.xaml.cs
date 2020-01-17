@@ -17,14 +17,14 @@ namespace App
                 if (condicion >= 0)
                 {
                     int i = 0;
-                    while (i < 7)
+                    while (i < 9)
                     {
                         poscoma = a.IndexOf(",");
                         resultado[i] = a.Substring(0, poscoma);
                         a = a.Substring(poscoma + 1);
                         i++;
                     }
-                    resultado[7]=usu;
+                    resultado[9]=usu;
                     Button siguiente = new Button {Text = "siguiente" };
                     Button edit = new Button { Text = "editar votación" };
                     Button delete = new Button { Text = "eliminar votación" };
@@ -40,10 +40,13 @@ namespace App
 
                     if (Nv < 2)
                     {
-                        sl.Children.Add(edit, 0, 8);
-                        sl.Children.Add(delete, 0, 7);
-                        edit.Clicked += async (sender, args) => await Navigation.PushAsync(new EditVotaciones(resultado));
-                        delete.Clicked += (sendr, EventArgs) => { Delete_Clicked(sendr, EventArgs, resultado); };
+                        if ((resultado[9].Equals(resultado[8])) || (resultado[9].Substring(resultado[9].Length-1,1) == "0"))
+                        {
+                            sl.Children.Add(edit, 0, 8);
+                            sl.Children.Add(delete, 0, 7);
+                            edit.Clicked += async (sender, args) => await Navigation.PushAsync(new EditVotaciones(resultado));
+                            delete.Clicked += (sendr, EventArgs) => { Delete_Clicked(sendr, EventArgs, resultado); };
+                        }
                     }
 
                     if (condicion > 1)

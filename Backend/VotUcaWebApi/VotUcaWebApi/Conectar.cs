@@ -25,7 +25,7 @@ namespace VotUcaWebApi
             // Dns.GetHostName returns the name of the   
             // host running the application.  
             IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
-            IPAddress ipAddress = IPAddress.Parse("192.168.1.40");
+            IPAddress ipAddress = IPAddress.Parse("10.9.17.190");
             IPEndPoint localEndPoint = new IPEndPoint(ipAddress, 5000);
 
             // Create a TCP/IP socket.  
@@ -105,7 +105,7 @@ namespace VotUcaWebApi
                                              cont++;
                                             suma +=acceso[i] + "," + acceso[i + 1] + "," +
                                              acceso[i + 2] + "," + acceso[i + 3] + "," + acceso[i + 4] + "," + acceso[i + 5] + "," +
-                                             acceso[i + 6] + ",";
+                                             acceso[i + 6] + "," + acceso[i + 7] + "," + acceso[i + 8] + ",";
                                             
                                             }
                                            i += 10;
@@ -156,7 +156,7 @@ namespace VotUcaWebApi
                                         cont++;
                                         suma +=acceso[i] + "," + acceso[i + 1] + "," +
                                          acceso[i + 2] + "," + acceso[i + 3] + "," + acceso[i + 4] + "," + acceso[i + 5] + "," +
-                                         acceso[i + 6] + ",";
+                                         acceso[i + 6] + "," + acceso[i + 7] + "," + acceso[i + 8] + ",";
                                        
                                         Console.WriteLine(cont);
                                     }
@@ -355,7 +355,7 @@ namespace VotUcaWebApi
             string[] acceso = new string[1000];
 
             SqlConnection cn = new SqlConnection();
-            cn = new SqlConnection("Data Source=DESKTOP-1CTQ3SE\\SQLEXPRESS;Initial Catalog=Pinf;Integrated Security=True");
+            cn = new SqlConnection("Data Source=localhost;Initial Catalog=VotUcaWebApi;Integrated Security=True");
             cn.Open();
             SqlCommand cmd = null;
             try
