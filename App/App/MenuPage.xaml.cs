@@ -83,7 +83,7 @@ namespace App
                     #pragma warning restore CS0618 // El tipo o el miembro están obsoletos
                 }else if (menu.MenuTitle.Equals("Email de soporte"))
                 {
-                    await DisplayAlert("Correo electrónico de soporte:", "votucasupport@gmail.com", "Aceptar");
+                    await DisplayAlert("Correo electrónico de soporte:", "votuca.spprt@gmail.com", "Aceptar");
                 }
             }
         }
