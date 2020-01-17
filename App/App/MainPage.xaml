@@ -35,6 +35,21 @@
                                      CommandParameter="http://control.uca.es/cambiarclave" />
                                 </Span.GestureRecognizers>
                             </Span>
+                            
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+
+                            <Span Text="Video explicativo" FontSize="8" TextColor="Orange" TextDecorations="Underline">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding TapCommand}"
+                                     CommandParameter="http://youtube.com/" />
+                                </Span.GestureRecognizers>
+                            </Span>
 
                         </FormattedString>
                     </Label.FormattedText>

@@ -49,8 +49,17 @@ namespace App
             }
            
         }
+        private async void btncerrarsesion_Clicked(object sender, EventArgs e)//boton acceder
+        {
 
-       async void ListMenu_ItemSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
+            var answer = await DisplayAlert("Alerta", "¿Estás seguro de que quieres cerrar sesión?", "Si", "No");
+            if (answer == true)
+            {
+                Detail = new NavigationPage(new MainPage());
+            }
+        }
+
+        async void ListMenu_ItemSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
         {
             var menu = e.SelectedItem as Menu;
             if (menu != null)

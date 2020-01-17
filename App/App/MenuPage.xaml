@@ -13,17 +13,22 @@
             BackgroundColor="Gray"
             Padding="0,60,0,0"
             Icon="+++">
-
-            <ListView x:Name="ListMenu" BackgroundColor="LightGray" ItemSelected="ListMenu_ItemSelected">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <TextCell
+            <ContentPage.Content>
+                <StackLayout x:Name="layout">
+                    <ListView x:Name="ListMenu" BackgroundColor="LightGray" ItemSelected="ListMenu_ItemSelected" VerticalOptions="Start">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <TextCell
                                 Text = "{Binding MenuTitle}" Detail="{Binding MenuDetail}" >
-                            </TextCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            
+                                </TextCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <Button x:Name="btncerrarsesion"  Text="Cerrar Sesión" TextColor="White" BackgroundColor="Orange" Clicked="btncerrarsesion_Clicked" FontSize="Small" VerticalOptions="End" Margin="0, 0, 0, 5"
+                    HorizontalOptions="Center" />
+
+                </StackLayout>
+            </ContentPage.Content>
         </ContentPage>
     </MasterDetailPage.Master>
 </MasterDetailPage>
