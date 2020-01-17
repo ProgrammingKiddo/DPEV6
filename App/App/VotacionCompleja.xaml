@@ -54,15 +54,10 @@
 
         <Label Text="Acaba el:" Grid.Row="7" Grid.Column="0" VerticalOptions="Center"/>
         <DatePicker x:Name="PLCfechafin" MinimumDate="{x:Static sys:DateTime.Now}" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2"/>
-
-        <Label Text="Grados:" Grid.Row="8" Grid.Column="0" VerticalOptions="Center" />
-        <Button Text="Selecciona los grados que podran participar" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="2" 
-                TextColor="White" BackgroundColor="Orange" Clicked="SeleccionGrados"/>
-
-        <Label Text="Cursos:" Grid.Row="9" Grid.Column="0" VerticalOptions="Center" />
-        <Button Text="Selecciona los cursos que podran participar" Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="2"
-                TextColor="White" BackgroundColor="Orange" Clicked="SeleccionCursos" />
-
+        <Label Text="Carrera:" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="3" VerticalOptions="Center"/>
+        <Picker  Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="3" VerticalOptions="Center" x:Name="pickercarrera" SelectedIndexChanged="PickerCarrera_SelectedIndexChanged">
+        </Picker>
+        <BoxView x:Name="boxcarrera "></BoxView>
         <Button Text="Crear votación" Grid.Row="10" Grid.ColumnSpan="3" CornerRadius="25" 
                 TextColor="White" BackgroundColor="Orange" Clicked="Btnpage1_Clicked"/>
 
