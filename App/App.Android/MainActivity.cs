@@ -24,5 +24,17 @@ namespace App.Droid
             Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
         }
+
+        public override void OnConfigurationChanged(Android.Content.Res.Configuration newConfig)
+        {
+            base.OnConfigurationChanged(newConfig);
+
+            LockRotation(Orientation.Vertical);
+        }
+
+        private void LockRotation(Orientation orientation)
+        {
+            RequestedOrientation = ScreenOrientation.Portrait;
+        }
     }
 }

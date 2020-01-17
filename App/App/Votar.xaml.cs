@@ -34,16 +34,17 @@ namespace App
                         Text = resultado[6] + " " + resultado[4] + " " + resultado[5],
                     };
                     
-                    if (Nv == 0)
+                    if (Nv == 0) {button.Clicked += async (sender, args) => await Navigation.PushAsync(new Votaciones(resultado));}
+
+                    if (Nv == 2) {button.Clicked += async (sender, args) => await Navigation.PushAsync(new chartpage(resultado));}
+
+                    if (Nv < 2)
                     {
                         sl.Children.Add(edit, 0, 8);
                         sl.Children.Add(delete, 0, 7);
-                        button.Clicked += async (sender, args) => await Navigation.PushAsync(new Votaciones(resultado));
                         edit.Clicked += async (sender, args) => await Navigation.PushAsync(new EditVotaciones(resultado));
                         delete.Clicked += (sendr, EventArgs) => { Delete_Clicked(sendr, EventArgs, resultado); };
                     }
-
-                    if (Nv == 2) { button.Clicked += async (sender, args) => await Navigation.PushAsync(new chartpage(resultado)); }
 
                     if (condicion > 1)
                     {
