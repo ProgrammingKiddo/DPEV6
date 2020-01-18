@@ -25,7 +25,7 @@ namespace VotUcaWebApi
             // Dns.GetHostName returns the name of the   
             // host running the application.  
             IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
-            IPAddress ipAddress = IPAddress.Parse("192.168.1.36");
+            IPAddress ipAddress = IPAddress.Parse("10.9.17.190");
             IPEndPoint localEndPoint = new IPEndPoint(ipAddress, 5000);
 
             // Create a TCP/IP socket.  
@@ -62,7 +62,7 @@ namespace VotUcaWebApi
 
                     string opcion = data.Substring(0, 1);//aqui cojo la opcion ya sea LDAP,CREAR VOTACION,Ver Votacion,Votar
                     SqlConnection cn = new SqlConnection();
-                    cn = new SqlConnection("Data Source=LAPTOP-2PSVQU3U;Initial Catalog=model;Integrated Security=True");
+                    cn = new SqlConnection("Data Source=localhost;Initial Catalog=VotUcaWebApi;Integrated Security=True");
                     cn.Open();
 
                     switch (opcion)
@@ -93,7 +93,7 @@ namespace VotUcaWebApi
                             {
                                 DateTime localDate = DateTime.Today;
 
-                                        byte[] resultado = new Byte[1000];
+                                byte[] resultado = new Byte[1000];
                                 data = data.Substring(1);
                                 SqlCommand consulta = new SqlCommand("Select Carrera From Usuarios where IdUca='" + data + "'", cn);
                                 SqlDataReader dr = consulta.ExecuteReader();
@@ -108,14 +108,14 @@ namespace VotUcaWebApi
 
                                 string suma =null;
 
-                                        acceso = Insertar(2, null, null, null, null, null, null, null, null);
-                                        int i = 0;
-                                        int a = int.Parse(acceso[9]);
-                                        a = a / 10;
+                                acceso = Insertar(2, null, null, null, null, null, null, null, null);
+                                int i = 0;
+                                int a = int.Parse(acceso[9]);
+                                a = a / 10;
                                         
-                                        int cont = 0;                                       
-                                        while (a >= 0)
-                                        {
+                                int cont = 0;                                       
+                                while (a >= 0)
+                                    {
                                     if (acceso[i + 7] == carrera[0])
                                     {
                                         if (DateTime.Compare(Convert.ToDateTime(acceso[i + 4]), localDate) <= 0 && DateTime.Compare(Convert.ToDateTime(acceso[i + 5]), localDate) >= 0)
@@ -127,10 +127,10 @@ namespace VotUcaWebApi
 
                                         }
                                     }
-                                           i += 10;
+                                        i += 10;
                                             
-                                            a--;
-                                        }
+                                        a--;
+                                    }
                                 msg = Encoding.ASCII.GetBytes(cont.ToString() + "," + suma);
                                 Console.WriteLine(Encoding.Default.GetString(msg));
                                         
@@ -254,7 +254,7 @@ namespace VotUcaWebApi
                                     data = data.Substring(poscoma + 1);
                                     i++;
                                 }
-                                Console.WriteLine(envio[0] + "," + envio[1] );
+                                Console.WriteLine("Comprobacion: " + envio[0] + "," + envio[1] );
                                 Console.WriteLine("Comprobando si el usuario ha votado...");
                                  acceso = Insertar(4, envio[0],envio[1], null, null, null, null, null, null);//0 es idvotacion,y 1 es iduca
                                  msg = Encoding.ASCII.GetBytes(acceso[0]+",");
@@ -402,7 +402,7 @@ namespace VotUcaWebApi
             string[] acceso = new string[1000];
 
             SqlConnection cn = new SqlConnection();
-            cn = new SqlConnection("Data Source=LAPTOP-2PSVQU3U;Initial Catalog=model;Integrated Security=True");
+            cn = new SqlConnection("Data Source=localhost;Initial Catalog=VotUcaWebApi;Integrated Security=True");
             cn.Open();
             SqlCommand cmd = null;
             try
@@ -509,7 +509,7 @@ namespace VotUcaWebApi
                     case 4://comprobar si el usuario ha votado
                         {
                             string[] sacar = new string[20];
-                            //Console.WriteLine(part2,part1);
+                            //Console.WriteLine("IdVotacion: " + part1 + " IdUca: " + part2);
                             SqlCommand consulta = new SqlCommand("Select IdUsuarios From Usuarios where IdUca='" + part2 + "'", cn);
                             SqlDataReader dr = consulta.ExecuteReader();
                             while (dr.Read())
@@ -517,6 +517,9 @@ namespace VotUcaWebApi
                                     sacar[0] = Convert.ToString(dr[0]);
                                    // Console.WriteLine(sacar[0]);
                             }
+
+                            Console.WriteLine("IdUsuario obtenido: " + sacar[0]);
+
                             cn.Close();
                             cn.Open();
                              consulta = new SqlCommand("Select * From Registro where IdUsuarios='"+sacar[0]+"'and IdVotacion ='" + part1 + "'", cn);

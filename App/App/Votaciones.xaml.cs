@@ -54,16 +54,16 @@ namespace App
 
             datos[0] = resultado[0];           
             datos[1] = res.ToString();
-            datos[2] = resultado[7];
+            datos[2] = resultado[9];
             Conectar.Union(4,datos);
-            if (resultado[7].Substring(8) == "0")
+            if (resultado[9].Substring(8) == "0")
                 await Navigation.PushAsync(new MenuPage(0));
             else
                 await Navigation.PushAsync(new MenuPage(1));
         }
         public async void funcion(string[]resultado)
         {
-            await DisplayAlert(resultado[7].Substring(8), "usted ya ha votado en esta votacion", "ok");
+            await DisplayAlert(resultado[7].Substring(8), "Usted ya ha votado en esta votacion", "ok");
             if (resultado[7].Substring(8) == "0")
                 await Navigation.PushAsync(new MenuPage(0));
             else
