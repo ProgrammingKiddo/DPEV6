@@ -17,7 +17,7 @@ namespace App
                 if (condicion >= 0)
                 {
                     int i = 0;
-                    while (i < 9)
+                    while (i < 10)
                     {
                         poscoma = a.IndexOf(",");
                         resultado[i] = a.Substring(0, poscoma);
