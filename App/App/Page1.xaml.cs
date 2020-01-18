@@ -28,9 +28,9 @@ namespace App
             try
             {
                 string[] resultado = new string[100];
+                resultado[0] = (string)App.Current.Properties["name"];
 
-                
-                string a = Conectar.Union(3, null);
+                string a = Conectar.Union(3, resultado);
                 int poscoma = a.IndexOf(",");
                 int condicion = int.Parse(a.Substring(0, poscoma));
                 a = a.Substring(poscoma + 1);
@@ -45,7 +45,8 @@ namespace App
             try
             {
                 string[] resultado = new string[100];
-                string a = Conectar.Union(5, null);
+                resultado[0] = (string)App.Current.Properties["name"];
+                string a = Conectar.Union(5, resultado);
                 int poscoma = a.IndexOf(",");
                 int condicion = int.Parse(a.Substring(0, poscoma));
                 a = a.Substring(poscoma + 1);
@@ -60,8 +61,9 @@ namespace App
         {
             try
             {
-                string[] resultado = new string[100];              
-                string a = Conectar.Union(6, null);
+                string[] resultado = new string[100];
+                resultado[0] = (string)App.Current.Properties["name"];
+                string a = Conectar.Union(6, resultado);
                 int poscoma = a.IndexOf(",");
                 int condicion = int.Parse(a.Substring(0, poscoma));
                 a = a.Substring(poscoma + 1);

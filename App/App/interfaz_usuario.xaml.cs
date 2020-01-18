@@ -22,7 +22,7 @@ namespace App
                 string[] resultado = new string[100];
 
                 int condicion = 2;
-                string a = Conectar.Union(3, null);
+                string a = Conectar.Union(3,resultado);
                 int poscoma = a.IndexOf(",");
                 condicion = int.Parse(a.Substring(0, poscoma));
                 a = a.Substring(poscoma + 1);
@@ -38,7 +38,7 @@ namespace App
             {
                 int condicion = 2;
                 string[] resultado = new string[100];
-                string a = Conectar.Union(5, null);
+                string a = Conectar.Union(5,resultado);
                 int poscoma = a.IndexOf(",");
                  condicion = int.Parse(a.Substring(0, poscoma));
                 a = a.Substring(poscoma + 1);
@@ -56,7 +56,7 @@ namespace App
                 string[] resultado = new string[100];
 
                 int condicion = 2;
-                string a = Conectar.Union(6, null);
+                string a = Conectar.Union(6, resultado);
                 int poscoma = a.IndexOf(",");
                 condicion = int.Parse(a.Substring(0, poscoma));
                 a = a.Substring(poscoma + 1);

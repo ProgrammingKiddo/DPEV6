@@ -19,7 +19,7 @@ namespace App
                     // Establish the remote endpoint for the socket.  
                     // This example uses port 11000 on the local computer.  
                     IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
-                    IPAddress ipAddress = IPAddress.Parse("10.9.17.190");
+                    IPAddress ipAddress = IPAddress.Parse("192.168.1.36");
                      IPEndPoint remoteEP = new IPEndPoint(ipAddress, 5000);
 
                      // Create a TCP/IP  socket.  
@@ -56,7 +56,7 @@ namespace App
                              bytesSent = sender.Send(msg);//enviar
                              break;
                         case 3://VER VOTACION 
-                            msg = Encoding.ASCII.GetBytes("3");
+                            msg = Encoding.ASCII.GetBytes("3"+envio[0]);
                             bytesSent = sender.Send(msg);
 
                             array_size = sender.Receive(bytes, 0, bytes.Length, 0);
@@ -69,7 +69,7 @@ namespace App
 
                             bytesSent = sender.Send(msg);break;
                         case 5://Ver votaciones futuras
-                            msg = Encoding.ASCII.GetBytes("5");
+                            msg = Encoding.ASCII.GetBytes("5" + envio[0]);
                             bytesSent = sender.Send(msg);
 
                             array_size = sender.Receive(bytes, 0, bytes.Length, 0);
@@ -77,7 +77,7 @@ namespace App
                             acceso = Encoding.Default.GetString(bytes);
                             break;
                         case 6:
-                            msg = Encoding.ASCII.GetBytes("6");
+                            msg = Encoding.ASCII.GetBytes("6" + envio[0]);
                             bytesSent = sender.Send(msg);
 
                             array_size = sender.Receive(bytes, 0, bytes.Length, 0);
