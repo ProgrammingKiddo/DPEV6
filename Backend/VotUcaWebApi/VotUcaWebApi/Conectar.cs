@@ -246,7 +246,7 @@ namespace VotUcaWebApi
                                                 cont++;
                                                 suma += acceso[i] + "," + acceso[i + 1] + "," +
                                                  acceso[i + 2] + "," + acceso[i + 3] + "," + acceso[i + 4] + "," + acceso[i + 5] + "," +
-                                                 acceso[i + 6] + "," + acceso[i + 7] + "," + acceso[i + 8] + ",";
+                                                 acceso[i + 6] + "," + acceso[i + 7] + "," + acceso[i + 8] + "," + acceso[i + 9] + ",";
                                             
                                         }
                                     }
