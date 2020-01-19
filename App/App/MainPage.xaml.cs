@@ -54,7 +54,7 @@ namespace App
                                 await Navigation.PushAsync(new Entry_form());
                             else
                             {
-                                if (int.Parse(PLCusuario.Text.Substring(8)) == 0)
+                                if (usu!="u00000000")
                                     await Navigation.PushAsync(new MenuPage(0));
                                 else
                                     await Navigation.PushAsync(new MenuPage(1));

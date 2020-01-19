@@ -65,7 +65,7 @@ namespace App
             datos[2] = resultado[9];
             datos[3] = resultado[10];
             Conectar.Union(4,datos);
-            if (resultado[9].Substring(8) == "0")
+            if (resultado[9] != "u00000000")
                 await Navigation.PushAsync(new MenuPage(0));
             else
                 await Navigation.PushAsync(new MenuPage(1));
@@ -75,7 +75,7 @@ namespace App
         public async void funcion(string[]resultado)
         {
             await DisplayAlert("Aviso", "Usted ya ha votado en esta votacion", "ok");
-            if (resultado[7].Substring(8) == "0")
+            if (resultado[7]!= "u00000000")
                 await Navigation.PushAsync(new MenuPage(0));
             else
                 await Navigation.PushAsync(new MenuPage(1));

@@ -65,7 +65,7 @@ namespace App
                 if (menu.MenuTitle.Equals("Inicio"))
                 {
                     string nombre = (string)App.Current.Properties["name"];
-                    if (int.Parse(nombre.Substring(8)) == 0) 
+                    if (nombre != "u00000000") 
                         Detail = new NavigationPage(new MenuPage(0));
                     else
                         Detail = new NavigationPage(new MenuPage(1));

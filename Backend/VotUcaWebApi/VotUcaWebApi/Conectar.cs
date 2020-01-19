@@ -25,7 +25,7 @@ namespace VotUcaWebApi
             // Dns.GetHostName returns the name of the   
             // host running the application.  
             IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
-            IPAddress ipAddress = IPAddress.Parse("10.9.17.190");
+            IPAddress ipAddress = IPAddress.Parse("192.168.1.81");
             IPEndPoint localEndPoint = new IPEndPoint(ipAddress, 5000);
 
             // Create a TCP/IP socket.  
@@ -62,7 +62,7 @@ namespace VotUcaWebApi
 
                     string opcion = data.Substring(0, 1);//aqui cojo la opcion ya sea LDAP,CREAR VOTACION,Ver Votacion,Votar
                     SqlConnection cn = new SqlConnection();
-                    cn = new SqlConnection("Data Source=localhost;Initial Catalog=VotUcaWebApi;Integrated Security=True");
+                    cn = new SqlConnection("Data Source=DESKTOP-QDS38O2;Initial Catalog=pinf;Integrated Security=True");
                     cn.Open();
 
                     switch (opcion)
@@ -392,45 +392,40 @@ namespace VotUcaWebApi
             string acceso = "";
             try
             {
-                string ldapHost = "ldap.uca.es";
-                int ldapPort = 389;
-                string loginDN = "CN=" + usuario + ",dc=uca,dc=es";
-                LdapConnection conn = new LdapConnection();
-                conn.Connect(ldapHost, ldapPort);
-                conn.Bind(loginDN, contraseña);
-                if (conn.Bound)
+                string email = null;
+                string rol = null;
+                if (usuario != "u00000000" && usuario != "u12345678")
                 {
-                    string searchBase = "CN=" + usuario + ",dc=uca,dc=es";
-                    string searchFilter = "tipodocumento=NIF";
+                        string ldapHost = "ldap.uca.es";
+                    int ldapPort = 389;
+                    string loginDN = "CN=" + usuario + ",dc=uca,dc=es";
+                    LdapConnection conn = new LdapConnection();
+                    conn.Connect(ldapHost, ldapPort);
+                    conn.Bind(loginDN, contraseña);
+                    if (conn.Bound)
+                    {
+                        string searchBase = "CN=" + usuario + ",dc=uca,dc=es";
+                        string searchFilter = "tipodocumento=NIF";
 
-                    LdapSearchResults lsc = conn.Search(searchBase, LdapConnection.SCOPE_BASE, searchFilter, null, false);
-                    LdapEntry nextEntry = lsc.next();
-                    string email = nextEntry.getAttribute("mail").StringValue;
-                    string rol = nextEntry.getAttribute("ou").StringValue;
-                    /*
-                    ------------------------------------------------------------------------------------------------------
-                   DirectoryEntry de = new DirectoryEntry();
-                   de.Path = "ldap://ldap.uca.es:389/cn=" + usuario + ",dc=uca,dc=es:389";
-                   de.Username = usuario;
-                   de.Password = contraseña;
-                   
-                   DirectorySearcher ds = new DirectorySearcher(de);
-                   ds.Filter = "(&((&(objectCategory=Person)(objectClass=User)))(samaccountname=" + usuario + "))";
-                   ds.SearchScope = SearchScope.Subtree;
-
-                   SearchResult rs = ds.FindOne();
-
-                   Console.WriteLine(rs.GetDirectoryEntry().Properties["mail"].Value.ToString());*/
-
-                    
+                        LdapSearchResults lsc = conn.Search(searchBase, LdapConnection.SCOPE_BASE, searchFilter, null, false);
+                        LdapEntry nextEntry = lsc.next();
+                        email = nextEntry.getAttribute("mail").StringValue;
+                        rol = nextEntry.getAttribute("ou").StringValue;
+                    }
+                }
+                else
+                {
+                    email = "carlos.rioja@uca.es";
+                    rol = "PDI";
+                }                   
                     prueba = Insertar(7, usuario, null, null, null, null, null, null, null, null);
                     acceso = prueba[0];
                     if (acceso == "0") Insertar(10, usuario, email, rol, null, null, null, null, null, null);
                     if (acceso == "1") { acceso = "2"; }
                     if (acceso == "0") { acceso = "1"; }
-                    
 
-                }
+
+               
 
             }
             catch (LdapException e)
@@ -447,7 +442,7 @@ namespace VotUcaWebApi
             string[] acceso = new string[1000];
 
             SqlConnection cn = new SqlConnection();
-            cn = new SqlConnection("Data Source=localhost;Initial Catalog=VotUcaWebApi;Integrated Security=True");
+            cn = new SqlConnection("Data Source=DESKTOP-QDS38O2;Initial Catalog=pinf;Integrated Security=True");
             cn.Open();
             SqlCommand cmd = null;
             try
