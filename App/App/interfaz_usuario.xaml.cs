@@ -20,33 +20,33 @@ namespace App
         {
             try { 
                 string[] resultado = new string[100];
+                resultado[0] = (string)App.Current.Properties["name"];
 
-                int condicion = 2;
                 string a = Conectar.Union(3,resultado);
                 int poscoma = a.IndexOf(",");
-                condicion = int.Parse(a.Substring(0, poscoma));
+                int condicion = int.Parse(a.Substring(0, poscoma));
                 a = a.Substring(poscoma + 1);
 
             if (condicion == 0) { await DisplayAlert("Alerta", "No hay votaciones", "ok"); }
             else { await Navigation.PushAsync(new Votar(resultado, a, condicion, poscoma, 0, (string)App.Current.Properties["name"])); }
         }
-            catch(Exception ex) { await DisplayAlert("", ex.Message, "ok"); }
+            catch(Exception ex) { await DisplayAlert("Error en Votaciones: ", ex.Message, "ok"); }
         }
             private async void VotFut(object sender, EventArgs e)
             {
             try
             {
-                int condicion = 2;
                 string[] resultado = new string[100];
-                string a = Conectar.Union(5,resultado);
+                resultado[0] = (string)App.Current.Properties["name"];
+                string a = Conectar.Union(5, resultado);
                 int poscoma = a.IndexOf(",");
-                 condicion = int.Parse(a.Substring(0, poscoma));
+                int condicion = int.Parse(a.Substring(0, poscoma));
                 a = a.Substring(poscoma + 1);
 
                 if (condicion == 0) { await DisplayAlert("Alerta", "No hay votaciones", "ok"); }
                 else { await Navigation.PushAsync(new Votar(resultado, a, condicion, poscoma, 1, (string)App.Current.Properties["name"])); }
             }
-            catch (Exception e6) { }
+            catch (Exception ex) { await DisplayAlert("Error en Votaciones: ", ex.Message, "ok"); }
         }
         
             private async void Result(object sender, EventArgs e)
@@ -54,16 +54,15 @@ namespace App
             try
             {
                 string[] resultado = new string[100];
-
-                int condicion = 2;
+                resultado[0] = (string)App.Current.Properties["name"];
                 string a = Conectar.Union(6, resultado);
                 int poscoma = a.IndexOf(",");
-                condicion = int.Parse(a.Substring(0, poscoma));
+                int condicion = int.Parse(a.Substring(0, poscoma));
                 a = a.Substring(poscoma + 1);
                 if (condicion == 0) { await DisplayAlert("Alerta", "No hay votaciones", "ok"); }
                 else { await Navigation.PushAsync(new Votar(resultado, a, condicion, poscoma, 2, (string)App.Current.Properties["name"])); }
             }
-            catch (Exception e6) { }
+            catch (Exception ex) { await DisplayAlert("Error en Votaciones: ", ex.Message, "ok"); }
         }
         }
     }

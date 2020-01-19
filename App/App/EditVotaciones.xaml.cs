@@ -54,7 +54,7 @@ namespace App
 
 
 
-            }catch (Exception ex) { DisplayAlert("", ex.Message, "ok"); }
+            }catch (Exception ex) { DisplayAlert("Error en EditVotaciones: ", ex.Message, "ok"); }
         }
 
         private async void Accept_Clicked(object sender, EventArgs e, string[] resultado, DatePicker seleccion)

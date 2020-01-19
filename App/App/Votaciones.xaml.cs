@@ -52,7 +52,7 @@ namespace App
                 }
                 else { funcion(resultado); }
             }
-            catch(Exception e) { DisplayAlert("",e.Message,"ok" ); }
+            catch(Exception e) { DisplayAlert("Error en Votaciones: ",e.Message,"ok" ); }
         }
 
         public async void evento(object sender, EventArgs e, string[] resultado,int res)
@@ -74,7 +74,7 @@ namespace App
 
         public async void funcion(string[]resultado)
         {
-            await DisplayAlert(resultado[7].Substring(8), "Usted ya ha votado en esta votacion", "ok");
+            await DisplayAlert("Aviso", "Usted ya ha votado en esta votacion", "ok");
             if (resultado[7].Substring(8) == "0")
                 await Navigation.PushAsync(new MenuPage(0));
             else

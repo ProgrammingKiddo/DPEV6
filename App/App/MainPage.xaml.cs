@@ -62,12 +62,12 @@ namespace App
                     }
                     else
                     {
-                        await DisplayAlert("Alerta", "el usuario o la contraseña no son correctos", "ok");
+                        await DisplayAlert("Alerta", "El usuario o la contraseña no son correctos", "ok");
                     }
                 }
                 catch (Exception e2)
                 {
-                   await DisplayAlert("Alerta", e2.Message, "ok");
+                   await DisplayAlert("Alerta: ", e2.Message, "ok");
                 }
             }
     }

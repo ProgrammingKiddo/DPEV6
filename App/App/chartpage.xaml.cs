@@ -53,7 +53,7 @@ namespace App
             catch(Exception e)
             {
 
-                DisplayAlert("a", e.Message, "ok");
+                DisplayAlert("Error en resultados: ", e.Message, "ok");
 
             }
             
@@ -100,7 +100,7 @@ namespace App
             }
             catch(Exception ex)
             {
-                DisplayAlert("Fallo en resultados: ", ex.Message, "ok");
+                DisplayAlert("Error en resultados: ", ex.Message, "ok");
             }
            
 
