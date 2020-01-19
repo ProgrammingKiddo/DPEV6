@@ -70,9 +70,9 @@ namespace App
                 envio[3] = "ABSTENCION";   //nombre opcion3                      
                 envio[4] = PLCfechaini.Date.ToShortDateString();//fecha inicio            
                 envio[5] = PLCfechafin.Date.ToShortDateString();//fecha fin        
-                envio[6] = carreras[positionCarrera];
-                envio[7] = (string)App.Current.Properties["name"];
-                envio[8] = PLChorafin.Time.ToString();
+                envio[6] = carreras[positionCarrera]; //carrera
+                envio[7] = (string)App.Current.Properties["name"]; //id persona crea votacion
+                envio[8] = PLChorafin.Time.ToString(); //hora
 
 
                 acceso = Conectar.Union(2, envio);// el 2 es para la informacion votacion

@@ -35,6 +35,7 @@ namespace App
                 foreach (var curse in cursos)
                 {
                     pickercurso.Items.Add(curse);
+                    pickercurso.SelectedIndex = 0;
                 }
 
                 carreras = new List<string>();

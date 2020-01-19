@@ -73,7 +73,7 @@ namespace App
                 else if (menu.MenuTitle.Equals("Manual de usuario"))
                 {
                     #pragma warning disable CS0618 // El tipo o el miembro están obsoletos
-                    Device.OpenUri(new Uri("https://docs.google.com/document/d/1kyRvKGb01fU7mXhrFEPSryjrrR9n8Ixy/edit#heading=h.gjdgxs"));
+                    Device.OpenUri(new Uri("https://docs.google.com/document/d/1bQ-BbzB8uEOmz9kCkuvPmpwIfuaPvyaEGSVvgb3dBGE/edit?usp=sharing"));
                     #pragma warning restore CS0618 // El tipo o el miembro están obsoletos
                 }
                 else if (menu.MenuTitle.Equals("Vídeo explicativo"))
