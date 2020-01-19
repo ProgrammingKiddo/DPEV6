@@ -25,7 +25,7 @@ namespace VotUcaWebApi
             // Dns.GetHostName returns the name of the   
             // host running the application.  
             IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
-            IPAddress ipAddress = IPAddress.Parse("192.168.1.81");
+            IPAddress ipAddress = IPAddress.Parse("10.9.17.190");
             IPEndPoint localEndPoint = new IPEndPoint(ipAddress, 5000);
 
             // Create a TCP/IP socket.  
@@ -62,7 +62,7 @@ namespace VotUcaWebApi
 
                     string opcion = data.Substring(0, 1);//aqui cojo la opcion ya sea LDAP,CREAR VOTACION,Ver Votacion,Votar
                     SqlConnection cn = new SqlConnection();
-                    cn = new SqlConnection("Data Source=DESKTOP-QDS38O2;Initial Catalog=pinf;Integrated Security=True");
+                    cn = new SqlConnection("Data Source=localhost;Initial Catalog=VotUcaWebApi;Integrated Security=True");
                     cn.Open();
 
                     switch (opcion)
@@ -203,7 +203,7 @@ namespace VotUcaWebApi
                                                 cont++;
                                                 suma += acceso[i] + "," + acceso[i + 1] + "," +
                                                  acceso[i + 2] + "," + acceso[i + 3] + "," + acceso[i + 4] + "," + acceso[i + 5] + "," +
-                                                 acceso[i + 6] + "," + acceso[i + 7] + "," + acceso[i + 8] + ",";
+                                                 acceso[i + 6] + "," + acceso[i + 7] + "," + acceso[i + 8] + "," + acceso[i + 9] + ",";
 
                                             
                                         }
@@ -442,7 +442,7 @@ namespace VotUcaWebApi
             string[] acceso = new string[1000];
 
             SqlConnection cn = new SqlConnection();
-            cn = new SqlConnection("Data Source=DESKTOP-QDS38O2;Initial Catalog=pinf;Integrated Security=True");
+            cn = new SqlConnection("Data Source=localhost;Initial Catalog=VotUcaWebApi;Integrated Security=True");
             cn.Open();
             SqlCommand cmd = null;
             try

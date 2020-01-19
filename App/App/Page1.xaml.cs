@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static Globals;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -28,12 +27,6 @@ namespace App
         {
             try
             {
-                if (CONTROL_ACCESO_VOTACIONES == 0)
-                {
-                    await DisplayAlert("Alerta", "No hay votaciones", "Ok");
-                }
-                else
-                {
                     string[] resultado = new string[100];
                     resultado[0] = (string)App.Current.Properties["name"];
 
@@ -45,7 +38,7 @@ namespace App
                     if (condicion == 0) { await DisplayAlert("Alerta", "No hay votaciones", "ok"); }
                     else { await Navigation.PushAsync(new Votar(resultado, a, condicion, poscoma, 0, (string)App.Current.Properties["name"])); }
 
-                }
+                
             }
             catch (Exception ex) { await DisplayAlert("Error en Votaciones: ", ex.Message, "ok"); }
         }
@@ -53,12 +46,6 @@ namespace App
         {
             try
             {
-                if (CONTROL_ACCESO_VOTACIONES == 0)
-                {
-                    await DisplayAlert("Alerta", "No hay votaciones", "Ok");
-                }
-                else
-                {
                     string[] resultado = new string[100];
                     resultado[0] = (string)App.Current.Properties["name"];
                     string a = Conectar.Union(5, resultado);
@@ -68,7 +55,7 @@ namespace App
 
                     if (condicion == 0) { await DisplayAlert("Alerta", "No hay votaciones", "ok"); }
                     else { await Navigation.PushAsync(new Votar(resultado, a, condicion, poscoma, 1, (string)App.Current.Properties["name"])); }
-                }
+                
             }
             catch (Exception ex) { await DisplayAlert("Error en Votaciones: ", ex.Message, "ok"); }
         }
@@ -77,12 +64,6 @@ namespace App
         {
             try
             {
-                if (CONTROL_ACCESO_VOTACIONES == 0)
-                {
-                    await DisplayAlert("Alerta", "No hay votaciones", "Ok");
-                }
-                else
-                {
                     string[] resultado = new string[100];
                     resultado[0] = (string)App.Current.Properties["name"];
                     string a = Conectar.Union(6, resultado);
@@ -91,7 +72,7 @@ namespace App
                     a = a.Substring(poscoma + 1);
                     if (condicion == 0) { await DisplayAlert("Alerta", "No hay votaciones", "ok"); }
                     else { await Navigation.PushAsync(new Votar(resultado, a, condicion, poscoma, 2, (string)App.Current.Properties["name"])); }
-                }
+                
             }
             catch (Exception ex) { await DisplayAlert("Error en Votaciones: ", ex.Message, "ok"); }
         }
