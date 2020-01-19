@@ -15,8 +15,7 @@ Se ha realizado un diseño visual sencillo y funcional para facilitar la usabili
 
 	-Votaciones, para ver y poder votar en las votaciones activas.
 
-	-Votaciones Futuras, para ver las votaciones que están por venir y que el usuario
-pueda organizarse.
+	-Votaciones Futuras, para ver las votaciones que están por venir y que el usuario pueda organizarse.
 
 	-Resultados, para ver el resultado de las votaciones, así como gráficas de tablas, donuts, etc, con los datos.
 
@@ -29,7 +28,7 @@ ya sea para un usuario normal o para un usuario con permisos que puede crear vot
 
 
 En la siguiente captura puede verse un ejemplo de la información que se ofrece al usuario
-acerca de las votaciones en las que estuvo implicado.
+acerca de las votaciones en las que estuvo implicado de forma gráfica y agradable.
 
 ![FOTO](https://fotos.subefotos.com/8fe9627dd0afd856be16b12d489158b6o.jpg)
 
@@ -74,6 +73,10 @@ Es necesario tener vinculado a vuestro dispositivo Android, una cuenta de Gmail 
 *-¿Cómo puedo crear una cuenta?*
 
 Ahora mismo la aplicación se encuentra enlazada al servidor de la UCA (18/01/2020 - GTM+1); y por lo tanto, solo aquellos usuarios miembros de la Universidad de Cádiz, pueden acceder a la app.
+
+*-¿25 personas? ¿En serio?*
+
+Sí, en serio. Como bien has notado, este trabajo no es algo para lo que hagan falta 25 personas; se trata de una simulación de equipo de proyecto para la asignatura de Proyectos Informáticos del grado de Ingeniería Informática.
 
 ## *6. Créditos*
 
