@@ -1,4 +1,5 @@
 ﻿using System;
+using static Globals;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -80,6 +81,7 @@ namespace App
 
                 acceso = Conectar.Union(11, envio);
                 await DisplayAlert("", "La votación ha sido eliminada", "Aceptar");
+                CONTROL_ACCESO_VOTACIONES--;
                 await Navigation.PushAsync(new MenuPage(1));
             }
         }

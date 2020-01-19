@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Globals;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -78,6 +79,7 @@ namespace App
                 acceso = Conectar.Union(2, envio);// el 2 es para la informacion votacion
 
                 await DisplayAlert("", "Su votación se ha creado correctamente", "Aceptar");
+                CONTROL_ACCESO_VOTACIONES++;
 
                 await Navigation.PushAsync(new MenuPage(1));
             }
