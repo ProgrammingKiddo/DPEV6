@@ -468,10 +468,10 @@ namespace VotUcaWebApi
                                 acceso[999] = j.ToString();
                                 j += 10;
                             }
-                            if(acceso[999]=="0")
+                            /*if(acceso[999]=="0")
                             {
                                 acceso[0] = "0";
-                            }
+                            }*/
                         }
                         break;
                     case 3: //VOTAR

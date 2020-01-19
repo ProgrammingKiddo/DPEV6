@@ -12423,11 +12423,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\choct\\Desktop\\repositorio + mio\\DPEV6\\Backend\\VotUcaWebApi\\VotUcaWebApi\\VotUcaWebApi.csproj",
+      "projectUniqueName": "C:\\Users\\choct\\Desktop\\repositorio\\DPEV6\\Backend\\VotUcaWebApi\\VotUcaWebApi\\VotUcaWebApi.csproj",
       "projectName": "VotUcaWebApi",
-      "projectPath": "C:\\Users\\choct\\Desktop\\repositorio + mio\\DPEV6\\Backend\\VotUcaWebApi\\VotUcaWebApi\\VotUcaWebApi.csproj",
+      "projectPath": "C:\\Users\\choct\\Desktop\\repositorio\\DPEV6\\Backend\\VotUcaWebApi\\VotUcaWebApi\\VotUcaWebApi.csproj",
       "packagesPath": "C:\\Users\\choct\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\choct\\Desktop\\repositorio + mio\\DPEV6\\Backend\\VotUcaWebApi\\VotUcaWebApi\\obj\\",
+      "outputPath": "C:\\Users\\choct\\Desktop\\repositorio\\DPEV6\\Backend\\VotUcaWebApi\\VotUcaWebApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
