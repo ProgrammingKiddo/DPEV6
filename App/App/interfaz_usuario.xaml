@@ -18,11 +18,11 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-      
+
         <Button 
                 Text="Votaciones"
                 Grid.Row="2"
-                Grid.Column="1"
+                Grid.Column="0"
                 Margin="5"
                 TextColor="Black"
                 FontSize="12"
@@ -38,8 +38,8 @@
                 Clicked="Votaciones"/>
         <Button 
                 Text="Votaciones Futuras"
-                Grid.Row="3"
-                Grid.Column="0"
+                Grid.Row="2"
+                Grid.Column="1"
                 BorderColor="Orange"
                 Margin="5"
                 TextColor="Black"
@@ -56,10 +56,11 @@
         <Button 
                 Text="Resultados"
                 Grid.Row="3"
-                Grid.Column="1"
+                Grid.Column="0"
+                Grid.ColumnSpan = "2"
                 Margin="5"
                 TextColor="Black"
-                FontSize="12"
+                FontSize="16"
                 FontAttributes="Bold"
                 BorderColor="Orange"
                 BackgroundColor="White"
@@ -67,7 +68,7 @@
                 CornerRadius="15"
                 WidthRequest="170"
                 HeightRequest="55" 
-                ImageSource="Resultados"
+                ImageSource="ResultadosUsu1"
                 ContentLayout="Right,5"
                 Clicked="Result"/>
 
