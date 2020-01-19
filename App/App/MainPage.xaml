@@ -25,7 +25,7 @@
                 <Entry Placeholder="Contraseña" PlaceholderColor="Black" IsPassword="True" x:Name="btncontrasena" FontSize="Small"/>
                 <Button x:Name="btnpage1"  Text="Acceder" TextColor="White" BackgroundColor="Orange" Clicked="Btnpage1_Clicked" FontSize="Small" />
 
-                <Label>
+                <Label HorizontalOptions="End">
                     <Label.FormattedText>
                         <FormattedString>
 
@@ -40,7 +40,7 @@
                     </Label.FormattedText>
                 </Label>
 
-                <Label>
+                <Label HorizontalOptions="End">
                     <Label.FormattedText>
                         <FormattedString>
 
