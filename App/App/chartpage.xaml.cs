@@ -64,12 +64,12 @@ namespace App
             try
             {
                 int i=0;
-                int [] balor = new int[3];
+                float [] balor = new float[3];
                 string valores = Conectar.Union(8,resultado);
                 while(i < 3)
                 {
-                    balor[i] = int.Parse(valores.Substring(0, valores.IndexOf(",")));
-                    valores = valores.Substring(valores.IndexOf(",") + 1);
+                    balor[i] = float.Parse(valores.Substring(0, valores.IndexOf(".")));
+                    valores = valores.Substring(valores.IndexOf(".") + 1);
                     i++;
                 }
                
@@ -100,7 +100,7 @@ namespace App
             }
             catch(Exception ex)
             {
-                DisplayAlert("a", ex.Message, "ok");
+                DisplayAlert("Fallo en resultados: ", ex.Message, "ok");
             }
            
 

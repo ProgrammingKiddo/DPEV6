@@ -12417,23 +12417,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\F540\\.nuget\\packages\\": {},
+    "C:\\Users\\choct\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\F540\\Desktop\\Proyecto pinf\\ultimo\\DPEV6\\Backend\\VotUcaWebApi\\VotUcaWebApi\\VotUcaWebApi.csproj",
+      "projectUniqueName": "C:\\Users\\choct\\Desktop\\repositorio + mio\\DPEV6\\Backend\\VotUcaWebApi\\VotUcaWebApi\\VotUcaWebApi.csproj",
       "projectName": "VotUcaWebApi",
-      "projectPath": "C:\\Users\\F540\\Desktop\\Proyecto pinf\\ultimo\\DPEV6\\Backend\\VotUcaWebApi\\VotUcaWebApi\\VotUcaWebApi.csproj",
-      "packagesPath": "C:\\Users\\F540\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\F540\\Desktop\\Proyecto pinf\\ultimo\\DPEV6\\Backend\\VotUcaWebApi\\VotUcaWebApi\\obj\\",
+      "projectPath": "C:\\Users\\choct\\Desktop\\repositorio + mio\\DPEV6\\Backend\\VotUcaWebApi\\VotUcaWebApi\\VotUcaWebApi.csproj",
+      "packagesPath": "C:\\Users\\choct\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\choct\\Desktop\\repositorio + mio\\DPEV6\\Backend\\VotUcaWebApi\\VotUcaWebApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\F540\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\choct\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
