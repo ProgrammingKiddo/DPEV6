@@ -25,7 +25,7 @@ namespace VotUcaWebApi
             // Dns.GetHostName returns the name of the   
             // host running the application.  
             IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
-            IPAddress ipAddress = IPAddress.Parse("192.168.1.36");
+            IPAddress ipAddress = IPAddress.Parse("10.9.17.190");
             IPEndPoint localEndPoint = new IPEndPoint(ipAddress, 5000);
 
             // Create a TCP/IP socket.  
@@ -62,7 +62,7 @@ namespace VotUcaWebApi
 
                     string opcion = data.Substring(0, 1);//aqui cojo la opcion ya sea LDAP,CREAR VOTACION,Ver Votacion,Votar
                     SqlConnection cn = new SqlConnection();
-                    cn = new SqlConnection("Data Source=LAPTOP-2PSVQU3U;Initial Catalog=model;Integrated Security=True");
+                    cn = new SqlConnection("Data Source=localhost;Initial Catalog=VotUcaWebApi;Integrated Security=True");
                     cn.Open();
 
                     switch (opcion)
@@ -447,7 +447,7 @@ namespace VotUcaWebApi
             string[] acceso = new string[1000];
 
             SqlConnection cn = new SqlConnection();
-            cn = new SqlConnection("Data Source=LAPTOP-2PSVQU3U;Initial Catalog=model;Integrated Security=True");
+            cn = new SqlConnection("Data Source=localhost;Initial Catalog=VotUcaWebApi;Integrated Security=True");
             cn.Open();
             SqlCommand cmd = null;
             try
@@ -533,7 +533,7 @@ namespace VotUcaWebApi
                             {
                                 float ponderacion = 0.0f;
 
-                                if (part4.Equals("Alumnos"))
+                                if (part4.Equals("Alumno") || (part4.Equals("Alumnos")))
                                 {
                                     ponderacion = 0.28f;
                                 }

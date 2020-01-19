@@ -60,28 +60,35 @@ namespace App
 
         private async void Btnpage1_Clicked(object sender, EventArgs e)//boton crear votacion
         {
-            var answer = await DisplayAlert("Alerta", "¿Estás seguro de que quieres crear la votación?", "Si", "No");
-            if (answer == true)
+            if (PLCnombre.Text == null)
             {
-                int positionCarrera = pickercarrera.SelectedIndex;
-                string[] envio = new string[100];
-                string acceso = null;
-                envio[0] = PLCnombre.Text;//nombre votacion
-                envio[1] = PLCcandidato1.Text;//.Text;  //nombre opcion1
-                envio[2] = PLCcandidato2.Text;//.Text;  //nombre opcion2
-                envio[3] = PLCcandidato3.Text;// .Text;  //nombre opcion3                                   
-                envio[4] = PLCfechaini.Date.ToShortDateString();//fecha inicio            
-                envio[5] = PLCfechafin.Date.ToShortDateString();//fecha fin        
-                envio[6] = carreras[positionCarrera];
-                envio[7] = (string)App.Current.Properties["name"];
-                envio[8] = PLChorafin.Time.ToString();
+                await DisplayAlert("Atención", "Por favor, introduzca un titulo para la votación", "Ok");
+            }
+            else
+            {
+                var answer = await DisplayAlert("Alerta", "¿Estás seguro de que quieres crear la votación?", "Si", "No");
+                if (answer == true)
+                {
+                    int positionCarrera = pickercarrera.SelectedIndex;
+                    string[] envio = new string[100];
+                    string acceso = null;
+                    envio[0] = PLCnombre.Text;//nombre votacion
+                    envio[1] = PLCcandidato1.Text;//.Text;  //nombre opcion1
+                    envio[2] = PLCcandidato2.Text;//.Text;  //nombre opcion2
+                    envio[3] = PLCcandidato3.Text;// .Text;  //nombre opcion3                                   
+                    envio[4] = PLCfechaini.Date.ToShortDateString();//fecha inicio            
+                    envio[5] = PLCfechafin.Date.ToShortDateString();//fecha fin        
+                    envio[6] = carreras[positionCarrera];
+                    envio[7] = (string)App.Current.Properties["name"];
+                    envio[8] = PLChorafin.Time.ToString();
 
-                acceso = Conectar.Union(2, envio);// el 2 es para la informacion votacion
+                    acceso = Conectar.Union(2, envio);// el 2 es para la informacion votacion
 
-                await DisplayAlert("", "Su votación se ha creado correctamente", "Aceptar");
-                CONTROL_ACCESO_VOTACIONES++;
+                    await DisplayAlert("", "Su votación se ha creado correctamente", "Aceptar");
+                    CONTROL_ACCESO_VOTACIONES++;
 
-                await Navigation.PushAsync(new MenuPage(1));
+                    await Navigation.PushAsync(new MenuPage(1));
+                }
             }
 
         }
