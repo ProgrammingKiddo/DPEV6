@@ -25,7 +25,7 @@ namespace VotUcaWebApi
             // Dns.GetHostName returns the name of the   
             // host running the application.  
             IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
-            IPAddress ipAddress = IPAddress.Parse("10.9.17.190");
+            IPAddress ipAddress = IPAddress.Parse("192.168.1.36");
             IPEndPoint localEndPoint = new IPEndPoint(ipAddress, 5000);
 
             // Create a TCP/IP socket.  
@@ -62,7 +62,7 @@ namespace VotUcaWebApi
 
                     string opcion = data.Substring(0, 1);//aqui cojo la opcion ya sea LDAP,CREAR VOTACION,Ver Votacion,Votar
                     SqlConnection cn = new SqlConnection();
-                    cn = new SqlConnection("Data Source=localhost;Initial Catalog=VotUcaWebApi;Integrated Security=True");
+                    cn = new SqlConnection("Data Source=LAPTOP-2PSVQU3U;Initial Catalog=model;Integrated Security=True");
                     cn.Open();
 
                     switch (opcion)
@@ -92,6 +92,7 @@ namespace VotUcaWebApi
                         case "3"://VER VOTACION
                             {
                                 DateTime localDate = DateTime.Today;
+                                DateTime localDate1 = DateTime.Now;
 
                                 byte[] resultado = new Byte[1000];
                                 data = data.Substring(1);
@@ -116,16 +117,22 @@ namespace VotUcaWebApi
                                 int cont = 0;
 
 
-                                    while (a >= 0)
+                                while (a >= 0)
+                                {
+                                    int j = 0;
+                                    double[] horas = new double[3];
+                                    if ((acceso[i + 7] == carrera[0]) || (acceso[i + 7] == "TODOS LOS GRADOS"))
                                     {
-                                        if ((acceso[i + 7] == carrera[0]) || (acceso[i + 7] == "TODOS LOS GRADOS"))
+                                        while (j < 3)
                                         {
-                                            if (DateTime.Compare(Convert.ToDateTime(acceso[i + 4]), localDate) <= 0 && DateTime.Compare(Convert.ToDateTime(acceso[i + 5]), localDate) >= 0)
-                                            {
-                                               /* if (DateTime.Compare(Convert.ToDateTime(DateTime.Now.ToString("HH:mm:ss")), Convert.ToDateTime(acceso[i + 9])) < 0)
-                                                { */
 
-                                                    cont++;
+                                            horas[j] = Double.Parse(acceso[i + 9].Substring(0, 2));
+                                            acceso[i + 9] = acceso[i + 9].Substring(2 + 1);
+                                            j++;
+                                        }
+                                        if (DateTime.Compare(Convert.ToDateTime(acceso[i + 4]), localDate) <= 0 && DateTime.Compare(Convert.ToDateTime(acceso[i + 5]).AddHours(horas[0]).AddMinutes(horas[1]).AddSeconds(horas[2]), localDate1) >= 0)
+                                        {
+                                            cont++;
                                                     suma += acceso[i] + "," + acceso[i + 1] + "," +
                                                      acceso[i + 2] + "," + acceso[i + 3] + "," + acceso[i + 4] + "," + acceso[i + 5] + "," +
                                                      acceso[i + 6] + "," + acceso[i + 7] + "," + acceso[i + 8] + "," + acceso[i + 9] + ",";
@@ -211,7 +218,8 @@ namespace VotUcaWebApi
                         case "6"://votaciones acabadas
                             {
                                 DateTime localDate = DateTime.Today;
-                                
+                                DateTime localDate1 = DateTime.Now;
+
                                 byte[] resultado = new Byte[1000];
                                 data = data.Substring(1);
                                 SqlCommand consulta = new SqlCommand("Select Carrera From Usuarios where IdUca='" + data + "'", cn);
@@ -233,13 +241,20 @@ namespace VotUcaWebApi
                                 int cont = 0;
                                 while (a >= 0)
                                 {
+                                    int j = 0;
+                                    double[] horas = new double[3];
                                     if (acceso[i + 7] == carrera[0] || (acceso[i + 7] == "TODOS LOS GRADOS"))
                                     {
-                                       
-                                        if (DateTime.Compare(Convert.ToDateTime(acceso[i + 5]), localDate) <= 0) //&& DateTime.Compare(Convert.ToDateTime(DateTime.Now.ToString("HH:mm:ss")), Convert.ToDateTime(acceso[i + 9]))>0)
+                                        while (j < 3)
                                         {
-                                            
-                                                cont++;
+                                            horas[j] = Double.Parse(acceso[i + 9].Substring(0, 2));
+                                            acceso[i + 9] = acceso[i + 9].Substring(2 + 1);
+                                            j++;
+                                        }
+                                        if (DateTime.Compare(Convert.ToDateTime(acceso[i + 5]), localDate) <= 0 && DateTime.Compare(localDate1, Convert.ToDateTime(acceso[i + 5]).AddHours(horas[0]).AddMinutes(horas[1]).AddSeconds(horas[2])) > 0)
+                                        {
+
+                                            cont++;
                                                 suma += acceso[i] + "," + acceso[i + 1] + "," +
                                                  acceso[i + 2] + "," + acceso[i + 3] + "," + acceso[i + 4] + "," + acceso[i + 5] + "," +
                                                  acceso[i + 6] + "," + acceso[i + 7] + "," + acceso[i + 8] + "," + acceso[i + 9] + ",";
@@ -432,7 +447,7 @@ namespace VotUcaWebApi
             string[] acceso = new string[1000];
 
             SqlConnection cn = new SqlConnection();
-            cn = new SqlConnection("Data Source=localhost;Initial Catalog=VotUcaWebApi;Integrated Security=True");
+            cn = new SqlConnection("Data Source=LAPTOP-2PSVQU3U;Initial Catalog=model;Integrated Security=True");
             cn.Open();
             SqlCommand cmd = null;
             try
