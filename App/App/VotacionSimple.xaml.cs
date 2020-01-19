@@ -24,6 +24,7 @@ namespace App
             {
 
                 carreras = new List<string>();
+                carreras.Add("TODOS LOS GRADOS");
                 carreras.Add("GRADO EN INGENIERÍA INFORMÁTICA");
                 carreras.Add("GRADO EN INGENIERÍA EN TECNOLOGÍAS INDUSTRIALES");
                 carreras.Add("GRADO EN INGENIERÍA ELECTRÓNICA INDUSTRIAL");

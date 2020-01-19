@@ -25,6 +25,7 @@ namespace App
                         i++;
                     }
                     resultado[9]=usu;
+
                     Button siguiente = new Button {Text = "siguiente" };
                     Button edit = new Button { Text = "editar votación" };
                     Button delete = new Button { Text = "eliminar votación" };
