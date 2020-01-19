@@ -40,6 +40,7 @@ namespace App
                 foreach (var degree in carreras)
                 {
                     pickercarrera.Items.Add(degree);
+                    pickercarrera.SelectedIndex = 0;
                 }
             }
             catch { }
