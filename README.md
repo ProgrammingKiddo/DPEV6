@@ -12,20 +12,21 @@ electorales de la UCA con el objetivo de añadir comodidad y velocidad a dichos 
 ## *2. App*
 
 Se ha realizado un diseño visual sencillo y funcional para facilitar la usabilidad para el usuario, con tan solo tres botones:
- -Votaciones, para ver y poder votar en las votaciones activas.
 
- -Votaciones Futuras, para ver las votaciones que están por venir y que el usuario
+	-Votaciones, para ver y poder votar en las votaciones activas.
+
+	-Votaciones Futuras, para ver las votaciones que están por venir y que el usuario
 pueda organizarse.
 
- -Resultados, para ver el resultado de las votaciones, así como gráficas de tablas, donuts, etc, con los datos.
+	-Resultados, para ver el resultado de las votaciones, así como gráficas de tablas, donuts, etc, con los datos.
 
 A continuación podemos ver las capturas del menú de la aplicación con las distintas opciones,
 ya sea para un usuario normal o para un usuario con permisos que puede crear votaciones.
+
 ![FOTO](https://fotos.subefotos.com/8508537c22ff1495a209ee5e2e386f58o.jpg)
 
 ![FOTO](https://fotos.subefotos.com/fd5d21f114e7573fb88bacf35aa59b19o.jpg)
 
-![FOTO](https://fotos.subefotos.com/fd5d21f114e7573fb88bacf35aa59b19o.jpg)
 
 En la siguiente captura puede verse un ejemplo de la información que se ofrece al usuario
 acerca de las votaciones en las que estuvo implicado.
@@ -79,32 +80,61 @@ Ahora mismo la aplicación se encuentra enlazada al servidor de la UCA (18/01/20
 Las siguientes personas han trabajado en el proyecto:
 
 ● El Jefe de Proyecto y manager es Borja Fernández Merchán
+
 ● El departamento de análisis y concepción
+
 	○ Alberto Pérez Díaz (JdD)
+
 	○ David Cantillo
+
 	○ Félix Lázaro Palacio
+
 	○ Manuel Mendoza
+
 ● El departamento de diseño y verificación
+
 	○ Francisco Arce Iniesta (JdD)
+
 	○ Alberto Álvarez González
+
 	○ Borja Fernández Merchán
+
 	○ José Ángel Hélices Arena
+
 ● El departamento de programación e implementación
+
 	○ Rafael Gutiérrez Corrales (JdD)
+
 	○ Alberto Pinto Torrejón
+
 	○ David Barbosa Triviño
+
 	○ Francisco Javier Pérez Sánchez
+
 	○ Francisco José Barba
+
 	○ Guillermo Bernal
+
 	○ Juan Carlos Pérez López
+
 	○ Juan Jesús Zamorano
+
 	○ Manuel Güelfo Pineda
+
 	○ Miguel Ángel Ferral Garrido
+
 	○ Pablo García
+
 	○ Pablo Ortiz
+
 	○ Pablo Torres
+
 	○ Pedro Campoy
+
 ● El departamento de ingeniería de clientes y operabilidad
+
 	○ Gonzalo Becerra (JdD)
+
 	○ David García
+
 	○ José Luis Martín García
